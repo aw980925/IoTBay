@@ -5,6 +5,7 @@
 --%>
 <%@page import="javamodel.User" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
     <<head>
@@ -23,13 +24,18 @@
             <a href="main.jsp">Main</a>
         </div>
         <%
+            Random rand = new Random();
+            int customerID = rand.nextInt(90000000) + 10000000;  // create a 8 digits random number eg. 12345678 and store in customerID
             String fName = request.getParameter("fName");
             String lName = request.getParameter("lName");
             String password = request.getParameter("password");
             String email = request.getParameter("email");
             String mobileNum = request.getParameter("mobileNum");
             String address = request.getParameter("address"); 
-           
+            String terms = request.getParameter("terms");
+            
+            // Check if all the fields are filled and ticked.
+            if (terms != null){
         %>
             <div class="center">
             <h2> Welcome, <%= fName %> </h2>  
@@ -38,6 +44,7 @@
                 <table>
                     
                         <tr>
+                            <th>Customer ID: </th>
                             <th>First Name: </th>
                             <th>Last Name: </th>
                             <th>Password: </th>
@@ -47,6 +54,7 @@
                         </tr>
                     
                         <tr>
+                            <td><%= customerID %></td>
                             <td><%= fName %> </td>
                             <td><%= lName %> </td>
                             <td><%= password %></td>
@@ -57,6 +65,11 @@
                     
           
             </table>
+                        
+        <%    } else { %>
+        <h1>Sorry, you must agree to the Terms & Condition to Sign up.</h1>
+        <p>Click <a href="register.jsp"> here </a> to go back</p>
+        <%   } %>
         
         <%  
           User user = new User(fName,lName,password,email,mobileNum,address);

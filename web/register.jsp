@@ -50,7 +50,10 @@
                 <th>Address</th>
                 <td><input type="text" placeholder="Enter your address" name="address"></td>
             </tr>
-            
+            <tr>
+                <td><a target="_blank" href="" rel="nofollow noopener ugc" >Terms & conditions</a></td>
+                <td><input type="checkbox" name="terms" value="conditions"> "I have read and agree to the following"</td>
+            </tr>
             <tr>
                 <td colspan="2"> <input type="submit" value="sign up" ></td>
             </tr>
