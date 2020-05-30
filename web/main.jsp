@@ -3,9 +3,8 @@
     Created on : 30/04/2020, 2:41:26 PM
     Author     : 13093950 Heeyoon Koo
 --%>
-<%@page import ="uts.isd.model.*" %>
-<%@page import ="uts.isd.dao.*" %>
-<%@page import ="uts.isd.controller.*" %>
+
+<%@page import="javamodel.User" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -13,11 +12,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="stylesheet.css">
-        <script type ="text/javascript" src="js/script.js"></script>
         <title>IoT Bay Main Page</title>
     </head>
-    <body onload="startTime(); resetSearch();">
-        <div><span class="time" id="time"></sapn></div>
+    <body>
         <%
             User user = (User)session.getAttribute("user");
          %>
@@ -29,15 +26,9 @@
         </div>
 
         <div class="top">
-        <a class="button" href="EditServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'"
-        <a class="button" href="LogoutController">Logout</a>
+        <a href="index.jsp">Index</a>
+        <a href="logout.jsp">Logout</a>
         </div>
-        <p style="text-align:right;color:#c29100;"><i> You are logged in as ${user.email}</i></p>
-        <br><br>
-        
-        <!-- Find subject, jsp:include page="subjects.jsp flush="true" /> wekk10 demo 6.56
-        -->
-           
          
     </body>
 </html>

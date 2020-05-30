@@ -1,4 +1,4 @@
-package uts.isd.model;
+package javamodel;
 
 
 
@@ -18,16 +18,14 @@ import java.util.Random;
 
 public class User implements Serializable {
     
-    //private String userID;
-
-   
+    private String userID;
     private String fName;
     private String lName;
     private String password;
     private String email;
     private String mobileNum;
     private String address;
-   // ArrayList<String> ID_List = new ArrayList<String>();
+    ArrayList<String> usersID = new ArrayList<String>();
     
 //Constructor
     public User(String fName, String lName, String password, String email, String mobileNum, String address) {
@@ -38,43 +36,19 @@ public class User implements Serializable {
         this.email = email;
         this.mobileNum = mobileNum;
         this.address = address;
-        //this.userID = createUserID();
     }
-
-  /*public String getUserID() {
-        return userID;
-    }
-  
+//Getters and Setters
+ 
    public String createUserID(){
    
      int num = 1000+ new Random().nextInt(9000);
      String number = Integer.toString(num);
         //1000<n<9999 
-    //if same id exists in the array
-    if(!checkSameID(number))
-    {
-        createUserID();
-    } //generate userID again
-   
-        ID_List.add(number);
+        usersID.add(number);
+        //array loop check, if theres same id
+        // get random number again
         return number;
-        
-     // if not saved to ID_List
-    
- }
-  
-   //check there is same ID in the listarray
-   public boolean checkSameID(String number){
-       
-           for(int i=0;i<ID_List.size();i++)
-        {
-            if(ID_List.get(i).equals(number))
-            return false;
-            
-        }
-           return true;
-      
-   }*/
+     }
    public String getfName() {
         return fName;
     }
