@@ -22,8 +22,7 @@ import javax.servlet.annotation.WebServlet;
    import javax.servlet.http.HttpSession;
 import uts.isd.dao.DBConnector;
 import uts.isd.dao.DBManager;
-   
-    @WebServlet("/ConnServlet")
+
    public class ConnServlet extends HttpServlet {
  
        private DBConnector db;

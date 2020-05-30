@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author yoonkoo
  */
-@WebServlet("/UpdateServlet")
+
 public class UpdateServlet extends HttpServlet {
     
     @Override 

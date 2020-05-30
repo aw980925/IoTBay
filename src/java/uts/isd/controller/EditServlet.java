@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author yoonkoo
  */
-@WebServlet("/EditServlet")
+
 public class EditServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

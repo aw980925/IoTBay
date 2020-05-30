@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  * @author yoonkoo
  */
 
-@WebServlet("/LoginServlet")
+
 public class LoginServlet extends HttpServlet{
     
     @Override
