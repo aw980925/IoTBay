@@ -10,9 +10,9 @@
 
 CREATE TABLE REVIEW
 (
-reviewID VARCHAR(12),
-productRating VARCHAR(5),
-reviewTaext VARCHAR(300),
+reviewID Int(12),
+productRating Int(5),
+reviewText VARCHAR(300),
 PRIMARY KEY (reivewID),
 FOREIGN KEY (customerID),
 FOREIGN KEY (productID)

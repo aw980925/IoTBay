@@ -10,9 +10,9 @@
 
 CREATE TABLE ORDERLINE
 (
-productQty VARCHAR(100),
-total VARCHAR(100),
-shipmentDate VARCHAR(8),
+productQty Int(100),
+total Int(100),
+shipmentDate Timestamp(8),
 FOREIGN KEY (orderID),
 FOREIGN KEY (productID),
 FOREIGN KEY (paymentID),

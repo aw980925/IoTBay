@@ -10,10 +10,10 @@
 
 CREATE TABLE BASKET 
 (
-basketID VARCHAR(2),
-totalProductQty VARCHAR(100),
-totalAmount VARCHAR(8),
-selectedProducts VARCHAR(100),
+basketID Int(2),
+totalProductQty Int(100),
+totalAmount Int(8),
+selectedProducts Int(100),
 PRIMARY KEY (basketID),
 FOREIGN KEY (customerID),
 FOREIGN KEY (productID)

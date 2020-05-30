@@ -10,12 +10,12 @@
 
 CREATE TABLE PRODUCT
 (
-productID VARCHAR(8),
+productID Int(8),
 productName VARCHAR(20),
-productPrice VARCHAR(7),
+productPrice Double(7),
 productDescription VARCHAR(300),
 productStatus VARCHAR(1),
-productQuantity VARCHAR(5),
+productQuantity Int(5),
 PRIMARY KEY (productID),
 FOREIGN KEY (supplierID),
 FOREIGN KEY (categoryID)

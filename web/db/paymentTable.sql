@@ -10,9 +10,9 @@
 
 CREATE TABLE PAYMENT
 (
-paymentID VARCHAR(12),
-paymentDateTime VARCHAR(12),
-amount VARCHAR(8),
+paymentID Int(12),
+paymentDateTime Timestamp(12),
+amount Double(8),
 description VARCHAR(30),
 paymentType VARCHAR(10),
 paymentStatus VARCHAR(10),

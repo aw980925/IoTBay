@@ -10,7 +10,7 @@
 
 CREATE TABLE SHIPMENT
 (
-shipmentID VARCHAR(10),
+shipmentID Int(10),
 shipmentCourier VARCHAR(30),
 trackingCode VARCHAR(10),
 recipient VARCHAR(30),

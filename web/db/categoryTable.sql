@@ -10,7 +10,7 @@
 
 CREATE TABLE CATEGORY
 (
-categoryID VARCHAR(2),
+categoryID Int(2),
 categoryName VARCHAR(10),
 categoryDescription VARCHAR(100),
 PRIMARY KEY (categoryID)

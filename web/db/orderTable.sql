@@ -10,8 +10,8 @@
 
 CREATE TABLE ORDER
 (
-orderID VARCHAR(10),
-orderDate VARCHAR(8),
+orderID Int(10),
+orderDate Date(8),
 orderStatus VARCHAR(10),
 PRIMARY KEY (orderID),
 FOREIGN KEY (customerID),
