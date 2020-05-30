@@ -3,7 +3,9 @@
     Created on : 29/04/2020, 12:46:27 AM
     Author     : 13093950 Heeyoon Koo
 --%>
-
+<%@page import ="uts.isd.model.*" %>
+<%@page import ="uts.isd.dao.*" %>
+<%@page import ="uts.isd.controller.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -50,10 +52,7 @@
                 <th>Address</th>
                 <td><input type="text" placeholder="Enter your address" name="address"></td>
             </tr>
-            <tr>
-                <td><a target="_blank" href="" rel="nofollow noopener ugc" >Terms & conditions</a></td>
-                <td><input type="checkbox" name="terms" value="conditions"> "I have read and agree to the following"</td>
-            </tr>
+            
             <tr>
                 <td colspan="2"> <input type="submit" value="sign up" ></td>
             </tr>
