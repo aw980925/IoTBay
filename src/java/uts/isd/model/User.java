@@ -15,30 +15,52 @@ package uts.isd.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
-
+enum userType{
+    Customer,
+    Staff;
+}
 public class User implements Serializable {
     
     //private String userID;
 
-   
+    private int id;
     private String fName;
     private String lName;
     private String password;
     private String email;
     private String mobileNum;
     private String address;
+    private String usertype;
    // ArrayList<String> ID_List = new ArrayList<String>();
     
 //Constructor
-    public User(String fName, String lName, String password, String email, String mobileNum, String address) {
-        
+    public User(int id, String fName, String lName, String password, String email, String mobileNum, String address,String usertype) {
+        this.id = id;
         this.fName = fName;
         this.lName = lName;
         this.password = password;
         this.email = email;
         this.mobileNum = mobileNum;
         this.address = address;
+        this.usertype = usertype;
+        
         //this.userID = createUserID();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsertype() {
+        return usertype;
+    }
+
+    public void setUsertype(String usertype) {
+        this.usertype = usertype;
     }
 
   /*public String getUserID() {
@@ -124,20 +146,8 @@ public class User implements Serializable {
     }
     //enum user activity
     //enum user file 
-    enum userActivity 
-    {
-        Active,
-        Non_Active,
-        Blocked;
-        
-    }
-    enum userType
-    {
-        Customer,
-        Non_Registered,
-        Staff;
-        
-    }
+
+
     
   
 }
