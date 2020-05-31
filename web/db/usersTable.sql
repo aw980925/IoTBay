@@ -10,5 +10,6 @@ password VARCHAR(20),
 email VARCHAR(50) NOT NULL,
 mobileNum VARCHAR(20),
 address VARCHAR(50),
-usertype VARCHAR(10)
+usertype VARCHAR(10),
+active boolean
 );

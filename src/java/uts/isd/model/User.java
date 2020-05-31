@@ -31,10 +31,11 @@ public class User implements Serializable {
     private String mobileNum;
     private String address;
     private String usertype;
+    private boolean active;
    // ArrayList<String> ID_List = new ArrayList<String>();
     
 //Constructor
-    public User(int id, String fName, String lName, String password, String email, String mobileNum, String address,String usertype) {
+    public User(int id, String fName, String lName, String password, String email, String mobileNum, String address,String usertype,boolean active) {
         this.id = id;
         this.fName = fName;
         this.lName = lName;
@@ -43,8 +44,16 @@ public class User implements Serializable {
         this.mobileNum = mobileNum;
         this.address = address;
         this.usertype = usertype;
-        
+        this.active = active;
         //this.userID = createUserID();
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public int getId() {
