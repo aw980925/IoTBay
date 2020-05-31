@@ -30,19 +30,23 @@ public class UpdateServlet extends HttpServlet {
     throws ServletException, IOException 
     {
         HttpSession session = request.getSession();
+        int id = Integer.parseInt(request.getParameter("id"));
         String fName = request.getParameter("fName");
         String lName = request.getParameter("lName");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String mobileNum = request.getParameter("mobileNum");
         String address = request.getParameter("address");
-        
-        User user = new User(fName,lName,password,email,mobileNum,address);
+        String usertype = request.getParameter("usertype");
+        boolean active = Boolean.parseBoolean(request.getParameter("active"));
+               
+       
+        User user = new User(id,fName,lName,password,email,mobileNum,address,usertype,active);
         DBManager manager = (DBManager) session.getAttribute("manager");
         try{
             if(user != null){
                 session.setAttribute("user",user);
-                manager.updateUser(email, fName, lName, password, mobileNum, address);
+                manager.updateUser(id,email, fName, lName, password, mobileNum, address);
                 session.setAttribute("updated","Update was successful");
                 request.getRequestDispatcher("edit.jsp").include(request,response);
                 
@@ -58,5 +62,7 @@ public class UpdateServlet extends HttpServlet {
         response.sendRedirect("edit.jsp");
         
     }
+
+   
     
 }
