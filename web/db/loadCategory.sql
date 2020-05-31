@@ -4,15 +4,12 @@
  * and open the template in the editor.
  */
 /**
- * Author:  Hyungju
+ * Author:  aaron
  * Created: 31/05/2020
  */
 
-CREATE TABLE SHIPMENT
-(
-shipmentID Int(10),
-shipmentCourier VARCHAR(30),
-trackingCode VARCHAR(10),
-shipmentAddress VARCHAR(100),
-PRIMARY KEY (shipmentID)
-);
+INSERT INTO CATEGORY
+             (categoryID, categoryName, categoryDescription)
+     VALUES
+     ('01','Camera','Iot camera'),
+     ('02','Light bulb', 'Iot smart light');

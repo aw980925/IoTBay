@@ -8,11 +8,11 @@
  * Created: 31/05/2020
  */
 
-CREATE TABLE SHIPMENT
-(
-shipmentID Int(10),
-shipmentCourier VARCHAR(30),
-trackingCode VARCHAR(10),
-shipmentAddress VARCHAR(100),
-PRIMARY KEY (shipmentID)
-);
+INSERT INTO BASKET 
+(basketID, customerID, productID, qty)
+
+    VALUES
+    ('01','10000001','10000001','1'),
+    ('01','10000001','10000002','2'),
+    ('01','10000001','10000003','1')
+;

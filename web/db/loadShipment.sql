@@ -8,11 +8,10 @@
  * Created: 31/05/2020
  */
 
-CREATE TABLE SHIPMENT
-(
-shipmentID Int(10),
-shipmentCourier VARCHAR(30),
-trackingCode VARCHAR(10),
-shipmentAddress VARCHAR(100),
-PRIMARY KEY (shipmentID)
-);
+/* INSERT INTO SHIPMENT 
+    (shipmentID, shipmentCourier, trackingCode, shipmentAddress)
+
+    VALUES
+    ('12345671','Toll express','1000000111',,'Toll1'),
+    ('12345672','Startrack','111111111',,'Startrack')
+; */

@@ -17,6 +17,6 @@ productDescription VARCHAR(300),
 productStatus VARCHAR(1),
 productQuantity Int(5),
 PRIMARY KEY (productID),
-FOREIGN KEY (supplierID),
+/* FOREIGN KEY (supplierID), */
 FOREIGN KEY (categoryID)
 );
