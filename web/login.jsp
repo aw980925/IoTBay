@@ -1,7 +1,8 @@
 <%--
-    Document   : login.jsp
-    Created on : 28/04/2020, 9:07:01 PM
-    Author     : 13093950 Heeyoon Koo
+    To do:
+    login time ->history db
+    logout time ->history db
+    profile.jsp ->user info and login and out time
 --%>
 <%@page import ="uts.isd.model.User" %>
 <%@page import ="uts.isd.dao.*" %>
@@ -35,28 +36,28 @@
 
         <h3> Sign In <span class="message"><%=(existErr != null? existErr: "")%></span></h3>
         
-        <form action ="LoginServlet" method="post">
+        <form action ="LoginServlet" method="post" method="get">
         <table>
 
             <tr>
 		<th>User Email </th>
-                <td><input type="text" placeholder="<%=(emailErr != null ? emailErr:"Enter email") %>" name="email" required></td>
+                <td><input type="text" placeholder="<%=(emailErr != null ? emailErr:"Enter email") %>" name="email"></td>
 	    </tr>
 
             <tr>
 		<th>Password</th>
-		<td><input type="password" placeholder="<%=(passErr != null ? passErr:"Enter password") %>" name="password" required></td>
+		<td><input type="password" placeholder="<%=(passErr != null ? passErr:"Enter password") %>" name="password"></td>
             </tr>
             <tr>
-                <td><a href="CancelServlet" class="button">Cancel</a></td>
+                <td><a href="index.jsp" class="button">Cancel</a></td>
                    
-                <td><input type="submit"  value="Login" ></td>
+                <td><input type="submit"  value="Sign In" ></td>
             </tr>
 
           
             
         </table>
         </form>
-
+        
     </body>
 </html>

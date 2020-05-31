@@ -21,17 +21,20 @@
         </div>	
         
         <div class="top">
-            <a href="index.html">Index</a>
+            <a href="index.jsp">Index</a>
             <a href="logout.jsp">Logout</a>
             <a href="main.jsp">Main</a>
         </div>
         <%
+            int id = Integer.parseInt(request.getParameter("id"));
             String fName = request.getParameter("fName");
             String lName = request.getParameter("lName");
             String password = request.getParameter("password");
             String email = request.getParameter("email");
             String mobileNum = request.getParameter("mobileNum");
             String address = request.getParameter("address"); 
+            String usertype = request.getParameter("usertype");
+            boolean active = Boolean.parseBoolean(request.getParameter("active"));
            
         %>
             <div class="center">
@@ -47,6 +50,7 @@
                             <th>Email: </th>
                             <th>Mobile Number: </th>
                             <th>Address: </th>
+                            <th>User Type: </th>
                         </tr>
                     
                         <tr>
@@ -56,13 +60,14 @@
                             <td><%= email %></td>
                             <td><%= mobileNum %></td>
                             <td><%= address %></td>
+                            <td><%= usertype %></td>
                         </tr>
                     
           
             </table>
         
         <%  
-          User user = new User(fName,lName,password,email,mobileNum,address);
+          User user = new User(id,fName,lName,password,email,mobileNum,address,usertype,active);
           session.setAttribute("user", user);
         %>
         
