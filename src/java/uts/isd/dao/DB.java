@@ -15,11 +15,11 @@ import java.sql.Connection;
  * @author yoonkoo
  */
 public abstract class DB {
-    protected String URL="jdbc:derby://localhost:1527/IoTDB[IoTBay on IOTBAY]";
+    protected String URL="jdbc:derby://localhost:1527/";
     protected String db="IoTDB";
     protected String dbuser="IoTBay";
     protected String dbpass = "admin";
-    protected String driver = "org.apach.derby.jdbc.ClientDriver";
+     protected String driver = "org.apache.derby.jdbc.ClientDriver";
     protected Connection conn;
     
 

@@ -20,10 +20,10 @@ public class DBConnector extends DB {
     conn = DriverManager.getConnection(URL,dbuser,dbpass);
     }
     public Connection openConnection(){
-        return super.conn;
+       return this.conn;
     }
     public void closeConnection() throws SQLException{
-        super.conn.close();
+        this.conn.close();
     }
     
 }

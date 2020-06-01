@@ -27,10 +27,34 @@ public class DBManager {
         st = conn.createStatement();
         this.conn = conn;
     }
+    public User findEmail(String email) throws SQLException{
+       String query="select * from USERS where email= '"+email+"'";
+       
+       ResultSet rs = st.executeQuery(query);
+       while(rs.next()){
+           String userEmail = rs.getString(5);
+           
+           if(email.equals(userEmail)){
+           int id = rs.getInt(1);
+           String fName = rs.getString(2);
+           String lName = rs.getString(3);
+           String password = rs.getString(4);
+          //email
+           String mobileNum = rs.getString(6);
+           String address = rs.getString(7);
+           String usertype = rs.getString(8);
+           boolean active = rs.getBoolean(9);
+           //id,fname,lname,password,mobilenum,address,usertype,active
+          return 
+                  new User(id,fName,lName,password,userEmail,mobileNum,address,usertype,active);
+           }
+       } 
+        return null;
+    }
     //Read - find a user by email and password
     public User findUser(String email, String password) throws SQLException{
         
-        String query = "SELECT * IOTBAY.USERS WHERE EMAIL='"+email+"' AND PASSWORD= '"+password+"'";
+        String query = "SELECT * IOTBAY.USERS WHERE EMAIL= '"+email+"' AND PASSWORD= '"+password+"'";
         ResultSet rs = st.executeQuery(query);
         
         while(rs.next()){
