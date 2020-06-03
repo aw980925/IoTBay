@@ -70,7 +70,7 @@ public class EditServlet extends HttpServlet{
                 
                  if(user != null){
                      
-                manager.updateUser(id, fName, lName, email, password, mobileNum, address);
+                manager.updateUser(id, fName, lName, password, email, mobileNum, address);
                 user = manager.findId(id);
                 session.setAttribute("user",user);
                 session.setAttribute("updated","your info has been updated!");

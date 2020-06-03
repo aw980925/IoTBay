@@ -61,11 +61,18 @@ public class DBManager {
                     user = new User(id,fName,lName,userPass,userEmail,mobileNum,address,usertype,active);
                     return user;
             }
+            //if email or password incorrect
+            else 
+            {
+                return user;
+            }
             
         }
         
-    }return user;
-} public User findEmail(String email) throws SQLException{
+    }
+        return user;
+  }
+public User findEmail(String email) throws SQLException{
         User user = null;
         String query = "SELECT * FROM USERS WHERE EMAIL= '"+email+"'";
         ResultSet rs = st.executeQuery(query);

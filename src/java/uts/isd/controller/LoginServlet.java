@@ -74,7 +74,7 @@ public class LoginServlet extends HttpServlet{
                    // response.sendRedirect("index.jsp");
                   request.getRequestDispatcher("welcome.jsp").forward(request,response);
                 } else {
-                   session.setAttribute("existErr","User does not exist in the Database!");
+                   session.setAttribute("existErr","User does not exist in the Database !");
                     request.getRequestDispatcher("login.jsp").include(request,response);
                 }
               
