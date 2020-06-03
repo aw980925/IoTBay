@@ -3,19 +3,19 @@
     Created on : 30/04/2020, 11:36:28 PM
     Author     : 13093950 Heeyoon Koo
 --%>
-<%@page import ="uts.isd.model.*" %>
-<%@page import ="uts.isd.dao.*" %>
-<%@page import ="uts.isd.controller.*" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <<head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="stylesheet.css">
-        <script type ="text/javascript" src="js/script.js"></script>
         <title>Welcome Page</title>
     </head>
     <body>
+        <%
+             String updated = (String)session.getAttribute("updated");
+        %>
         <div class="header">
             <h1>IoT Bay</h1>
         </div>	
@@ -23,53 +23,61 @@
         <div class="top">
             <a href="index.jsp">Index</a>
             <a href="logout.jsp">Logout</a>
-            <a href="main.jsp">Main</a>
         </div>
-        <%
-            int id = Integer.parseInt(request.getParameter("id"));
-            String fName = request.getParameter("fName");
-            String lName = request.getParameter("lName");
-            String password = request.getParameter("password");
-            String email = request.getParameter("email");
-            String mobileNum = request.getParameter("mobileNum");
-            String address = request.getParameter("address"); 
-            String usertype = request.getParameter("usertype");
-            boolean active = Boolean.parseBoolean(request.getParameter("active"));
-           
-        %>
+            <h2> User Information<h2>
+            <p><span><%=(updated != null? updated:"")%></span></p>
+            
             <div class="center">
-            <h2> Welcome, <%= fName %> </h2>  
+            <h2> Welcome, ${user.getfName()} </h2>  
             <p> Your information is ... </p>
+          
             </div>
-                <table>
+                
                     
+                       <table>
                         <tr>
-                            <th>First Name: </th>
-                            <th>Last Name: </th>
-                            <th>Password: </th>
-                            <th>Email: </th>
-                            <th>Mobile Number: </th>
-                            <th>Address: </th>
-                            <th>User Type: </th>
-                        </tr>
-                    
+                            <td>User ID: </td>
+                            <td>${user.getId()}</td>
+                         </tr>
                         <tr>
-                            <td><%= fName %> </td>
-                            <td><%= lName %> </td>
-                            <td><%= password %></td>
-                            <td><%= email %></td>
-                            <td><%= mobileNum %></td>
-                            <td><%= address %></td>
-                            <td><%= usertype %></td>
-                        </tr>
+                            <td>First Name: </td>
+                            <td>${user.getfName()}</td>
+                         </tr>
+                         <tr>
+                             <td>Last Name: </td>
+                             <td>${user.getlName()}</td>
+                         </tr>
+                         <tr>
+                             <td>Password: </td>
+                             <td>${user.getPassword()}</td>
+                         </tr>
+                         <tr>
+                             <td>Email: </td>
+                             <td>${user.getEmail()}</td>
+                         </tr>
+                         <tr>
+                             <td>Mobile number: </td>
+                             <td>${user.getMobileNum()}</td>
+                         </tr>
+                         <tr>
+                             <td>Address: </td>
+                             <td>${user.getAddress()}</td>
+                         </tr>
+                         <tr>
+                             <td>User type: </td>
+                             <td>${user.getUsertype()}</td>
+                         </tr>
+                         
+                         <tr>
+                             <td><a href="edit.jsp?id=${user.getId()}">Edit my profile</a></td>
+                             <td><a href="main.jsp?id=${user.getId()}">Go to main page</a></td>
+                         </tr>
+                      
+                       </table>
                     
           
-            </table>
         
-        <%  
-          User user = new User(id,fName,lName,password,email,mobileNum,address,usertype,active);
-          session.setAttribute("user", user);
-        %>
+        
         
     </body>
 </html>

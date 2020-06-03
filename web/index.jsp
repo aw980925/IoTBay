@@ -33,8 +33,6 @@ author: 13093950 Heeyoon Koo
 <div class="top">
   <a href="login.jsp">Login</a>
   <a href="register.jsp">Register</a>
-  <a class="button" href="https://workspace.uts.edu.au/abbblast/webclient/index.html#/" target="_blank">UTS Workspace</a>
-  <a href="https://my.feit.uts.edu.au" target="_blank" class="button">UTS FEIT</a>
 </div>
 
     <div class="center">

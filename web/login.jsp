@@ -4,10 +4,7 @@
     logout time ->history db
     profile.jsp ->user info and login and out time
 --%>
-<%@page import ="uts.isd.model.User" %>
-<%@page import ="uts.isd.dao.*" %>
-<%@page import ="uts.isd.controller.*" %>
-<%@page import="java.util.HashMap" %>
+<%@page import="uts.isd.controller.ConnServlet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -26,7 +23,7 @@
         String passErr = (String) session.getAttribute("passErr");
         %>
         <div class="header">
-           <h1>IoT Bay Sign In</h1>
+           <h1>IoT Bay</h1>
         </div>
         <div class="top">
             <a href="index.jsp">Index</a>
@@ -34,9 +31,9 @@
 
         </div>
 
-        <h3> Sign In <span class="message"><%=(existErr != null? existErr: "")%></span></h3>
+        <h3> Sign In <span><%=(existErr != null? existErr: "")%></span></h3>
         
-        <form action ="LoginServlet" method="post" method="get">
+        <form action ="LoginServlet" method="post">
         <table>
 
             <tr>
@@ -49,9 +46,9 @@
 		<td><input type="password" placeholder="<%=(passErr != null ? passErr:"Enter password") %>" name="password"></td>
             </tr>
             <tr>
-                <td><a href="index.jsp" class="button">Cancel</a></td>
+                <td><a href="index.jsp">Cancel</a></td>
                    
-                <td><input type="submit"  value="Sign In" ></td>
+                <td><input type="submit" value="Sign In" ></td>
             </tr>
 
           
