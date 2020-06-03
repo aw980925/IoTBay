@@ -13,134 +13,161 @@ package uts.isd.dao;
 
 import uts.isd.model.User;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 public class DBManager {
     
     private Statement st;
     private Connection conn;
     
-    public DBManager(Connection conn) throws SQLException{
+    
+     public DBManager(Connection conn) throws SQLException{
         st = conn.createStatement();
         this.conn = conn;
+    
     }
-    public User findEmail(String email) throws SQLException{
-       String query="select * from USERS where email= '"+email+"'";
-       
-       ResultSet rs = st.executeQuery(query);
-       while(rs.next()){
-           String userEmail = rs.getString(5);
-           
-           if(email.equals(userEmail)){
-           int id = rs.getInt(1);
-           String fName = rs.getString(2);
-           String lName = rs.getString(3);
-           String password = rs.getString(4);
-          //email
-           String mobileNum = rs.getString(6);
-           String address = rs.getString(7);
-           String usertype = rs.getString(8);
-           boolean active = rs.getBoolean(9);
-           //id,fname,lname,password,mobilenum,address,usertype,active
-          return 
-                  new User(id,fName,lName,password,userEmail,mobileNum,address,usertype,active);
-           }
-       } 
-        return null;
+    /*public DBManager() throws ClassNotFoundException, SQLException {
+          Class.forName("org.apache.derby.jdbc.ClientDriver");
+     conn = DriverManager.getConnection("jdbc:derby://localhost:1527/IoTDB","IoTBay","admin");
+     st = conn.createStatement();
     }
+    */
     //Read - find a user by email and password
-    public User findUser(String email, String password) throws SQLException{
-        
-        String query = "SELECT * IOTBAY.USERS WHERE EMAIL= '"+email+"' AND PASSWORD= '"+password+"'";
+  public User findUser(String email, String password) throws SQLException{
+        User user = null;
+        String query = "SELECT * FROM USERS WHERE EMAIL= '"+email+"' AND PASSWORD= '"+password+"'";
         ResultSet rs = st.executeQuery(query);
+    
         
-        while(rs.next()){
-            
-            String userEmail = rs.getString(5); //coloum 5
-            String userPass = rs.getString(4); //coloum 4
+        if(rs!=null){
+          //HttpSession sesion = request.getSession(true);
+            while(rs.next()){
+            String userEmail = rs.getString("email"); //coloum 5
+            String userPass = rs.getString("password"); //coloum 4
             
             if(userEmail.equals(email) && userPass.equals(password)){
                 
-                    int id = rs.getInt(1);
-                    String fname= rs.getString(2);
-                    String lname= rs.getString(3);
-                    String mobileNum= rs.getString(6);
-                    String address= rs.getString(7);
-                    String usertype = rs.getString(8);
-                    boolean active = rs.getBoolean(9);
+                    int id = rs.getInt("id");
+                    String fName= rs.getString("fName");
+                    String lName= rs.getString("lName");
+                    String mobileNum= rs.getString("mobileNum");
+                    String address= rs.getString("address");
+                    String usertype = rs.getString("usertype");
+                    boolean active = rs.getBoolean("active");
                     
-                    return new User(id,fname,lname,userPass,userEmail,mobileNum,address,usertype,active);
+                    user = new User(id,fName,lName,userPass,userEmail,mobileNum,address,usertype,active);
+                    return user;
             }
             
         }
-        throw new SQLException("No such customer exists");
-    }
-    //Add a user-data into the database    
-public void addUser(String fName, String lName, String password, String email, String mobileNum, String address) throws SQLException {                   //code for add-operation        
-  String usertype="Customer";
-  boolean active = false;
-    st.executeUpdate("INSERT INTO IOTBAY.USERS VALUES ('"+fName+"', '"+lName+"', '"+password+"', '"+email+"', '"+mobileNum+"', '"+address+"', '"+usertype+"', '"+active+')');
-   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     
-
-}
-
-//update a user details in the database    
-public void updateUser(int id,String email,String fName, String lName, String password, String mobileNum, String address) throws SQLException {        
-   //code for update-operation   
-String query1 = "UPDATE IOTBAY.USERS"+"SET fName ='"+fName+"',lName='"+lName+"',PASSWORD='"+password+"',EMAIL ='"+email+"',MOBILENUM ='"+mobileNum+"',ADDRESS ='"+address+"'";
-String query2=" WHERE id ='"+id+"')";
-String query = query1+query2;
-st.executeUpdate(query);
-}       
-
-//delete a user from the database    
-public void deleteUser(String email) throws SQLException{        
-   //code for delete-operation   
-   //DELETE FROM table_name [WHERE Clause]
-   
-String query = "DELETE FROM IOTBAY.USERS WHERE EMAIL='"+email+"'";
-   st.executeUpdate(query);
-}
-//Fetch All
-// id, fname,lname,pwd,email,mobilenum,usertype
-public ArrayList<User> fetchAll() throws SQLException{
-    String fetch = "select * from IOTBAY.USERS";
-    ResultSet rs = st.executeQuery(fetch);
-    ArrayList<User> temp = new ArrayList();
-    
-    while(rs.next()){
-        int id = rs.getInt(1);
-        String fname= rs.getString(2);
-        String lname= rs.getString(3);
-        String password= rs.getString(4);
-        String email= rs.getString(5);
-       String mobileNum= rs.getString(6);
-       String address= rs.getString(7);
-       String usertype = rs.getString(8);
-       boolean active = rs.getBoolean(9);
         
-        temp.add(new User(id,fname,lname,password,email,mobileNum,address,usertype,active));
-    }
-    return temp;
-}
-
-public boolean checkUser(String email, String password) throws SQLException{
-    String fetch = "select * from IOTBAY.USERS where email = '"+email+"'";
-    ResultSet rs = st.executeQuery(fetch);
-    
-    while(rs.next()) {
-        String userEmail = rs.getString(5);
-        String userPass = rs.getString(4);
-        if(userEmail.equals(email) && userPass.equals(password)) {
-            return true;
-        }
+    }return user;
+} public User findEmail(String email) throws SQLException{
+        User user = null;
+        String query = "SELECT * FROM USERS WHERE EMAIL= '"+email+"'";
+        ResultSet rs = st.executeQuery(query);
+         if(rs!=null){
+          //HttpSession sesion = request.getSession(true);
+            while(rs.next()){
+            String userEmail = rs.getString("email");
+            String password = rs.getString("password");
+            int id = rs.getInt("id");
+            String fName= rs.getString("fName");
+            String lName= rs.getString("lName");
+            String mobileNum= rs.getString("mobileNum");
+            String address= rs.getString("address");
+            String usertype = rs.getString("usertype");
+            boolean active = rs.getBoolean("active");
+                    
+            user = new User(id,fName,lName,password,userEmail,mobileNum,address,usertype,active);
+            return user;
+            }
         
-    }return false;
-}
-
+        
+    }return user;
+ }
     
+    public void addUser(String fName, String lName, String password, String email, String mobileNum, String address) throws SQLException{
+       
+      String usertype="Customer";
+      boolean active = false;
+  String query = "INSERT INTO USERS(fName,lName,password,email,mobileNum,address,usertype,active) VALUES (?,?,?,?,?,?,?,?)";
+  PreparedStatement ps = conn.prepareStatement(query);
+  ps.setString(1,fName);
+  ps.setString(2,lName);
+  ps.setString(3,password);
+  ps.setString(4,email);
+  ps.setString(5,mobileNum);
+  ps.setString(6,address);
+  ps.setString(7,usertype);
+  ps.setBoolean(8,active);
+ 
+  ps.executeUpdate();
+         
+      
+  
+       //ResultSet rs = st.executeQuery(query);
+
+    }
+     public User findId(int userId) throws SQLException{
+        User user = null;
+        String query = "SELECT * FROM USERS WHERE id= "+userId;
+        ResultSet rs = st.executeQuery(query);
+         if(rs!=null){
+          //HttpSession sesion = request.getSession(true);
+            while(rs.next()){
+            String userEmail = rs.getString("email");
+            String password = rs.getString("password");
+            int id = rs.getInt("id");
+            String fName= rs.getString("fName");
+            String lName= rs.getString("lName");
+            String mobileNum= rs.getString("mobileNum");
+            String address= rs.getString("address");
+            String usertype = rs.getString("usertype");
+            boolean active = rs.getBoolean("active");
+                    
+            user = new User(id,fName,lName,password,userEmail,mobileNum,address,usertype,active);
+            return user;
+            }
+        
+        
+    }return user;
+ }
+    public void updateUser(int id, String fName, String lName, String password, String email, String mobileNum, String address) throws SQLException{
+        User user = null;
+        boolean active = false;
+        String query = "UPDATE USERS SET fName=?, lName=?, password=?, email=?,"
+                + "mobileNum=?, address=? WHERE id=?";
+         
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1,fName);
+        ps.setString(2,lName);
+        ps.setString(3,password);
+        ps.setString(4,email);
+        ps.setString(5,mobileNum);
+        ps.setString(6,address);
+        ps.setInt(7, id);
+        
+        ps.executeUpdate();
+        
+    }
+    public void deleteUserById(int id) throws SQLException{
+        String query = "DELETE FROM USERS WHERE id=?";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setInt(1,id);
+        ps.executeQuery();
+    }
+    public void deleteUserByEmail(String email) throws SQLException{
+        
+        String query = "DELETE FROM USERS WHERE email=?";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1,email);
+        ps.executeQuery();
+        
+        
+        
+    }
 }
