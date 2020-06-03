@@ -23,12 +23,24 @@ import uts.isd.dao.DBManager;
  * @author Kevin
  */
 public class RegisterServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+   
+    
+    public RegisterServlet(){
+    super();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ 
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //current session
         HttpSession session = request.getSession();
+        DBManager manager = (DBManager)session.getAttribute("manager");
         //Validator class
         Validator validator = new Validator();
         //fields  
@@ -38,14 +50,14 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String mobileNum = request.getParameter("mobileNum");
         String address = request.getParameter("address");
-        //5- retrieve the manager instance from session
-        DBManager manager = (DBManager)session.getAttribute("manager");
+    
+        
             
         User user = null;
         validator.clear(session);
         
    
-       if (!validator.validateEmail(email)) {
+      if (!validator.validateEmail(email)) {
             // set incorrect email error to the session 
             session.setAttribute("emailErr", "Error: Email format incorrect");
             // redirect user back to the login.jsp     
@@ -53,38 +65,37 @@ public class RegisterServlet extends HttpServlet {
         } 
         else if (!validator.validatePassword(password)) {
             // set incorrect password error to the session 
-            session.setAttribute("passErr", "Error: Must be at least 4 characters long");
+            session.setAttribute("passErr", "Requires at least 6 characters including upper or lower alpha and digit");
             // redirect user back to the login.jsp 
             request.getRequestDispatcher("register.jsp").include(request, response);
         } 
      
-        else {     
-            try {
-            user = manager.findUser(email,password);
-            //If user exists
-            if (user != null) {
-            session.setAttribute("exceptionErr", "User already existed");
-            request.getRequestDispatcher("register.jsp").include(request, response);
-            }
-            //if user does not exist
-            else {
-                // create new user
-              try {
-                manager.addUser(fName, lName, email, password, mobileNum, address);
+        else {
+            
+             try {
+                 user = manager.findEmail(email);
+                
+                 if(user == null){
+                     
+                manager.addUser(fName, lName, password, email, mobileNum, address);
+              
+                
+                request.getRequestDispatcher("registerSuccess.jsp").forward(request, response);
+                
+                 }
+                 else
+                 {
+                     session.setAttribute("exceptionErr", "User already existed");
+                     request.getRequestDispatcher("register.jsp").include(request, response);
+                 }
             } catch (SQLException ex) {
                 // exception message if adding customer fails
                 session.setAttribute("exceptionErr", "Registration failed");
-                request.getRequestDispatcher("login.jsp").include(request, response);
+                request.getRequestDispatcher("register.jsp").include(request, response);
             }
-            // redirect new user to the welcome.jsp
-            request.getRequestDispatcher("welcome.jsp").include(request, response);
-   
-            }
-            } catch (SQLException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
-            
+             
+             
+           
        }
             
     }
