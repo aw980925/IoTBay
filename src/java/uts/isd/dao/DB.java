@@ -19,7 +19,7 @@ public abstract class DB {
     protected String db="IoTDB";
     protected String dbuser="IoTBay";
     protected String dbpass = "admin";
-     protected String driver = "org.apache.derby.jdbc.ClientDriver";
+    protected String driver = "org.apache.derby.jdbc.ClientDriver";
     protected Connection conn;
     
 

@@ -14,16 +14,22 @@
         <link rel="stylesheet" href="stylesheet.css">
         <title>Logout</title>
     </head>
-    <body>
-        <div class="header">
+    
+        
+  <body>
+      
+        <%
+            String logoutMsg = (String)session.getAttribute("logoutMsg");
+        %>
+      <div class="header">
             <h1>IoT Bay</h1>
-            <p style="text-align: center"> Thank you:) You have been successfully logged out. </p>
+           <p><span><%=logoutMsg%></span></p> 
         </div>	
         <div class="top">
-            <a href="index.html">Index</a>
+            <a href="index.jsp">Index</a>
             <a href="login.jsp">Login</a>
         </div>
-        
+      
         <% session.invalidate(); %>
     </body>
 </html>
