@@ -78,8 +78,6 @@ public class RegisterServlet extends HttpServlet {
                  if(user == null){
                      
                 manager.addUser(fName, lName, password, email, mobileNum, address);
-              
-                
                 request.getRequestDispatcher("registerSuccess.jsp").forward(request, response);
                 
                  }

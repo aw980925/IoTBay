@@ -15,12 +15,9 @@
 <%
         String fName = request.getParameter("fName");
         String lName = request.getParameter("lName");
-        
         String email = request.getParameter("email");
         String mobileNum = request.getParameter("mobileNum");
         String address = request.getParameter("address");
-        
-        
         
     %>
     <body>
