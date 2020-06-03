@@ -13,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="stylesheet.css">
         <title>IoT Bay Registration Form</title>
+        <script type="text/javascript" src="js/script.js"></script>
     </head>
     <body onload="startTime()">
         <div><span class="time" id="time"></span></div>
