@@ -37,8 +37,7 @@ duration        TIMESTAMP
 
 CREATE TABLE CATEGORY
 (
-categoryID      INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY
-                                        (START WITH 1, INCREMENT BY 1), 
+categoryID      INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
 categoryName    VARCHAR(10),
 description     VARCHAR(100)
 );
@@ -52,7 +51,7 @@ categoryID      INTEGER,
 productName     VARCHAR(20),
 productPrice    DOUBLE,
 description     VARCHAR(300),
-status          VARCHAR(1),
+status          VARCHAR(10),
 quantity        INTEGER
 );
 
