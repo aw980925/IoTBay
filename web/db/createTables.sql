@@ -95,6 +95,9 @@ paymentTime     TIMESTAMP,
 amount          DOUBLE,
 description     VARCHAR(30),
 paymentType     VARCHAR(10),
+CardNumer       INTEGER(16),
+expiresOn       INTEGER(6),
+cvvNumber       INTEGER(3),
 paymentStatus   VARCHAR(10)
 );
 
