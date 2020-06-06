@@ -5,15 +5,15 @@
  */
 /**
  * Author:  yoonkoo
- * Created: 31/05/2020
+ * Created: 03/06/2020
  */
 
-CREATE TABLE LOGHISTORY
-(
-    id INT,
-    SignInDate DATE,
-    startTime TIME,
-    endTime TIME,
-    duration TIME
-    
+
+CREATE TABLE LOGS (
+logId INT not null primary key
+        GENERATED ALWAYS AS IDENTITY
+        (START WITH 100, INCREMENT BY 1), 
+userId INT,
+timestamp Timestamp,
+description VARCHAR(50)
 );
