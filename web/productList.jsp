@@ -4,8 +4,12 @@
     Author     : Hyungju
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="uts.isd.model.Product"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="uts.isd.dao.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,9 +20,11 @@
         <title>Product List</title>
     </head>
     <body>
+        
         <%
-           // Customer customer = (Customer)session.getAttribute("customer");
+           Product product = (Product)session.getAttribute("display");
         %>
+       
         <table>
             <thead>
                 <tr>
@@ -31,20 +37,19 @@
                     <th>Available Quantity</th>
                 </tr>
             </thead>
-            <tbody>
-            <% ArrayList<Product> productList =  (ArrayList<Product>) session.getAttribute("Product");
-                    for(Product p:productList){%> 
-     
+            <tbody> 
+            
+            <c:forEach items="${display}" var="display">
             <tr> 
-                <td><%=p.getCategoryID()%></td> 
-                <td><%=p.getProductID()%></td> 
-                <td><%=p.getProductName()%></td> 
-                <td><%=p.getProductPrice()%></td>
-                <td><%=p.getDescription()%></td>
-                <td><%=p.getStatus()%></td>
-                <td><%=p.getQuantity()%></td>
+                <td>${display.productID}</td> 
+                <td>${display.categoryID}</td> 
+                <td>${display.productName}</td> 
+                <td>${display.productPrice}</td>
+                <td>${display.description}</td>
+                <td>${display.status}</td>
+                <td>${display.quantity}</td>
             </tr> 
-            <%}%> 
+            </c:forEach>
             
             </tbody>
         </table>
