@@ -72,6 +72,10 @@
                              <td><a href="edit.jsp?id=${user.getId()}">Edit my profile</a></td>
                              <td><a href="main.jsp?id=${user.getId()}">Go to main page</a></td>
                          </tr>
+                         <tr>
+                             <td><a href="userLogs.jsp?id=${user.getId()}">See my login history</a></td>
+                             <td><a href="paymentInfo.jsp?id=${user.getId()}">Update & Edit Payment Information</a></td>
+                         </tr>
                       
                        </table>
                     

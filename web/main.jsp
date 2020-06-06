@@ -25,7 +25,7 @@
         <div class="top">
             <a href="index.jsp">Index</a>
             <a href="login.jsp">Login</a>
-
+            <a href="welcome.jsp">See my profile & Payment Information</a>
         </div>
   
       <p> welcome to main page </p>
