@@ -17,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 
 public class DBManager {
     
@@ -173,8 +174,16 @@ public User findEmail(String email) throws SQLException{
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setString(1,email);
         ps.executeQuery();
+    }
+    public void addUserLog(int userId, String description) throws SQLException {
+
+        String query = "INSERT INTO LOGS (userid, timestamp, description) VALUES (?,?,?)";
+        Timestamp timestamp = new Timestamp(new java.util.Date().getTime());
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setInt(1, userId);
+        ps.setTimestamp(2, timestamp);
+        ps.setString(3, description);
         
-        
-        
+        ps.executeUpdate();
     }
 }

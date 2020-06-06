@@ -42,6 +42,7 @@ public class LoginServlet extends HttpServlet{
         HttpSession session = request.getSession();
         //an instance of the validator
         Validator validator = new Validator();
+      
        
         //get email and password 
         String email = request.getParameter("email");
@@ -49,7 +50,7 @@ public class LoginServlet extends HttpServlet{
         
         //db manager
         DBManager manager = (DBManager) session.getAttribute("manager");
-        //DBLogsManager logsManager = (DBLogsManager) session.getAttribute("logsManager");
+        
         User user = null;
   
         // incorrect email
@@ -74,7 +75,8 @@ public class LoginServlet extends HttpServlet{
                     //HttpSession session = request.getSession(true);
                     session.setAttribute("user",user);
                    user.setActive(true); // user's active
-              //    logsManager.add
+                   int userId = user.getId();
+                   manager.addUserLog(userId, "Login");
                    // response.sendRedirect("index.jsp");
                   request.getRequestDispatcher("welcome.jsp").forward(request,response);
                 } else {

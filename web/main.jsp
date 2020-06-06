@@ -33,5 +33,6 @@
             <p>Your user id <%=id%></p>
         </form>
         <a href="LogoutServlet">logout</a>
+        <jsp:include page="productList.jsp" flush="true" />
     </body>
 </html>

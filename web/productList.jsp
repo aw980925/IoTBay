@@ -11,7 +11,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="stylesheet.css">
+        <script type="text/javascript" src="js/script.js"></script>
         <title>Product List</title>
     </head>
     <body>

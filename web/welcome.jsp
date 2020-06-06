@@ -20,19 +20,19 @@ w
              String updated = (String)session.getAttribute("updated");
         %>
         <div class="header">
-            <h1>IoT Bay</h1>
+            <h1>IoT Bay test</h1>
         </div>	
         
         <div class="top">
             <a href="index.jsp">Index</a>
-            <a href="logout.jsp">Logout</a>
-            <a href="main.jsp?id=${user.getId()}">Main</a>
+            <a href="LogoutServlet?userId=${user.id}">Logout</a>
+            <a href="main.jsp?id=${user.id}">Main</a>
         </div>
             <h2> User Information<h2>
             <p><span><%=(updated != null? updated:"")%></span></p>
             
             <div class="center">
-            <h2> Welcome, ${user.getfName()} </h2>  
+            <h2> Welcome, ${user.fName} </h2>  
             <p> Your information is ... </p>
           
             </div>
@@ -78,16 +78,10 @@ w
                            
                          </tr>
                          <tr>
-                             <td><a hre</td>
-                         </tr>
-<<<<<<< HEAD
-                         <tr>
                              <td><a href="userLogs.jsp?id=${user.getId()}">See my login history</a></td>
                              <td><a href="paymentInfo.jsp?id=${user.getId()}">Update & Edit Payment Information</a></td>
                          </tr>
-                      
-=======
->>>>>>> 1b568403303831ee48858213b26eed84c11506a6
+
                        </table>
                     
           
