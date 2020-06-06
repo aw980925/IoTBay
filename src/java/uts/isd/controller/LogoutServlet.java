@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import uts.isd.dao.DBManager;
+import uts.isd.model.User;
  
 
 public class LogoutServlet extends HttpServlet {
@@ -23,9 +24,11 @@ public class LogoutServlet extends HttpServlet {
         HttpSession session = request.getSession();
         DBManager manager = (DBManager) session.getAttribute("manager");
         int userId =Integer.parseInt(request.getParameter("userId"));
+        User user = (User) session.getAttribute("user");
         
         try {
             manager.addUserLog(userId,"Logout");
+            user.setActive(false);
            session = request.getSession(false);
             if (session != null) {
             session.removeAttribute("user");
