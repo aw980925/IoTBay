@@ -28,7 +28,7 @@ w
             <a href="LogoutServlet?userId=${user.id}">Logout</a>
             <a href="main.jsp?id=${user.id}">Main</a>
         </div>
-            <h2> User Information<h2>
+            <h2> User Information</h2>
             <p><span><%=(updated != null? updated:"")%></span></p>
             
             <div class="center">
