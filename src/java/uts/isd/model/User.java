@@ -15,7 +15,7 @@ package uts.isd.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
-enum usertype{
+enum userType{
     Customer,
     Staff;
 }
