@@ -32,6 +32,6 @@
         <form action="MainServlet?id=<%=id%>" method="post">
             <p>Your user id <%=id%></p>
         </form>
-        <a href="LogoutServlet">logout</a>
+        <a href="LogoutServlet?userId=<%=id%>">logout</a>
     </body>
 </html>

@@ -25,14 +25,14 @@ w
         
         <div class="top">
             <a href="index.jsp">Index</a>
-            <a href="logout.jsp">Logout</a>
-            <a href="main.jsp?id=${user.getId()}">Main</a>
+            <a href="LogoutServlet?userId=${user.id}">Logout</a>
+            <a href="main.jsp?id=${user.id}">Main</a>
         </div>
             <h2> User Information<h2>
             <p><span><%=(updated != null? updated:"")%></span></p>
             
             <div class="center">
-            <h2> Welcome, ${user.getfName()} </h2>  
+            <h2> Welcome, ${user.fName} </h2>  
             <p> Your information is ... </p>
           
             </div>
