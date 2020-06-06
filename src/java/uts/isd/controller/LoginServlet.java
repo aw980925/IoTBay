@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import uts.isd.dao.DBLogsManager;
 
 
 public class LoginServlet extends HttpServlet{
@@ -29,6 +30,7 @@ public class LoginServlet extends HttpServlet{
      public LoginServlet() {
         super();
     }
+     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
  
     }   
@@ -47,6 +49,7 @@ public class LoginServlet extends HttpServlet{
         
         //db manager
         DBManager manager = (DBManager) session.getAttribute("manager");
+        //DBLogsManager logsManager = (DBLogsManager) session.getAttribute("logsManager");
         User user = null;
   
         // incorrect email
@@ -70,7 +73,8 @@ public class LoginServlet extends HttpServlet{
                 if(user != null ){
                     //HttpSession session = request.getSession(true);
                     session.setAttribute("user",user);
-                   // user.setActive(true); // user's active
+                   user.setActive(true); // user's active
+              //    logsManager.add
                    // response.sendRedirect("index.jsp");
                   request.getRequestDispatcher("welcome.jsp").forward(request,response);
                 } else {
