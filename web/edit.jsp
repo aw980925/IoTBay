@@ -67,7 +67,7 @@
             
             <tr>
                 <td colspan="2"> <input type="submit" value="Edit Profile" >
-                    <a href="welcome.jsp">Cancel</a>
+                    <a href="index.jsp">Cancel</a>
                 </td>
             </tr>
     </body>
