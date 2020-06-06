@@ -80,6 +80,14 @@ w
                          <tr>
                              <td><a hre</td>
                          </tr>
+<<<<<<< HEAD
+                         <tr>
+                             <td><a href="userLogs.jsp?id=${user.getId()}">See my login history</a></td>
+                             <td><a href="paymentInfo.jsp?id=${user.getId()}">Update & Edit Payment Information</a></td>
+                         </tr>
+                      
+=======
+>>>>>>> 1b568403303831ee48858213b26eed84c11506a6
                        </table>
                     
           
