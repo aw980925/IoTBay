@@ -173,8 +173,5 @@ public User findEmail(String email) throws SQLException{
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setString(1,email);
         ps.executeQuery();
-        
-        
-        
     }
 }

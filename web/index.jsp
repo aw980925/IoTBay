@@ -32,7 +32,8 @@ author: 13093950 Heeyoon Koo
 
 <div class="top">
   <a href="login.jsp">Login</a>
-  <a href="register.jsp">Register</a>
+  <a href="register.jsp">Register</a>\<a href="productList.jsp">Prodc</a>
+  
 </div>
 
     <div class="center">
