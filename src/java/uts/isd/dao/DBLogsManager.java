@@ -15,16 +15,23 @@ import java.sql.*;
 import java.util.*;
 
 public class DBLogsManager {
-
-    private Statement st;
+    private DBConnector connector;
     private Connection conn;
+    private Statement st;
 
     public DBLogsManager(Connection conn) throws SQLException {
         st = conn.createStatement();
         this.conn = conn;
     }
-
-  
+    public DBLogsManager() throws ClassNotFoundException, SQLException {
+        
+          Class.forName("org.apache.derby.jdbc.ClientDriver");
+     conn = DriverManager.getConnection("jdbc:derby://localhost:1527/IoTDB","IoTBay","admin");
+     st = conn.createStatement();
+    
+        
+    }
+    
     public ArrayList<UserRecords> findUserLogs(int userid) throws SQLException {
         String query = "SELECT * FROM IOTBAY.LOGS WHERE userId=?";
         PreparedStatement ps = conn.prepareStatement(query);
@@ -49,7 +56,7 @@ public class DBLogsManager {
         }
         
     }
-    
+    /*
     
         public void addUserLog(int userId, String description) throws SQLException {
 
@@ -63,7 +70,7 @@ public class DBLogsManager {
         ps.executeUpdate();
     }
     
-  
+  */
     
     public ArrayList<UserRecords> findUserLogs(Timestamp start, Timestamp end, int userid) throws SQLException {
 

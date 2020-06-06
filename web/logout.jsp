@@ -17,13 +17,10 @@
     
         
   <body>
-      
-        <%
-            String logoutMsg = (String)session.getAttribute("logoutMsg");
-        %>
+ 
       <div class="header">
             <h1>IoT Bay</h1>
-           <p><span><%=logoutMsg%></span></p> 
+           <p>You have been successfully logged out! :)</p> 
         </div>	
         <div class="top">
             <a href="index.jsp">Index</a>
