@@ -113,6 +113,8 @@ public User findEmail(String email) throws SQLException{
   ps.setBoolean(8,active);
  
   ps.executeUpdate();
+  
+  
          
       
   
