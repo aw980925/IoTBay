@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.dao.DBConnector;
 import uts.isd.dao.DBLogsManager;
-import uts.isd.dao.TestDBApplicationLogs;
 import uts.isd.model.*;
 //import uts.isd.model.iotbay.dao.DBApplicationLogsManager;
 
@@ -34,7 +33,7 @@ public class UserRecordsServlet extends HttpServlet {
             conn = connector.openConnection();
             logsManager = new DBLogsManager(conn);
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(TestDBApplicationLogs.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserRecordsServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
     @Override
