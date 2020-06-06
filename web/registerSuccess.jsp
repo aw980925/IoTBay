@@ -9,10 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="stylesheet.css"><link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="stylesheet.css">
         <title>IOT Bay Register Success</title>
     </head>
-<%
+    <%
         String fName = request.getParameter("fName");
         String lName = request.getParameter("lName");
         String email = request.getParameter("email");

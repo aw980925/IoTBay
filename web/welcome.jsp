@@ -2,6 +2,9 @@
     Document   : welcome
     Created on : 30/04/2020, 11:36:28 PM
     Author     : 13093950 Heeyoon Koo
+
+
+w
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -23,6 +26,7 @@
         <div class="top">
             <a href="index.jsp">Index</a>
             <a href="logout.jsp">Logout</a>
+            <a href="main.jsp?id=${user.getId()}">Main</a>
         </div>
             <h2> User Information<h2>
             <p><span><%=(updated != null? updated:"")%></span></p>
@@ -37,42 +41,45 @@
                        <table>
                         <tr>
                             <td>User ID: </td>
-                            <td>${user.getId()}</td>
+                            <td>${user.id}</td>
                          </tr>
                         <tr>
                             <td>First Name: </td>
-                            <td>${user.getfName()}</td>
+                            <td>${user.fName}</td>
                          </tr>
                          <tr>
                              <td>Last Name: </td>
-                             <td>${user.getlName()}</td>
+                             <td>${user.lName}</td>
                          </tr>
                          <tr>
                              <td>Password: </td>
-                             <td>${user.getPassword()}</td>
+                             <td>${user.password}</td>
                          </tr>
                          <tr>
                              <td>Email: </td>
-                             <td>${user.getEmail()}</td>
+                             <td>${user.email}</td>
                          </tr>
                          <tr>
                              <td>Mobile number: </td>
-                             <td>${user.getMobileNum()}</td>
+                             <td>${user.mobileNum}</td>
                          </tr>
                          <tr>
                              <td>Address: </td>
-                             <td>${user.getAddress()}</td>
+                             <td>${user.address}</td>
                          </tr>
                          <tr>
                              <td>User type: </td>
-                             <td>${user.getUsertype()}</td>
+                             <td>${user.usertype}</td>
                          </tr>
                          
                          <tr>
-                             <td><a href="edit.jsp?id=${user.getId()}">Edit my profile</a></td>
-                             <td><a href="main.jsp?id=${user.getId()}">Go to main page</a></td>
+                             <td><a href="edit.jsp?id=${user.id}">Edit my profile</a></td>
+                             <td><a href="UserRecordsServlet?userId=${user.id}">See my logs history</a></td>
+                           
                          </tr>
-                      
+                         <tr>
+                             <td><a hre</td>
+                         </tr>
                        </table>
                     
           
