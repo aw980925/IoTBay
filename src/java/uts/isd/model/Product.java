@@ -1,5 +1,5 @@
 /*
- * Product is a Javabean that stores productID, productName
+ * Product is a Javabean that stores productID, productName, productPrice, description, status, quantity
  * 
  * 
  */

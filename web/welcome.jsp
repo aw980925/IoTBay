@@ -73,13 +73,13 @@ w
                          </tr>
                          
                          <tr>
-                             <td><a href="edit.jsp?id=${user.id}">Edit my profile</a></td>
-                             <td><a href="UserRecordsServlet?userId=${user.id}">See my logs history</a></td>
+                             <td><a class="button" href="edit.jsp?id=${user.id}">Edit my profile</a></td>
+                             <td><a class="button" href="UserRecordsServlet?userId=${user.id}">See my logs history</a></td>
                            
                          </tr>
                          <tr>
-                             <td><a href="userLogs.jsp?id=${user.getId()}">See my login history</a></td>
-                             <td><a href="paymentInfo.jsp?id=${user.getId()}">Update & Edit Payment Information</a></td>
+                             <td><a class="button" href="userLogs.jsp?id=${user.getId()}">See my order history</a></td>
+                             <td><a class="button" href="paymentInfo.jsp?id=${user.getId()}">Update & Edit Payment Information</a></td>
                          </tr>
 
                        </table>
