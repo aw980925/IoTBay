@@ -91,13 +91,14 @@ CREATE TABLE PAYMENT
 paymentID       INTEGER NOT NULL PRIMARY KEY
                     GENERATED ALWAYS AS IDENTITY
                         (START WITH 1, INCREMENT BY 1),
+userId Integer,
 --paymentTime     TIMESTAMP,
 --amount          DOUBLE,
 --description     VARCHAR(40),
-paymentType     VARCHAR(10),--PayPal/CreditCard
-cardNumer       VARCHAR(16),
-expiresOn       VARCHAR(4),
-cvvNumber       VARCHAR(3),
+--paymentType     VARCHAR(10),--PayPal/CreditCard
+cardNumer       VARCHAR(20),
+expiresOn       VARCHAR(10),
+cvvNumber       VARCHAR(10),
 --paymentStatus   VARCHAR(10)
 );
 
