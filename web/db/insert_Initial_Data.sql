@@ -19,10 +19,16 @@ INSERT INTO USERS(fName,lName,password,email,mobileNum,address,usertype,active)
 
 
 INSERT INTO CATEGORY
-             (categoryID, categoryName, description)
+             (categoryName, description)
+     VALUES
+     ('Camera','Iot camera'),
+     ('Light bulb', 'Iot smart light');
+/*
+INSERT INTO CATEGORY (categoryID, categoryName, description)
      VALUES
      (1,'Camera','Iot camera'),
      (2,'Light bulb', 'Iot smart light');
+*/
 
 INSERT INTO PRODUCT
     (categoryID, productName, productPrice, description, status, quantity)
