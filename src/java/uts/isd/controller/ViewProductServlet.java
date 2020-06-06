@@ -31,20 +31,20 @@ public class ViewProductServlet extends HttpServlet {
                     // log the error or ignore it
                 }
  
-        int categoryID = Integer.parseInt(request.getParameter("categoryID"));
+        String categoryID = request.getParameter("categoryID");
         String productName = request.getParameter("productName");
-        Double productPrice = Double.parseDouble(request.getParameter("productPrice"));
+        String productPrice = request.getParameter("productPrice");
         String description = request.getParameter("description");
         String status = request.getParameter("status");
-        int quantity = Integer.parseInt(request.getParameter("quantity"));  
+        String quantity = request.getParameter("quantity");  
                     
         try {
             HttpSession session = request.getSession();
         
-            Validator validator = new Validator();
+           // Validator validator = new Validator();
         
             //9) retrieve the manager instance from session - ConnServlet            
-             ProductDBManager productManager = (ProductDBManager)session.getAttribute("DBManager");
+             ProductDBManager productManager = (ProductDBManager)session.getAttribute("productManager");
         
             //validator.clear(session);
             
@@ -53,7 +53,7 @@ public class ViewProductServlet extends HttpServlet {
             
             request.setAttribute("display",display);     
             
-            request.getRequestDispatcher("main.jsp").include(request, response);
+            request.getRequestDispatcher("productList.jsp").include(request, response);
             
             
        } catch (SQLException ex) {
