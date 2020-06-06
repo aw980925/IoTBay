@@ -24,16 +24,16 @@ usertype        VARCHAR(10),
 active          BOOLEAN
 );
 
-CREATE TABLE LOGHISTORY
-(
-id              INTEGER NOT NULL PRIMARY KEY 
-                    GENERATED ALWAYS AS IDENTITY
-                    (START WITH 1, INCREMENT BY 1), 
-SignInDate      TIMESTAMP,
-startTime       TIMESTAMP,
-endTime         TIMESTAMP,
-duration        TIMESTAMP
+
+CREATE TABLE LOGS (
+logId INT not null primary key
+        GENERATED ALWAYS AS IDENTITY
+        (START WITH 100, INCREMENT BY 1), 
+userId INT,
+timestamp Timestamp,
+description VARCHAR(50)
 );
+
 
 CREATE TABLE CATEGORY
 (
