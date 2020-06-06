@@ -41,8 +41,8 @@
             
             <c:forEach items="${display}" var="display">
             <tr> 
+                <td>${display.categoryID}</td>
                 <td>${display.productID}</td> 
-                <td>${display.categoryID}</td> 
                 <td>${display.productName}</td> 
                 <td>${display.productPrice}</td>
                 <td>${display.description}</td>

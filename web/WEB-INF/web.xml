@@ -28,6 +28,10 @@
         <servlet-name>UserRecordsServlet</servlet-name>
         <servlet-class>uts.isd.controller.UserRecordsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.ViewProductServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>UserRecordsServlet</servlet-name>
         <url-pattern>/UserRecordsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProductServlet</servlet-name>
+        <url-pattern>/ViewProductServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
