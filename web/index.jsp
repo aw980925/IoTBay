@@ -22,25 +22,27 @@ author: 13093950 Heeyoon Koo
         <link rel="stylesheet" href="stylesheet.css">
         <script type="text/javascript" src="js/script.js"></script>
         <title> Home Page</title>
+        
     </head>
-<body onload="startTime()">
-    <div><span class="time" id="time"></span></div>
+    <body onload="startTime()">
+        <div><span class="time" id="time"></span></div>
 
-<div class="header">
-    <h1>IoT Bay</h1>
-</div>
+        <div class="header">
+            <h1>IoT Bay</h1>
+        </div>
 
-<div class="top">
-  <a href="login.jsp">Login</a>
-  <a href="register.jsp">Register</a>\<a href="productList.jsp">Prodc</a>
-  
-</div>
+        <div class="top">
+          <a href="login.jsp">Login</a>
+          <a href="register.jsp">Register</a>
 
-    <div class="center">
-        <p> <b>welcome to IoT Bay index page</b> </p>
-    </div>
-    <jsp:include page="/ConnServlet" flush="true" />
-</body>
+        </div>
+
+        <div class="center">
+            <p> <b>welcome to IoT Bay index page</b> </p>
+        </div>
+        
+        <jsp:include page="/ConnServlet" flush="true" />
+    </body>
 
 
 </html>

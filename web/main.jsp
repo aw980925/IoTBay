@@ -23,16 +23,20 @@
            <h1>IoT Bay</h1>
         </div>
         <div class="top">
-            <a href="index.jsp">Index</a>
+            <!--<a href="index.jsp">Index</a>-->
             <a href="login.jsp">Login</a>
-            <a href="welcome.jsp">See my profile & Payment Information</a>
+            <!--<a href="welcome.jsp">See my profile & Payment Information</a>-->
         </div>
   
-      <p> welcome to main page </p>
+         <div>
+             <h2>Item list</h2>
+         </div>
+        <p> welcome to main page </p>
         <form action="MainServlet?id=<%=id%>" method="post">
             <p>Your user id <%=id%></p>
         </form>
         <a href="LogoutServlet">logout</a>
+        
         <jsp:include page="productList.jsp" flush="true" />
     </body>
 </html>

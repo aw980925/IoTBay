@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet{
         //an instance of the validator
         Validator validator = new Validator();
       
-       
+
         //get email and password 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -74,13 +74,13 @@ public class LoginServlet extends HttpServlet{
                 if(user != null ){
                     //HttpSession session = request.getSession(true);
                     session.setAttribute("user",user);
-                   user.setActive(true); // user's active
-                   int userId = user.getId();
-                   manager.addUserLog(userId, "Login");
-                   // response.sendRedirect("index.jsp");
-                  request.getRequestDispatcher("welcome.jsp").forward(request,response);
+                    user.setActive(true); // user's active
+                    int userId = user.getId();
+                    manager.addUserLog(userId, "Login");
+                        // response.sendRedirect("index.jsp");
+                    request.getRequestDispatcher("welcome.jsp").forward(request,response);
                 } else {
-                   session.setAttribute("existErr","User does not exist in the Database !");
+                    session.setAttribute("existErr","User does not exist in the Database !");
                     request.getRequestDispatcher("login.jsp").include(request,response);
                 }
               

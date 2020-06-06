@@ -19,13 +19,14 @@
     <body onload="startTime()">
         <div><span class ="time" id="time"></span></div>
          <%
+             User user = (User) session.getAttribute("user");
            int id = Integer.parseInt(request.getParameter("id"));
         String emailErr = (String) session.getAttribute("emailErr");
         String passErr = (String) session.getAttribute("passErr");
        
         %>
         <div class="top">
-            <a class="button" href=MainServlet?id=<%=id%>> Main</a>
+            <a class="button" href="MainServlet?id=<%=id%>"> Main</a>
             <a href="logout.jsp">Logout</a>
             
         </div>
@@ -41,12 +42,12 @@
             </tr>
             <tr>
 		<th>First Name</th>
-		<td><input type="text" placeholder="Enter your first name" name="fName"></td>
+		<td><input type="text" placeholder="Enter your first name" name="fName" value="${user.fName}"></td>
 	    </tr>
             
             <tr>
                 <th>Last Name</th>
-		<td><input type="text" placeholder="Enter your last name"name="lName"></td>
+		<td><input type="text" placeholder="Enter your last name"name="lName" value="${user.lName}"></td>
             </tr>
             <tr>
 		<th>Password</th>
@@ -54,15 +55,15 @@
             </tr>
             <tr>
                 <th>Email</td>
-                <td><input type="text" placeholder="<%=(emailErr != null ? emailErr:"Enter your email") %>" name="email"></td>
+                <td><input type="text" placeholder="<%=(emailErr != null ? emailErr:"Enter your email") %>" name="email" value="${user.email}"></td>
             </tr>
             <tr>
 		<th>Mobile Number</th>
-		<td><input type="text" placeholder="Enter your mobile number"name="mobileNum"></td>
+                <td><input type="text" placeholder="Enter your mobile number"name="mobileNum" value="${user.mobileNum}"></td>
             </tr>
             <tr>
                 <th>Address</th>
-                <td><input type="text" placeholder="Enter your address" name="address"></td>
+                <td><input type="text" placeholder="Enter your address" name="address" value="${user.address}"></td>
             </tr>
             
             <tr>

@@ -4,6 +4,8 @@
     logout time ->history db
     profile.jsp ->user info and login and out time
 --%>
+
+
 <%@page import="uts.isd.controller.ConnServlet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -32,10 +34,9 @@
         </div>
 
         <h3> Sign In <span><%=(existErr != null? existErr: "")%></span></h3>
-        
+
         <form action ="LoginServlet" method="post">
         <table>
-
             <tr>
 		<th>User Email </th>
                 <td><input type="text" placeholder="<%=(emailErr != null ? emailErr:"Enter email") %>" name="email"></td>
