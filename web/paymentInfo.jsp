@@ -32,14 +32,14 @@
         %>
         
         <div class="header">
-            <h1>IoT Bay Sign Up</h1>
+            <h1>Payment Detail</h1>
         </div>	
         <div class="top">
             <a href="index.jsp">Index</a>   
         </div>
         <form method="post" action="PaymentInfoServlet">
         
-        <h3> Registration Form</h3>
+        <h3> Please fill out the form</h3>
         <table>
 
             <tr>
@@ -63,7 +63,7 @@
 	    </tr>
            
             <tr>
-                <td colspan="2"> <input type="submit" value="Confirm" >
+                <td colspan="2"> <input type="submit" value="signConfirm" >
                     <a href="index.jsp">Cancel</a>
                 </td>
             </tr>
