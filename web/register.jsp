@@ -33,7 +33,7 @@
         </div>
         <form method="post" action="RegisterServlet">
         
-        <h3> Registration Form</h3>
+        <h3> Registration Form </h3>
         <table>
            
             <tr>

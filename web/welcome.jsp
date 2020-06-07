@@ -24,11 +24,10 @@ w
         </div>	
         
         <div class="top">
-            <a href="index.jsp">Index</a>
             <a href="LogoutServlet?userId=${user.id}">Logout</a>
             <a href="main.jsp?id=${user.id}">Main</a>
         </div>
-            <h2> User Information<h2>
+            <h2> User Information</h2>
             <p><span><%=(updated != null? updated:"")%></span></p>
             
             <div class="center">
@@ -73,11 +72,12 @@ w
                          </tr>
                          
                          <tr>
-                             <td><a href="edit.jsp?id=${user.id}">Edit my profile</a></td>
-                             <td><a href="UserRecordsServlet?userId=${user.id}">See my logs history</a></td>
+                             <td><a class="button" href="edit.jsp?id=${user.id}">Edit my profile</a></td>
+                             <td><a class="button" href="UserRecordsServlet?userId=${user.id}">See my logs history</a></td>
                            
                          </tr>
                          <tr>
+<<<<<<< HEAD
                              <td colspan="2"></td>
                          </tr>
 
@@ -87,6 +87,12 @@ w
                          </tr>
                       
 
+=======
+                             <td><a class="button" href="userLogs.jsp?id=${user.getId()}">See my order history</a></td>
+                             <td><a class="button" href="cardRegistration.jsp?userId=${user.id}">Update & Edit Payment Information</a></td>
+                         </tr>
+
+>>>>>>> c16785c944f8be75e20cbee3c6b0b391249ed652
                        </table>
                     
           

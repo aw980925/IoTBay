@@ -114,6 +114,8 @@ public User findEmail(String email) throws SQLException{
   ps.setBoolean(8,active);
  
   ps.executeUpdate();
+  
+  
          
       
   
@@ -174,9 +176,6 @@ public User findEmail(String email) throws SQLException{
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setString(1,email);
         ps.executeQuery();
-        
-        
-        
     }
     public void addUserLog(int userId, String description) throws SQLException {
 

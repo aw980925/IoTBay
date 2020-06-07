@@ -1,58 +1,43 @@
 package uts.isd.model;
 
 import java.io.Serializable;
-enum paymentType{
+/*enum cardType{
     Paypal,
     CreditCard;
 }
+8/
 /**
  *
  * @author parkjunhyun
  */
-public class Payment implements Serializable{
+public class Card implements Serializable{
     
-    private int paymentID;
-    //private int paymentTime;     // will change to timestamp later
-    private String description;
+   
     private String cardNumber;
     private String expiresOn;
     private String cvvNumber;
-    private String amount;
-    private String paymenttype;
-    private String paymentStatus;
+    
+    
+    //private String paymenttype;
+    
     
     //insert a constructor that initialize the fields
     
-    public Payment(int paymentID, String cardNumber, String expiresOn, String cvvNumber) {
-        this.paymentID = paymentID;
+    public Card(String cardNumber, String expiresOn, String cvvNumber) {
+      
     //    this.description = description;
+        
         this.cardNumber = cardNumber;
         this.expiresOn = expiresOn;
         this.cvvNumber = cvvNumber;
     //    this.amount = amount;
-        this.paymenttype = paymenttype;
+    //    this.paymenttype = paymenttype;
     //    this.paymentStatus = paymentStatus;
 
     }
     
-    //insert getters/setters
-    
-    public int getPaymentID() {
-        return paymentID;
-    }
+   
 
-    public void setPaymentID(int paymentID) {
-        this.paymentID = paymentID;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-    
-    public void setDescription(String description) {
-        this.description = description;
-    }
-  
     public String getCardNumber() {
         return cardNumber;
     }
@@ -76,30 +61,15 @@ public class Payment implements Serializable{
     public void setCvvNumber(String cvvNumber) {
         this.cvvNumber = cvvNumber;
     }
-
-    public String getAmount() {
-        return amount;
-    }
-
-    public void setAmount(String amount) {
-        this.amount = amount;
-    }
     
-    public String getPaymentType() {
+  /*  public String getPaymentType() {
         return paymenttype;
     }
 
     public void setPaymentType(String paymentType) {
         this.paymenttype = paymentType;
     }
-    
-    public String getPaymentStatus() {
-        return paymentStatus;
-    }
-
-    public void setPaymentStatus(String paymentStatus) {
-        this.paymentStatus = paymentStatus;
-    }
+  */  
   
 
     

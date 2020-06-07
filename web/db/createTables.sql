@@ -24,16 +24,16 @@ usertype        VARCHAR(10),
 active          BOOLEAN
 );
 
-CREATE TABLE LOGHISTORY
-(
-id              INTEGER NOT NULL PRIMARY KEY 
-                    GENERATED ALWAYS AS IDENTITY
-                    (START WITH 1, INCREMENT BY 1), 
-SignInDate      TIMESTAMP,
-startTime       TIMESTAMP,
-endTime         TIMESTAMP,
-duration        TIMESTAMP
+
+CREATE TABLE LOGS (
+logId INT not null primary key
+        GENERATED ALWAYS AS IDENTITY
+        (START WITH 100, INCREMENT BY 1), 
+userId INT,
+timestamp Timestamp,
+description VARCHAR(50)
 );
+
 
 CREATE TABLE CATEGORY
 (
@@ -64,14 +64,22 @@ basketID        INTEGER NOT NULL PRIMARY KEY
                     GENERATED ALWAYS AS IDENTITY
                         (START WITH 1, INCREMENT BY 1),
 customerID      INTEGER,
-productID       INTEGER,
-totalProductQty INTEGER,
 totalAmount     INTEGER,
-selectedProducts INTEGER
 );
 
 ALTER TABLE BASKET ADD FOREIGN KEY (customerID) REFERENCES USERS (id);
-ALTER TABLE BASKET ADD FOREIGN KEY (productID) REFERENCES PRODUCT (productID);
+
+CREATE TABLE ORDERLINE
+(
+OrderLineNo     INTEGER NOT NULL PRIMARY KEY
+                    GENERATED ALSWAYS AS IDENTITY
+                        (START WITH 1, INCREMENT BY 1),
+productID       INTEGER,
+orderQty        INTEGER,
+price           DOUBLE
+);
+
+ALTER TABLE ORDERLINE ADD FOREIGN KEY (productID) REFERENCES PRODUCT (productID);
 
 CREATE TABLE ORDERS
 (
@@ -79,6 +87,7 @@ orderID         INTEGER NOT NULL PRIMARY KEY
                     GENERATED ALWAYS AS IDENTITY
                         (START WITH 1, INCREMENT BY 1),
 customerID      INTEGER,
+orderTotal      DOUBLE,
 orderDate       TIMESTAMP,
 orderStatus     VARCHAR(10)
 );
@@ -91,14 +100,15 @@ CREATE TABLE PAYMENT
 paymentID       INTEGER NOT NULL PRIMARY KEY
                     GENERATED ALWAYS AS IDENTITY
                         (START WITH 1, INCREMENT BY 1),
-paymentTime     TIMESTAMP,
-amount          DOUBLE,
-description     VARCHAR(30),
-paymentType     VARCHAR(10),
-CardNumer       INTEGER(16),
-expiresOn       INTEGER(6),
-cvvNumber       INTEGER(3),
-paymentStatus   VARCHAR(10)
+userId Integer,
+--paymentTime     TIMESTAMP,
+--amount          DOUBLE,
+--description     VARCHAR(40),
+--paymentType     VARCHAR(10),--PayPal/CreditCard
+cardNumber       VARCHAR(20),
+expiresOn       VARCHAR(10),
+cvvNumber       VARCHAR(10)
+--paymentStatus   VARCHAR(10)
 );
 
 CREATE TABLE SHIPMENT

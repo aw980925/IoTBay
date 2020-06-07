@@ -19,10 +19,10 @@ INSERT INTO USERS(fName,lName,password,email,mobileNum,address,usertype,active)
 
 
 INSERT INTO CATEGORY
-             (categoryID, categoryName, description)
+             (categoryName, description)
      VALUES
-     (1,'Camera','Iot camera'),
-     (2,'Light bulb', 'Iot smart light');
+     ('Camera','Iot camera'),
+     ('Light bulb', 'Iot smart light');
 
 INSERT INTO PRODUCT
     (categoryID, productName, productPrice, description, status, quantity)
@@ -41,6 +41,11 @@ INSERT INTO PRODUCT
     ('12345671','Toll express','1000000111',,'Toll1'),
     ('12345672','Startrack','111111111',,'Startrack')
 ; */
+
+/*
+payment id, userid, cardnumber, expiresdate, CVV, paymentType
+Values(1, '1010-200302', '22-04-23',323,'Card')
+*/
 
 
 INSERT INTO BASKET 
