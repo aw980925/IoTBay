@@ -20,7 +20,7 @@ w
              String updated = (String)session.getAttribute("updated");
         %>
         <div class="header">
-            <h1>IoT Bay test</h1>
+            <h1>IoT Bay</h1>
         </div>	
         
         <div class="top">
