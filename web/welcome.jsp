@@ -79,7 +79,7 @@ w
                          </tr>
                          <tr>
                              <td><a class="button" href="userLogs.jsp?id=${user.getId()}">See my order history</a></td>
-                             <td><a class="button" href="paymentInfo.jsp?id=${user.getId()}">Update & Edit Payment Information</a></td>
+                             <td><a class="button" href="cardRegistration.jsp?userId=${user.id}">Update & Edit Payment Information</a></td>
                          </tr>
 
                        </table>
