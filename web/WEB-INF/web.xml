@@ -32,6 +32,10 @@
         <servlet-name>ViewProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.ViewProductServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddOrderLineServlet</servlet-name>
+        <servlet-class>uts.isd.controller.AddOrderLineServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>ViewProductServlet</servlet-name>
         <url-pattern>/ViewProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddOrderLineServlet</servlet-name>
+        <url-pattern>/AddOrderLineServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

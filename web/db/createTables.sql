@@ -58,28 +58,15 @@ quantity        INTEGER
 ALTER TABLE PRODUCT ADD FOREIGN KEY (categoryID) REFERENCES CATEGORY (categoryID);
 
 
-CREATE TABLE BASKET 
-(
-basketID        INTEGER NOT NULL PRIMARY KEY
-                    GENERATED ALWAYS AS IDENTITY
-                        (START WITH 1, INCREMENT BY 1),
-customerID      INTEGER,
-totalAmount     INTEGER,
-);
-
-ALTER TABLE BASKET ADD FOREIGN KEY (customerID) REFERENCES USERS (id);
-
 CREATE TABLE ORDERLINE
 (
-OrderLineNo     INTEGER NOT NULL PRIMARY KEY
-                    GENERATED ALSWAYS AS IDENTITY
-                        (START WITH 1, INCREMENT BY 1),
-productID       INTEGER,
-orderQty        INTEGER,
-price           DOUBLE
+productID          INTEGER REFERENCES PRODUCT (productID),
+customerID         INTEGER REFERENCES USERS (id),
+orderQty           INTEGER,
+price           DOUBLE,
+PRIMARY KEY (productID, customerID)
 );
 
-ALTER TABLE ORDERLINE ADD FOREIGN KEY (productID) REFERENCES PRODUCT (productID);
 
 CREATE TABLE ORDERS
 (
@@ -120,19 +107,6 @@ courier         VARCHAR(30),
 trackingCode    VARCHAR(10),
 shipmentAddress VARCHAR(100)
 );
-
-CREATE TABLE ORDERLINE
-(
-orderID         INTEGER REFERENCES ORDERS (orderID),
-productID       INTEGER REFERENCES PRODUCT (productID),
-paymentID       INTEGER REFERENCES PAYMENT (paymentID),
-shipmentID      INTEGER REFERENCES SHIPMENT (shipmentID),    
-productQty      INTEGER,
-total           INTEGER,
-shipmentDate    TIMESTAMP,
-PRIMARY KEY (orderID, productID, paymentID, shipmentID)
-);
-
 
 
 CREATE TABLE REVIEW

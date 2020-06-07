@@ -28,6 +28,7 @@ import javax.servlet.annotation.WebServlet;
        private DBManager manager;
        private Connection conn;
        private ProductDBManager productManager;
+       private OrderLineDBManager orderLineManager;
         
        @Override //Create and instance of DBConnector for the deployment session
        public void init() {
@@ -49,12 +50,16 @@ import javax.servlet.annotation.WebServlet;
                
                productManager = new ProductDBManager(conn); // Create a Product DB manager
                
+               orderLineManager = new OrderLineDBManager(conn);
+               
+               
            } catch (SQLException ex) {
                Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
            }
            //export the DB manager to the view-session (JSPs)
            session.setAttribute("manager", manager);
            session.setAttribute("productManager", productManager);
+           session.setAttribute("orderLineManager", orderLineManager);
            
        }   
         
