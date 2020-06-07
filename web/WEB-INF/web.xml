@@ -32,6 +32,10 @@
         <servlet-name>ViewProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.ViewProductServlet</servlet-class>
     </servlet>
+        <servlet>
+        <servlet-name>AddOrderLineServlet</servlet-name>
+        <servlet-class>uts.isd.controller.AddOrderLineServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>CardServlet</servlet-name>
         <servlet-class>uts.isd.controller.CardServlet</servlet-class>
@@ -79,6 +83,8 @@
     <servlet-mapping>
         <servlet-name>EditCardServlet</servlet-name>
         <url-pattern>/EditCardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>    
         <servlet-name>AddOrderLineServlet</servlet-name>
         <url-pattern>/AddOrderLineServlet</url-pattern>
     </servlet-mapping>
