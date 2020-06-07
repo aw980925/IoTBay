@@ -23,7 +23,7 @@
            <h1>IoT Bay</h1>
         </div>
         <div class="top">
-            <a href="/LogoutServlet">logout</a>
+            <a href="LogoutServlet?userId=<%=id%>">logout</a>
             <a href="welcome.jsp">See my Information</a>
             <a href="basket.jsp">Check basket</a>
         </div>
