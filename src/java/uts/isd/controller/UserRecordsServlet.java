@@ -67,7 +67,7 @@ public class UserRecordsServlet extends HttpServlet {
         
        
        HttpSession session = request.getSession();
-      // DBLogsManager logsManager = (DBLogsManager) session.getAttribute("logsManager");
+        DBLogsManager logsManager = (DBLogsManager) session.getAttribute("logsManager");
            ArrayList<UserRecords> logs = new ArrayList<UserRecords>();
         // search logs by date
         int userId = Integer.parseInt(request.getParameter("userId"));
