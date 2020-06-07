@@ -4,6 +4,7 @@
     Author     : User
 --%>
 
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="uts.isd.model.User"%>
 <%@page import="java.util.ArrayList"%>
@@ -20,42 +21,41 @@
         <title>User List</title>
     </head>
     <body>
+        <sql:setDataSource
+        var="IoTDB"
+        driver="org.apache.derby.jdbc.ClientDriver"
+        url="jdbc:derby://localhost:1527/IoTDB"
+        user="IoTBay" password="admin"/>
         
-        <%
-           User user = (User)session.getAttribute("display");
-        %>
-       
-        <table>
-            <thead>
+        <sql:query var="listUsers"   dataSource="${myDS}">
+            SELECT * FROM USERS;
+        </sql:query>
+
+        <div align="center">
+        <table border="1" cellpadding="5">
+            <caption><h2>List of users</h2></caption>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+            </tr>
+            <c:forEach var="user" items="${listUsers.rows}">
                 <tr>
-                    <th>Select</th>
-                    <th>Category ID</th>
-                    <th>Product ID</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                    <th>Status</th>
-                    <th>Available Quantity</th>
-                    <th>Type Quantity</th>
+                    <td><c:out value="${user.id}" /></td>
+                    <td><c:out value="${user.fName}" /></td> 
+                    <td><c:out value="${user.lName}" /></td> 
+                    <td><c:out value="${user.password}" /></td>
+                    <td><c:out value="${user.email}" /></td>
+                    <td><c:out value="${user.mobileNum}" /></td>
+                    <td><c:out value="${user.address}" /></td>
                 </tr>
-            </thead>
-            <tbody> 
-            
-            <c:forEach items="${display}" var="display">
-            <tr> 
-                <td><input type="checkbox" name="select" value="s"></td>
-                <td>${display.categoryID}</td>
-                <td>${display.productID}</td> 
-                <td>${display.productName}</td> 
-                <td>${display.productPrice}</td>
-                <td>${display.description}</td>
-                <td>${display.status}</td>
-                <td>${display.quantity}</td>
-                <td><input type="number" placeholder="Enter quantity" name="qty"></td>
-            </tr> 
             </c:forEach>
-           
-            </tbody>
         </table>
+    </div> 
+
     </body>
 </html>

@@ -31,15 +31,15 @@ author: 13093950 Heeyoon Koo
 </div>
 
 <div class="top">
-  <a href="login.jsp">Login</a>
-  <a href="register.jsp">Register</a>
-  <a href="addUser.jsp">Add User (in index for now)</a>
-  <a href="userList.jsp">User List (in index for now)</a>
+  <a class="indexbtn" href="login.jsp">Login</a>
+  <a class="indexbtn" href="register.jsp">Register</a>
+  <a class="indexbtn" href="addUser.jsp">Add User</a>
+  <a class="indexbtn" href="userList.jsp">User List</a>
   
 </div>
 
     <div class="center">
-        <p> <b>welcome to IoT Bay index page</b> </p>
+        <p> <b>Welcome to IoT Bay index page</b> </p>
     </div>
     <jsp:include page="/ConnServlet" flush="true" />
 </body>

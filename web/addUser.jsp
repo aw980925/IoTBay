@@ -1,17 +1,77 @@
 <%-- 
-    Document   : adduser
-    Created on : 08/06/2020, 1:39:58 AM
-    Author     : User
+  Registeration page for customer
+  user(id,fname,lname,pasword,email,mobilenum,address,customer)
+  userType must be set as customer as staff added by administrator (using sql)
 --%>
-
+<%@page import ="uts.isd.model.*" %>
+<%@page import ="uts.isd.dao.*" %>
+<%@page import ="uts.isd.controller.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <title>Add User</title>
+        <script type="text/javascript" src="js/script.js"></script>
     </head>
-    <body>
-        <h1>Hello World!</h1>
+    <body onload="startTime()">
+        <div><span class="time" id="time"></span></div>
+        
+        <% 
+        String emailErr = (String) session.getAttribute("emailErr");
+        String passErr = (String) session.getAttribute("passErr");
+        String exceptionErr = (String)session.getAttribute("exceptionErr");
+        %>
+        
+        <div class="header">
+            <h1>Register User to Database</h1>
+        </div>	
+        <div class="top">
+            <a href="index.jsp">Index</a>
+        </div>
+        <form method="post" action="RegisterServlet">
+        
+        <h3>Enter new user details</h3>
+        <table>
+           
+            <tr>
+		<th>First Name</th>
+		<td><input type="text" placeholder="Enter your first name" name="fName"></td>
+	    </tr>
+            
+            <tr>
+                <th>Last Name</th>
+		<td><input type="text" placeholder="Enter your last name"name="lName"></td>
+            </tr>
+            <tr>
+		<th>Password</th>
+		<td><input type="password" placeholder="<%=(passErr != null ? passErr:"Enter password") %>" name="password"></td>
+            </tr>
+            <tr>
+                <th>Email</td>
+                <td><input type="text" placeholder="<%=(emailErr != null ? emailErr:"Enter email") %>" name="email"></td>
+            </tr>
+            <tr>
+		<th>Mobile Number</th>
+		<td><input type="text" placeholder="Enter your mobile number"name="mobileNum"></td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td><input type="text" placeholder="Enter your address" name="address"></td>
+            </tr>
+            
+            <tr>
+                <td colspan="2"> <input type="submit" value="Add User" >
+                    <a href="index.jsp">Cancel</a>
+                </td>
+            </tr>
+          
+        </table>
+               
+                    <p><%=(exceptionErr != null ? exceptionErr : "")%></p>
+                
+        </form>
+        	
     </body>
 </html>
