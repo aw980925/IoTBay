@@ -1,6 +1,10 @@
 package uts.isd.model;
 
 import java.io.Serializable;
+enum paymentType{
+    Paypal,
+    CreditCard;
+}
 /**
  *
  * @author parkjunhyun
@@ -8,31 +12,31 @@ import java.io.Serializable;
 public class Payment implements Serializable{
     
     private int paymentID;
-    private int paymentTime;     // will change to timestamp later
+    //private int paymentTime;     // will change to timestamp later
     private String description;
-    private int cardNumber;
-    private int expiresOn;
-    private int cvvNumber;
-    private int amount;
-    private String paymentType;
+    private String cardNumber;
+    private String expiresOn;
+    private String cvvNumber;
+    private String amount;
+    private String paymenttype;
     private String paymentStatus;
-
+    
     //insert a constructor that initialize the fields
-
-    public Payment(int paymentID, int paymentTime, String description, int cardNumber, int expiresOn, int cvvNumber, int amount, String paymentType, String paymentStatus) {
+    
+    public Payment(int paymentID, String cardNumber, String expiresOn, String cvvNumber) {
         this.paymentID = paymentID;
-        this.paymentTime = paymentTime;
-        this.description = description;
+    //    this.description = description;
         this.cardNumber = cardNumber;
         this.expiresOn = expiresOn;
         this.cvvNumber = cvvNumber;
-        this.amount = amount;
-        this.paymentType = paymentType;
-        this.paymentStatus = paymentStatus;
+    //    this.amount = amount;
+        this.paymenttype = paymenttype;
+    //    this.paymentStatus = paymentStatus;
+
     }
     
     //insert getters/setters
-
+    
     public int getPaymentID() {
         return paymentID;
     }
@@ -41,60 +45,52 @@ public class Payment implements Serializable{
         this.paymentID = paymentID;
     }
 
-    public int getPaymentTime() {
-        return paymentTime;
-    }
-
-    public void setPaymentTime(int paymentTime) {
-        this.paymentTime = paymentTime;
-    }
-
     public String getDescription() {
         return description;
     }
-
+    
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public int getCardNumber() {
+  
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(int cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 
-    public int getExpiresOn() {
+    public String getExpiresOn() {
         return expiresOn;
     }
 
-    public void setExpiresOn(int expiresOn) {
+    public void setExpiresOn(String expiresOn) {
         this.expiresOn = expiresOn;
     }
 
-    public int getCvvNumber() {
+    public String getCvvNumber() {
         return cvvNumber;
     }
 
-    public void setCvvNumber(int cvvNumber) {
+    public void setCvvNumber(String cvvNumber) {
         this.cvvNumber = cvvNumber;
     }
 
-    public int getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
     
     public String getPaymentType() {
-        return paymentType;
+        return paymenttype;
     }
 
     public void setPaymentType(String paymentType) {
-        this.paymentType = paymentType;
+        this.paymenttype = paymentType;
     }
     
     public String getPaymentStatus() {
@@ -104,6 +100,8 @@ public class Payment implements Serializable{
     public void setPaymentStatus(String paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
+  
+
     
     
     

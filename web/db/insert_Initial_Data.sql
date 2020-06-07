@@ -42,6 +42,11 @@ INSERT INTO PRODUCT
     ('12345672','Startrack','111111111',,'Startrack')
 ; */
 
+/*
+payment id, userid, cardnumber, expiresdate, CVV, paymentType
+Values(1, '1010-200302', '22-04-23',323,'Card')
+*/
+
 
 INSERT INTO BASKET 
 (basketID, customerID, productID, qty)
