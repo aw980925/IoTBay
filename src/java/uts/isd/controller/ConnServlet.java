@@ -28,8 +28,9 @@ package uts.isd.controller;
        private DBManager manager;
        private Connection conn;
        private ProductDBManager productManager;
+       private OrderLineDBManager orderLineManager;
        private DBLogsManager logsManager;
-        
+
        @Override //Create and instance of DBConnector for the deployment session
        public void init() {
            try {
@@ -50,6 +51,9 @@ package uts.isd.controller;
                logsManager = new DBLogsManager(conn); //Create logsManager
                productManager = new ProductDBManager(conn); // Create a Product DB manager
                
+               orderLineManager = new OrderLineDBManager(conn);
+               
+               
            } catch (SQLException ex) {
                Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
            }
@@ -57,6 +61,7 @@ package uts.isd.controller;
            session.setAttribute("manager", manager);
            session.setAttribute("logsManager",logsManager);
            session.setAttribute("productManager", productManager);
+           session.setAttribute("orderLineManager", orderLineManager);
            
        }   
         

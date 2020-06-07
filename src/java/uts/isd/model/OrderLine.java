@@ -13,19 +13,18 @@ import java.io.Serializable;
  */
 public class OrderLine implements Serializable{
     
-    private int OrderLineNo;
     private int productID;
-    private double unitPrice;
+    private int customerID;
     private int orderQty;
     private double orderPrice;
 
-    public int getOrderLineNo() {
-        return OrderLineNo;
+    public OrderLine(int productID, int customerID, int orderQty, double orderPrice) {
+        this.productID = productID;
+        this.customerID = customerID;
+        this.orderQty = orderQty;
+        this.orderPrice = orderPrice;
     }
 
-    public void setOrderLineNo(int OrderLineNo) {
-        this.OrderLineNo = OrderLineNo;
-    }
 
     public int getProductID() {
         return productID;
@@ -35,12 +34,12 @@ public class OrderLine implements Serializable{
         this.productID = productID;
     }
 
-    public double getUnitPrice() {
-        return unitPrice;
+        public int customerID() {
+        return customerID;
     }
 
-    public void setUnitPrice(double unitPrice) {
-        this.unitPrice = unitPrice;
+    public void setCustmerID(int customerID) {
+        this.customerID = customerID;
     }
 
     public int getOrderQty() {
@@ -53,13 +52,12 @@ public class OrderLine implements Serializable{
 
     public double getOrderPrice() {
         
-        orderPrice = unitPrice * orderQty;
-        
         return orderPrice;
     }
 
     public void setOrderPrice(double orderPrice) {
-        this.orderPrice = unitPrice * orderQty;
+        
+        this.orderPrice = orderPrice;
     }
     
     

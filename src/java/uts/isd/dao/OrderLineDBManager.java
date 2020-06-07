@@ -18,60 +18,54 @@ public OrderLineDBManager(Connection conn) throws SQLException {
 }
 
  
-public Product findOrderLineNo(int ODN) throws SQLException {   
+public OrderLine findOrderLine(int customerID) throws SQLException {   
 
-    String fetch = "select * from PRODUCT where orderLineNO = '" + ODN + "'";
+    String fetch = "select * from ORDERLINE where customerID = '" + customerID + "'";
     ResultSet rs = st.executeQuery(fetch);
     
     while(rs.next()) {
-        int id = rs.getInt(1);
-        if (id == ODN){
-            int productID = rs.getInt(2);
+        int id = rs.getInt(2);
+        if (id == customerID){
+            int productID = rs.getInt(1);
             int orderQty = rs.getInt(3);
             Double price = rs.getDouble(4);
             
-            return new OrderLine( PID,categoryID, productName, productPrice, description, status, quantity);
+            return new OrderLine(productID, customerID, orderQty, price);
         }
     }            
    return null;   
 }
 
-productID       INTEGER,
-orderQty        INTEGER,
-price           DOUBLE
 
 //Add a user-data into the database   
-public void addProduct(int categoryID, String name, double price, String description, String status, int quantity ) throws SQLException { //code for add-operation       
-  st.executeUpdate("INSERT INTO PRODUCT " + "VALUES ('" + categoryID + "', '" + name + "', '" + price + "', '" + description + "', '" + status + "', '" + quantity + "')");   
+public void addOrderLine(int productID, int customerID, int orderQty, double price ) throws SQLException { //code for add-operation       
+  st.executeUpdate("INSERT INTO ORDERLINE " + "VALUES ('" + productID + "', '" + customerID + "', '" + orderQty + price + "')");   
 
 }
 
 //update a user details in the database   
-public void updateProduct(int id, int categoryID, String name, double price, String description, String status, int quantity) throws SQLException {        
-  st.executeUpdate("UPDATE PRODUCT SET PRODUCTNAME ='" + name + "', PRODUCTPRICE = '" + price + "', DESCRIPTION='" + description + "', STATUS= '" + status + "', QUANTITY= '" + quantity + "' WHERE PRODUCTID='" + id + "'");            
+public void updateOrderLine(int productID, int customerID, int orderQty, double price ) throws SQLException {        
+  st.executeUpdate("UPDATE ORDERLINE SET orderQty='" + orderQty + "', price= '" + price + "' WHERE productID='" + productID + "', customerID='" + customerID +"'");            
 
 }       
 
 //delete a user from the database   
-public void deleteProduct(int id) throws SQLException{       
-   st.executeUpdate("DELETE FROM PRODUCT WHERE PRODUCTID='" + id + "'");
+public void deleteOrderLine(int productID) throws SQLException{       
+   st.executeUpdate("DELETE FROM ORDERLINE WHERE PRODUCTID='" + productID + "'");
 
 }
 
-public ArrayList<Product> fetchProduct() throws SQLException {
-    String fetch = "select * from Product";
+public ArrayList<OrderLine> fetchOrderLine(int customerID) throws SQLException {
+    String fetch = "select * from ORDERLINE where customerID=" + customerID;
     ResultSet rs = st.executeQuery(fetch);
-    ArrayList<Product> temp = new ArrayList();
+    ArrayList<OrderLine> temp = new ArrayList();
     
     while (rs.next()){
             int productID = rs.getInt(1);
-            int categoryID = rs.getInt(2);
-            String productName = rs.getString(3);
-            double productPrice = rs.getInt(4);
-            String description = rs.getString(5);
-            String status = rs.getString(6);
-            int quantity = rs.getInt(7);
-            temp.add(new Product(productID ,categoryID, productName, productPrice, description, status, quantity));
+            int orderQty = rs.getInt(3);
+            double orderPrice = rs.getDouble(4);
+            
+            temp.add(new OrderLine(productID ,customerID, orderQty, orderPrice));
     } return temp;
 }
 
