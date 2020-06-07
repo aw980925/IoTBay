@@ -36,7 +36,7 @@ public class AddOrderLineServlet extends HttpServlet {
         int customerIDInt = Integer.parseInt(customerID);
         String orderQty = request.getParameter("orderQty");
         int orderQtyInt = Integer.parseInt(orderQty);
-        String price = request.getParameter("price");
+        String price = request.getParameter("productPrice");
         Double priceInt = Double.parseDouble(price);
         String AvailableQty = request.getParameter("quantity");
         int AvailableQtyInt = Integer.parseInt(AvailableQty);
@@ -65,7 +65,7 @@ public class AddOrderLineServlet extends HttpServlet {
             try {
                 orderLineManager.addOrderLine(productIDInt, customerIDInt, orderQtyInt, priceInt );
                 request.setAttribute("orderLine", orderLine);
-                session.setAttribute("creationConfirmation", "Item added to basket");
+                session.setAttribute("addConfirmation", "Item added to basket");
                 request.getRequestDispatcher("productList.jsp").include(request, response);
             } catch (SQLException ex) {
                 session.setAttribute("exceptionOrderLineErr", "Submission Failed");

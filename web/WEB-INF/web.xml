@@ -44,6 +44,10 @@
         <servlet-name>EditCardServlet</servlet-name>
         <servlet-class>uts.isd.controller.EditCardServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewBasketServlet</servlet-name>
+        <servlet-class>uts.isd.controller.ViewBasketServlet</servlet-class>
+    </servlet>    
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -88,6 +92,11 @@
         <servlet-name>AddOrderLineServlet</servlet-name>
         <url-pattern>/AddOrderLineServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>    
+        <servlet-name>ViewBasketServlet</servlet-name>
+        <url-pattern>/ViewBasketServlet</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

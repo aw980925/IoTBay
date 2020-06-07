@@ -23,12 +23,17 @@
         
         <%
            Product product = (Product)session.getAttribute("display");
+           String exceptionQuantityErr = (String) session.getAttribute("exceptionQuantityErr");
+           String addConfirmation = (String) session.getAttribute("addConfirmation");
+           String exceptionOrderLineErr = (String) session.getAttribute("exceptionOrderLineErr");
+    
+           
+           int id = Integer.parseInt(request.getParameter("id"));
         %>
        
         <table>
             <thead>
                 <tr>
-                    <th>Select</th>
                     <th>Category ID</th>
                     <th>Product ID</th>
                     <th>Name</th>
@@ -37,13 +42,13 @@
                     <th>Status</th>
                     <th>Available Quantity</th>
                     <th>Type Quantity</th>
+                    <th>Add to Basket</th>
                 </tr>
             </thead>
             <tbody> 
             
             <c:forEach items="${display}" var="display">
             <tr> 
-                <td><input type="checkbox" name="select" value="s"></td>
                 <td>${display.categoryID}</td>
                 <td>${display.productID}</td> 
                 <td>${display.productName}</td> 
@@ -51,11 +56,15 @@
                 <td>${display.description}</td>
                 <td>${display.status}</td>
                 <td>${display.quantity}</td>
-                <td><input type="number" placeholder="Enter quantity" name="qty"></td>
+                <td><input type="number" placeholder="<%=(exceptionQuantityErr != null ? exceptionQuantityErr:"Enter Quantity") %>" name="orderQty"></td>
+                
+                <td><a class=" button" href ="/AddOrderLineServlet?id=${user.id}"> Add </a>
             </tr> 
             </c:forEach>
            
             </tbody>
         </table>
+        
+        <span><%= (addConfirmation != null) ? "Item added to the basket":"" %> </span>
     </body>
 </html>

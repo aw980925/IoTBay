@@ -35,8 +35,6 @@ w
             <p> Your information is ... </p>
           
             </div>
-                
-                    
                        <table>
                         <tr>
                             <td>User ID: </td>
@@ -77,21 +75,13 @@ w
                            
                          </tr>
                          <tr>
-                             <td colspan="2"></td>
-                         </tr>
-
-                         <tr>
-                             <td><a href="userLogs.jsp?id=${user.getId()}">See my login history</a></td>
-                             <td><a href="paymentInfo.jsp?id=${user.getId()}">Update & Edit Payment Information</a></td>
-                         </tr>
-                             <td><a class="button" href="userLogs.jsp?id=${user.getId()}">See my order history</a></td>
                              <td><a class="button" href="cardRegistration.jsp?userId=${user.id}">Update & Edit Payment Information</a></td>
+                             <td><a class="button" href="basket.jsp?id=${user.id}">Go to Basket</a></td>
+                         </tr>
+                         <tr>
+                             <td><a class="button" href="orderHistory.jsp?id=${user.getId()}">See my order history</a></td>
+                             <td></td>
                          </tr>
                        </table>
-                    
-          
-        
-        
-        
     </body>
 </html>
