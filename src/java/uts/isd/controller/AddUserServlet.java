@@ -13,11 +13,11 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.User;
 import uts.isd.dao.DBManager;
 
-public class AddUserServlet extends HttpServlet{
+public class AddUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+   
     
-    
-     public AddUserServlet(){
+    public AddUserServlet(){
     super();
     }
 
@@ -69,18 +69,18 @@ public class AddUserServlet extends HttpServlet{
                  if(user == null){
                      
                 manager.addUser(fName, lName, password, email, mobileNum, address);
-                request.getRequestDispatcher("userList.jsp").forward(request, response);
+                request.getRequestDispatcher("registerSuccess.jsp").forward(request, response);
                 
                  }
                  else
                  {
                      session.setAttribute("exceptionErr", "User already existed");
-                     request.getRequestDispatcher("userList.jsp").include(request, response);
+                     request.getRequestDispatcher("register.jsp").include(request, response);
                  }
             } catch (SQLException ex) {
                 // exception message if adding customer fails
                 session.setAttribute("exceptionErr", "Registration failed");
-                request.getRequestDispatcher("userList.jsp").include(request, response);
+                request.getRequestDispatcher("register.jsp").include(request, response);
             }
              
              

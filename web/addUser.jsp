@@ -62,8 +62,8 @@
             </tr>
             
             <tr>
-                <td colspan="2"> <input type="submit" value="Add User" >
-                    <a href="index.jsp">Cancel</a>
+                <td colspan="2"> <input id="btn2" type="submit" value="Add User" >
+                    <a class="btn" style="text-decoration:none" href="index.jsp">Cancel</a>
                 </td>
             </tr>
           
