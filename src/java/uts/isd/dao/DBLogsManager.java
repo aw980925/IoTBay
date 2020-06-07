@@ -23,14 +23,6 @@ public class DBLogsManager {
         st = conn.createStatement();
         this.conn = conn;
     }
-    public DBLogsManager() throws ClassNotFoundException, SQLException {
-        
-          Class.forName("org.apache.derby.jdbc.ClientDriver");
-     conn = DriverManager.getConnection("jdbc:derby://localhost:1527/IoTDB","IoTBay","admin");
-     st = conn.createStatement();
-    
-        
-    }
     
     public ArrayList<UserRecords> findUserLogs(int userid) throws SQLException {
         String query = "SELECT * FROM IOTBAY.LOGS WHERE userId=?";

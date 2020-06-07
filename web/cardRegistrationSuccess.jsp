@@ -16,7 +16,7 @@
         String cardNumber = request.getParameter("cardNumber");
         String expiresOn = request.getParameter("expiresOn");
         String cvvNumber = request.getParameter("cvvNumber");
-        String paymentType = request.getParameter("paymentType");
+      
     %>
 
     <body>
@@ -40,10 +40,6 @@
                          <tr>
                              <td>CVV Number : </td>
                              <td><%=cvvNumber%></td>
-                         </tr>
-                         <tr>
-                             <td>Payment Type : </td>
-                             <td><%=paymentType%></td>
                          </tr>
                          
                          <tr>

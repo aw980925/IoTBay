@@ -92,9 +92,9 @@ userId Integer,
 --amount          DOUBLE,
 --description     VARCHAR(40),
 --paymentType     VARCHAR(10),--PayPal/CreditCard
-cardNumer       VARCHAR(20),
+cardNumber       VARCHAR(20),
 expiresOn       VARCHAR(10),
-cvvNumber       VARCHAR(10),
+cvvNumber       VARCHAR(10)
 --paymentStatus   VARCHAR(10)
 );
 

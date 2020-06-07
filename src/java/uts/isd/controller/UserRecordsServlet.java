@@ -22,25 +22,15 @@ import uts.isd.model.*;
 
 public class UserRecordsServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private DBConnector connector;
-    private Connection conn;
-    private DBLogsManager logsManager;
-    
+ 
     public UserRecordsServlet(){
-  
-    try {
-            connector = new DBConnector();
-            conn = connector.openConnection();
-            logsManager = new DBLogsManager(conn);
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(UserRecordsServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       super();
 }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        //DBLogsManager logsManager = (DBLogsManager) session.getAttribute("logsManager");
+        DBLogsManager logsManager = (DBLogsManager) session.getAttribute("logsManager");
         //User user = (User) session.getAttribute("user");*/
        
         ArrayList<UserRecords> logs = new ArrayList<UserRecords>();
@@ -77,7 +67,7 @@ public class UserRecordsServlet extends HttpServlet {
         
        
        HttpSession session = request.getSession();
-      // DBLogsManager logsManager = (DBLogsManager) session.getAttribute("logsManager");
+        DBLogsManager logsManager = (DBLogsManager) session.getAttribute("logsManager");
            ArrayList<UserRecords> logs = new ArrayList<UserRecords>();
         // search logs by date
         int userId = Integer.parseInt(request.getParameter("userId"));

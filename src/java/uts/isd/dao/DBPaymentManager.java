@@ -12,11 +12,13 @@ package uts.isd.dao;
 
 
 import uts.isd.model.Payment;
+import uts.isd.model.Card;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import uts.isd.model.User;
 
 public class DBPaymentManager {
     
@@ -37,35 +39,47 @@ public class DBPaymentManager {
     */
     //Read - find a user by email and password
 
-public Payment findCreditCard(String cardNumber) throws SQLException{
-        Payment payment = null;
-        String query = "SELECT * FROM USERS WHERE EMAIL= '"+cardNumber+"'";
+  public Card findCreditCard(String cardNumber) throws SQLException{
+        Card card = null;
+        String query = "SELECT * FROM CARD WHERE cardNumber= '"+cardNumber+"'";
         ResultSet rs = st.executeQuery(query);
-         if(rs!=null){
+    
+        
+        if(rs!=null){
           //HttpSession sesion = request.getSession(true);
             while(rs.next()){
-            String userCardNumber = rs.getString("cardNumber");
-            String cvvNumber = rs.getString("cvvNumber");
-            int id = rs.getInt("id");
-            String expiresOn= rs.getString("expiresOn");
-            //String paymenttype= rs.getString("paymenttype");
-            
+            String userCardNumber = rs.getString("cardNumber"); //coloum 5
+          
+            if(userCardNumber.equals(cardNumber)){
+                
                     
-            payment = new Payment(id,userCardNumber,cvvNumber,expiresOn);
-            return payment;
+                    String expiresOn= rs.getString("expiresOn");
+                    String cvvNumber= rs.getString("cvvNumber");
+                    
+                    
+       
+                    card = new Card(cardNumber, expiresOn, cvvNumber);
+                    return card;
             }
+
+            //if email or password incorrect
+            else 
+            {
+                return card;
+            }
+            
+        }
         
-        
-    }return payment;
- }
-    
-    public void addCard(String cardNumber, String expiresOn, String cvvNumber) throws SQLException{
+    }
+        return card;
+  }
+    public void addCard(int userId,String cardNumber, String expiresOn, String cvvNumber) throws SQLException{
        
       String usertype="Customer";
       //boolean active = false;
-  String query = "INSERT INTO USERS(paymenttype,cardNumber,expiresOn,cvvNumber) VALUES (?,?,?,?)";
+  String query = "INSERT INTO CARD (userId,cardNumber,expiresOn,cvvNumber) VALUES (?,?,?,?)";
   PreparedStatement ps = conn.prepareStatement(query);
-  //ps.setString(1,paymenttype);
+  ps.setInt(1,userId);
   ps.setString(2,cardNumber);
   ps.setString(3,expiresOn);
   ps.setString(4,cvvNumber);
@@ -80,31 +94,32 @@ public Payment findCreditCard(String cardNumber) throws SQLException{
        //ResultSet rs = st.executeQuery(query);
 
     }
-
-    public void updateCard(int id, String cardNumber, String expiresOn, String cvvNumber) throws SQLException{
-        Payment payment = null;
+// INSERT INTO CARD (userId,cardNumber,expiresOn,cvvNumber) VALUES
+    public void updateCard(int userId, String cardNumber, String expiresOn, String cvvNumber) throws SQLException{
+        Card card = null;
         //boolean active = false;
-        String query = "UPDATE USERS SET fName=?, lName=?, password=?, email=?,"
-                + "mobileNum=?, address=? WHERE id=?";
+        String query = "UPDATE CARD SET cardNumber=?, expiresOn=?, cvvNumber=?,"
+                + " WHERE userId=?";
          
         PreparedStatement ps = conn.prepareStatement(query);
+        
         ps.setString(1,cardNumber);
         ps.setString(2,expiresOn);
         ps.setString(3,cvvNumber);
-        ps.setInt(4, id);
+        ps.setInt(4, userId);
         
         ps.executeUpdate();
         
     }
-    public void deletePaymentDetailById(int id) throws SQLException{
-        String query = "DELETE FROM PAYMENT WHERE id=?";
+    public void deleteCardByUserId(int userId) throws SQLException{
+        String query = "DELETE FROM CARD WHERE userId=?";
         PreparedStatement ps = conn.prepareStatement(query);
-        ps.setInt(1,id);
+        ps.setInt(1,userId);
         ps.executeQuery();
     }
-    public void deletePaymentDetailByCardNumber(String cardNumber) throws SQLException{
+    public void deleteCardlByCardNumber(String cardNumber) throws SQLException{
         
-        String query = "DELETE FROM PAYMENT WHERE cardNumer=?";
+        String query = "DELETE FROM CARD WHERE cardNumer=?";
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setString(1,cardNumber);
         ps.executeQuery();

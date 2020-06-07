@@ -15,7 +15,7 @@ package uts.isd.controller;
    import java.util.logging.Level;
    import java.util.logging.Logger;
    import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+    import javax.servlet.annotation.WebServlet;
    import javax.servlet.http.HttpServlet;
    import javax.servlet.http.HttpServletRequest;
    import javax.servlet.http.HttpServletResponse;
@@ -29,7 +29,8 @@ import javax.servlet.annotation.WebServlet;
        private Connection conn;
        private ProductDBManager productManager;
        private OrderLineDBManager orderLineManager;
-        
+       private DBLogsManager logsManager;
+
        @Override //Create and instance of DBConnector for the deployment session
        public void init() {
            try {
@@ -47,7 +48,7 @@ import javax.servlet.annotation.WebServlet;
            conn = db.openConnection(); //Create a DB connection      
            try {
                manager = new DBManager(conn); //Create a DB Manager
-               
+               logsManager = new DBLogsManager(conn); //Create logsManager
                productManager = new ProductDBManager(conn); // Create a Product DB manager
                
                orderLineManager = new OrderLineDBManager(conn);
@@ -58,6 +59,7 @@ import javax.servlet.annotation.WebServlet;
            }
            //export the DB manager to the view-session (JSPs)
            session.setAttribute("manager", manager);
+           session.setAttribute("logsManager",logsManager);
            session.setAttribute("productManager", productManager);
            session.setAttribute("orderLineManager", orderLineManager);
            

@@ -25,6 +25,7 @@
         <div><span class="time" id="time"></span></div>
         
         <% 
+        String userId = request.getParameter("userId");
         String cardNumberErr = (String) session.getAttribute("cardNumberErr");
         String expiresOnErr = (String) session.getAttribute("expiresOnErr");
         String cvvNumberErr = (String)session.getAttribute("cvvNumberErr");
@@ -37,11 +38,14 @@
         <div class="top">
             <a href="index.jsp">Index</a>   
         </div>
-        <form method="post" action="PaymentInfoServlet">
+        <form method="post" action="CardServlet">
         
         <h3> Please fill out the form</h3>
+        <p>User Id <%=userId%></p>
         <table>
-
+            
+            <th>User Id</th>
+            <td><input type="text" value="<%=userId%>"name="userId"></td>
             <tr>
 		<th>Card Number</th>
 		<td><input type="text" placeholder="<%=(cardNumberErr != null ? cardNumberErr:"Enter Card Number") %>" name="cardNumber"></td>
@@ -49,23 +53,18 @@
         
             <tr>
 		<th>Expire Date</th>
-		<td><input type="text" placeholder="<%=(expiresOnErr != null ? expiresOnErr:"Enter Expire Date") %>" name="expiresOnErr"></td>
+		<td><input type="text" placeholder="<%=(expiresOnErr != null ? expiresOnErr:"Enter Expire Date") %>" name="expiresOn"></td>
             </tr>
             
              <tr>
 		<th>CVV Number</th>
-		<td><input type="text" placeholder="<%=(cvvNumberErr != null ? cvvNumberErr:"Enter three CVV Number") %>" name="cvvNumberErr"></td>
+		<td><input type="text" placeholder="<%=(cvvNumberErr != null ? cvvNumberErr:"Enter three CVV Number") %>" name="cvvNumber"></td>
             </tr>
-            
+
             <tr>
-		<th>Payment Type</th>
-		<td><input type="text" placeholder="Paypal or CreditCard" name="paymentType"></td>
-	    </tr>
-           
-            <tr>
-                <td colspan="2"> <input type="submit" value="signConfirm" >
-                    <a href="index.jsp">Cancel</a>
-                </td>
+                <td colspan="2"><input type="submit" value="Confirm" ></td>
+                <td><a href="index.jsp">Cancel</a></td>
+                
             </tr>
           
         </table>

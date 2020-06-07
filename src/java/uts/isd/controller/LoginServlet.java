@@ -76,9 +76,16 @@ public class LoginServlet extends HttpServlet{
                     session.setAttribute("user",user);
                    user.setActive(true); // user's active
                    int userId = user.getId();
+                   String usertype = user.getUsertype();
                    manager.addUserLog(userId, "Login");
                    // response.sendRedirect("index.jsp");
-                  request.getRequestDispatcher("welcome.jsp").forward(request,response);
+                   if(usertype.equals("Staff")){
+                    request.getRequestDispatcher("/admin/index.jsp").forward(request,response);
+                   }
+                   if(usertype.equals("Customer")){
+                      request.getRequestDispatcher("welcome.jsp").forward(request,response);
+                   }
+                  
                 } else {
                    session.setAttribute("existErr","User does not exist in the Database !");
                     request.getRequestDispatcher("login.jsp").include(request,response);
