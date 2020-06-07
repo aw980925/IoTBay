@@ -24,7 +24,6 @@ w
         </div>	
         
         <div class="top">
-            <a href="index.jsp">Index</a>
             <a href="LogoutServlet?userId=${user.id}">Logout</a>
             <a href="main.jsp?id=${user.id}">Main</a>
         </div>

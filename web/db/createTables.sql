@@ -64,14 +64,22 @@ basketID        INTEGER NOT NULL PRIMARY KEY
                     GENERATED ALWAYS AS IDENTITY
                         (START WITH 1, INCREMENT BY 1),
 customerID      INTEGER,
-productID       INTEGER,
-totalProductQty INTEGER,
 totalAmount     INTEGER,
-selectedProducts INTEGER
 );
 
 ALTER TABLE BASKET ADD FOREIGN KEY (customerID) REFERENCES USERS (id);
-ALTER TABLE BASKET ADD FOREIGN KEY (productID) REFERENCES PRODUCT (productID);
+
+CREATE TABLE ORDERLINE
+(
+OrderLineNo     INTEGER NOT NULL PRIMARY KEY
+                    GENERATED ALSWAYS AS IDENTITY
+                        (START WITH 1, INCREMENT BY 1),
+productID       INTEGER,
+orderQty        INTEGER,
+price           DOUBLE
+);
+
+ALTER TABLE ORDERLINE ADD FOREIGN KEY (productID) REFERENCES PRODUCT (productID);
 
 CREATE TABLE ORDERS
 (
@@ -79,6 +87,7 @@ orderID         INTEGER NOT NULL PRIMARY KEY
                     GENERATED ALWAYS AS IDENTITY
                         (START WITH 1, INCREMENT BY 1),
 customerID      INTEGER,
+orderTotal      DOUBLE,
 orderDate       TIMESTAMP,
 orderStatus     VARCHAR(10)
 );
