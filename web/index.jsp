@@ -33,6 +33,8 @@ author: 13093950 Heeyoon Koo
 <div class="top">
   <a href="login.jsp">Login</a>
   <a href="register.jsp">Register</a>
+  <a href="addUser.jsp">Add User (in index for now)</a>
+  <a href="userList.jsp">User List (in index for now)</a>
   
 </div>
 

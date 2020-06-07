@@ -18,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 public class DBManager {
     
@@ -114,14 +115,17 @@ public User findEmail(String email) throws SQLException{
   ps.setBoolean(8,active);
  
   ps.executeUpdate();
-  
-  
-         
-      
-  
        //ResultSet rs = st.executeQuery(query);
-
     }
+    
+     public ArrayList<User> fetchAll(){
+      
+      return null;
+  }
+    
+    
+    
+    
      public User findId(int userId) throws SQLException{
         User user = null;
         String query = "SELECT * FROM USERS WHERE id= "+userId;
