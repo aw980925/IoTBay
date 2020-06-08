@@ -65,8 +65,8 @@ public class LoginServlet extends HttpServlet{
                 
                 //if user found
                 if(user != null ){
-                    //HttpSession session = request.getSession(true);
-                    session.setAttribute("user",user);
+                    
+                   session.setAttribute("user",user);
                    user.setActive(true); // user's active
                    int userId = user.getId();
                    String usertype = user.getUsertype();
@@ -75,7 +75,7 @@ public class LoginServlet extends HttpServlet{
                    if(usertype.equals("Staff")){
                     request.getRequestDispatcher("main-admin.jsp").forward(request,response);
                    }
-                   if(usertype.equals("Customer")){
+                   else{
                       request.getRequestDispatcher("welcome.jsp").forward(request,response);
                    }
                   

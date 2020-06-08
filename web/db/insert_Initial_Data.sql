@@ -78,9 +78,7 @@ INSERT INTO PRODUCT
 
 
 INSERT INTO ORDERLINE 
-(productID, customerID, orderQty, price)
-
-    VALUES
+(productID, customerID, orderQty, price) VALUES
     (1,1,20,11),
     (2,1,10,22),
     (3,1,30,33),
