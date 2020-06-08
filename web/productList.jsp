@@ -30,7 +30,7 @@
            
            int id = Integer.parseInt(request.getParameter("id"));
         %>
-       
+        <form method ="post" method="get">
         <table>
             <thead>
                 <tr>
@@ -58,13 +58,15 @@
                 <td>${display.quantity}</td>
                 <td><input type="number" placeholder="<%=(exceptionQuantityErr != null ? exceptionQuantityErr:"Enter Quantity") %>" name="orderQty"></td>
                 
-                <td><a class=" button" href ="/AddOrderLineServlet?id=${user.id}"> Add </a>
+                <td><a class=" button" href ="/AddOrderLineServlet?customerID=${user.id} & productID =${display.productID} & productPrice =${display.productPrice} & orderQty =${"orderQty"} & quantity=${display.quantity} "> Add </a>
+
             </tr> 
             </c:forEach>
            
             </tbody>
         </table>
-        
-        <span><%= (addConfirmation != null) ? "Item added to the basket":"" %> </span>
+        </form>
+        <span><%= (addConfirmation != null) ? "":"" %> </span>
+        <span><%= (exceptionOrderLineErr != null) ? "":"" %> </span>
     </body>
 </html>

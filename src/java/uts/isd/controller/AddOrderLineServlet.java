@@ -27,9 +27,8 @@ public class AddOrderLineServlet extends HttpServlet {
         HttpSession session = request.getSession();
         
         //create an instance of the Validator class
-        Validator validator = new Validator();
+   //     Validator validator = new Validator();
 
-       //capture the posted productID   
         String productID = request.getParameter("productID");
         int productIDInt = Integer.getInteger(productID);
         String customerID = request.getParameter("customerID");
@@ -38,6 +37,7 @@ public class AddOrderLineServlet extends HttpServlet {
         int orderQtyInt = Integer.parseInt(orderQty);
         String price = request.getParameter("productPrice");
         Double priceInt = Double.parseDouble(price);
+        priceInt = priceInt * orderQtyInt;
         String AvailableQty = request.getParameter("quantity");
         int AvailableQtyInt = Integer.parseInt(AvailableQty);
 
@@ -46,7 +46,7 @@ public class AddOrderLineServlet extends HttpServlet {
                
         
         OrderLine orderLine = null;
-        validator.clear(session);
+    //    validator.clear(session);
         
         try {
             orderLine = orderLineManager.findOrderLine(customerIDInt);
@@ -73,7 +73,9 @@ public class AddOrderLineServlet extends HttpServlet {
             }
         }
     }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     
+    }
     
-
 }
