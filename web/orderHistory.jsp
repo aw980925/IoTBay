@@ -28,7 +28,7 @@
         <div class="top">
             <a href="welcome.jsp?id=${user.id}">See my profile & Payment Information</a>
             <a href="main.jsp?id=${user.id}">Main</a>
-            <a href="/LogoutServlet?id=${user.id}">logout</a>
+            <a href="LogoutServlet?userId=${user.id}">logout</a>
         </div>
   
       <p> Order History page </p>

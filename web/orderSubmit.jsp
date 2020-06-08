@@ -31,7 +31,7 @@
             <a href="welcome.jsp?id=${user.id}">See my profile & Payment Information</a>
             <a href="main.jsp?id=${user.id}">Product Main page</a>
             <a href="orderHistory.jsp?id=${user.id}">Order History</a>
-            <a href="LogoutServlet?id=${user.id}">logout</a>
+            <a href="LogoutServlet?userId=${user.id}">logout</a>
         </div>
   
       <p> Order submitted page </p>

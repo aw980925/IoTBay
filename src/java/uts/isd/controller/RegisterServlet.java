@@ -40,11 +40,9 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String mobileNum = request.getParameter("mobileNum");
-        String address = request.getParameter("address");
-    
-        
-            
+        String address = request.getParameter("address");   
         User user = null;
+        // clear validator
         validator.clear(session);
         
    
@@ -64,14 +62,16 @@ public class RegisterServlet extends HttpServlet {
         else {
             
              try {
+                 //find user by email
                  user = manager.findEmail(email);
-                
+                // if user not found (same email does not exist in the database)
                  if(user == null){
-                     
+                // add User     
                 manager.addUser(fName, lName, password, email, mobileNum, address);
                 request.getRequestDispatcher("registerSuccess.jsp").forward(request, response);
                 
                  }
+                 // if there is a same email exist in the database
                  else
                  {
                      session.setAttribute("exceptionErr", "User already existed");

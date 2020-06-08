@@ -78,8 +78,8 @@
                     <td><c:out value = "${row.mobileNum}"/></td>
                     <td><c:out value = "${row.address}"/></td>
                     <td><c:out value = "${row.usertype}"/></td>
-                    <td><a style="text-decoration:none" class=" btn2 " href="/UpdateUserServlet">Edit</a></td>
-                    <td><a style="text-decoration:none" class=" btn4 " href="/DeleteUserServlet">Delete</a></td>
+                    <td><a style="text-decoration:none" class=" btn2 " href="UpdateUserServlet?id=${user.id}">Edit</a></td>
+                    <td><a style="text-decoration:none" class=" btn4 " href="deleteUserServlet?id=${user.id}">Delete</a></td>
                 </tr>
             </c:forEach>
         </table>
