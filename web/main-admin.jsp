@@ -37,7 +37,7 @@
         </div>
         <ul class="nav nav-pills justify-content-end list">
             <li class="nav-item">
-              <a class="nav-link active" href="main-admin.jsp">Main</a>
+              <a class="nav-link" href="main-admin.jsp">Main</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="addProduct.jsp">Add Products</a>
