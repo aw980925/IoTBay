@@ -9,6 +9,7 @@
    import java.io.IOException;
    import java.sql.Connection;
    import java.sql.SQLException;
+import java.util.ArrayList;
    import java.util.logging.Level;
    import java.util.logging.Logger;
    import javax.servlet.ServletException;
@@ -25,37 +26,47 @@
 public class SearchProductServlet extends HttpServlet{
     
     
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
         
         //1- retrieve the current session
         HttpSession session = request.getSession();
         //2- create an instance of the Validator class    
         Validator validator = new Validator();
-        //3- capture the posted email      
-        String type = request.getParameter("productType");
-        String name = request.getParameter("productName");
-        //4- capture the posted password    
+        //3- capture the posted productName      
+        String name = request.getParameter("name");  
+        //4- capture the posted productType    
+        String type = request.getParameter("type");
 
         
         Product product = null; 
         validator.clear(session);
         
+        try{
         //5- retrieve the manager instance from session      
-        DBManager manager = (DBManager) session.getAttribute("manager");
+        ProductDBManager productManager = (ProductDBManager)session.getAttribute("productManager");
         
-        
-
         //6- find product by name and type
+        Product searchedDisplay = productManager.findProduct(name,type);
+            
+        session.setAttribute("searchedDisplay",searchedDisplay);     
+
+        request.getRequestDispatcher("productList.jsp").include(request, response);
+        
+        } catch (SQLException ex) {
+           Logger.getLogger(SearchProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         
         if(product != null){
             
             session.setAttribute("product", product);
-            request.getRequestDispatcher("/admin/index,jsp").include(request,response);
+            request.getRequestDispatcher("productList.jsp").include(request,response);
             
         } else {
             session.setAttribute("exitProductErr", "Product doesn't exist in the database!");
-            request.getRequestDispatcher("/admin/index.jsp").include(request, response);
+            request.getRequestDispatcher("productList.jsp").include(request, response);
             
         }
     }
