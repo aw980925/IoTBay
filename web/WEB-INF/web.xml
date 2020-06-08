@@ -55,7 +55,31 @@
     <servlet>
         <servlet-name>ViewBasketServlet</servlet-name>
         <servlet-class>uts.isd.controller.ViewBasketServlet</servlet-class>
-    </servlet>    
+    </servlet>
+    <servlet>
+        <servlet-name>test</servlet-name>
+        <servlet-class>uts.isd.controller.AddUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addUserServlet</servlet-name>
+        <servlet-class>uts.isd.controller.addUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>searchproduct</servlet-name>
+        <servlet-class>uts.isd.controller.searchproduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewUsersServlet</servlet-name>
+        <servlet-class>uts.isd.controller.ViewUsersServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchUserServlet</servlet-name>
+        <servlet-class>uts.isd.controller.SearchUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MyController</servlet-name>
+        <servlet-class>uts.isd.controller.MyController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -96,15 +120,38 @@
         <servlet-name>EditCardServlet</servlet-name>
         <url-pattern>/EditCardServlet</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>    
+    <servlet-mapping>
         <servlet-name>AddOrderLineServlet</servlet-name>
         <url-pattern>/AddOrderLineServlet</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>    
+    <servlet-mapping>
         <servlet-name>ViewBasketServlet</servlet-name>
         <url-pattern>/ViewBasketServlet</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>test</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addUserServlet</servlet-name>
+        <url-pattern>/addUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>searchproduct</servlet-name>
+        <url-pattern>/searchproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewUsersServlet</servlet-name>
+        <url-pattern>/ViewUsersServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchUserServlet</servlet-name>
+        <url-pattern>/SearchUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyController</servlet-name>
+        <url-pattern>/MyController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

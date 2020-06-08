@@ -5,10 +5,7 @@
  */
 package uts.isd.dao;
 
-/**
- *
- * @author yoonkoo
- */
+
 import uts.isd.model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

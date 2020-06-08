@@ -68,6 +68,14 @@ price           DOUBLE,
 PRIMARY KEY (productID, customerID)
 );
 
+CREATE TABLE CARD
+(
+userId Integer,
+cardNumber       VARCHAR(20),
+expiresOn       VARCHAR(10),
+cvvNumber       VARCHAR(10)
+);
+
 
 CREATE TABLE ORDERS
 (

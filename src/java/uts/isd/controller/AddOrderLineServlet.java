@@ -20,14 +20,15 @@ import uts.isd.model.OrderLine;
 
 public class AddOrderLineServlet extends HttpServlet {
     
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //retrieve the current session
-        HttpSession session = request.getSession();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
+      
+        System.out.println("ㅇㅇㅇㅇ");
+        HttpSession session = request.getSession();
+        OrderLineDBManager orderLineManager = (OrderLineDBManager) session.getAttribute("orderLineManager");
         //create an instance of the Validator class
-   //     Validator validator = new Validator();
+        Validator validator = new Validator();
 
         String productID = request.getParameter("productID");
         int productIDInt = Integer.getInteger(productID);
@@ -42,22 +43,23 @@ public class AddOrderLineServlet extends HttpServlet {
         int AvailableQtyInt = Integer.parseInt(AvailableQty);
 
         //retrieve the manager instance from session - ConnServlet            
-        OrderLineDBManager orderLineManager = (OrderLineDBManager) session.getAttribute("orderLineManager");
+        
                
         
         OrderLine orderLine = null;
-    //    validator.clear(session);
+        validator.clear(session);
         
         try {
             orderLine = orderLineManager.findOrderLine(customerIDInt);
         } catch (SQLException ex) {
-            Logger.getLogger(AddOrderLineServlet.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(AddOrderLineServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         if ( orderQtyInt > AvailableQtyInt) {
 
             session.setAttribute("exceptionQuantityErr", "Order Quantity is bigger than Available stock.");
             request.getRequestDispatcher("productList.jsp").include(request, response);
+            System.out.println("stock error");
         }
         
         
@@ -73,9 +75,5 @@ public class AddOrderLineServlet extends HttpServlet {
             }
         }
     }
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    
-    }
-    
 }
+    

@@ -25,7 +25,7 @@ author: 13093950 Heeyoon Koo
     </head>
 <body onload="startTime()">
     <div><span class="time" id="time"></span></div>
-
+    
 <div class="header">
     <h1><a href="index.jsp">IoT Bay</a></h1>
 </div>
@@ -33,8 +33,11 @@ author: 13093950 Heeyoon Koo
 <div class="top">
   <a class="indexbtn" href="login.jsp">Login</a>
   <a class="indexbtn" href="register.jsp">Register</a>
+  
+  <!--
   <a class="indexbtn" href="addUser.jsp">Add User</a>
   <a class="indexbtn" href="userList.jsp">User List</a>
+  -->
   
 </div>
 

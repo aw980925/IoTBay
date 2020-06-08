@@ -37,6 +37,8 @@
             <input type="text" name="type" id="productType" placeholder="search for product type"/>
             <input type="submit" value="Search" />
         </form>
+        
+        
         <table>
             <thead>
                 <tr>
@@ -55,6 +57,7 @@
             <tbody> 
             
             <c:forEach items="${display}" var="display">
+            <form action="AddOrderLineServlet?customerID=${user.id} & productID =${display.productID} & productPrice =${display.productPrice} & quantity=${display.quantity}" method ="post">    
             <tr> 
                 <td>${display.categoryID}</td>
                 <td>${display.productID}</td> 
@@ -66,29 +69,13 @@
                 <td>${display.quantity}</td>
                 <td><input type="number" placeholder="<%=(exceptionQuantityErr != null ? exceptionQuantityErr:"Enter Quantity") %>" name="orderQty"></td>
                 
-                <td><a class=" button" href ="/AddOrderLineServlet?customerID=${user.id} & productID =${display.productID} & productPrice =${display.productPrice} & orderQty =${"orderQty"} & quantity=${display.quantity} "> Add </a>
+                <td><input class=" button" type="submit" value="Add"> </a>
 
             </tr> 
             </c:forEach>
-           
-            <tr> 
-                <td>${product.categoryID}</td>
-                <td>${product.productID}</td> 
-                <td>${product.productType}</td>
-                <td>${product.productName}</td> 
-                <td>${product.productPrice}</td>
-                <td>${product.description}</td>
-                <td>${product.status}</td>
-                <td>${product.quantity}</td>
-                <td><input type="number" placeholder="<%=(exceptionQuantityErr != null ? exceptionQuantityErr:"Enter Quantity") %>" name="orderQty"></td>
-                
-                <td><a class=" button" href ="/AddOrderLineServlet?customerID=${user.id} & productID =${display.productID} & productPrice =${display.productPrice} & orderQty =${"orderQty"} & quantity=${display.quantity} "> Add </a>
-
-            </tr> 
-            
-            </tbody>
+            </form>
         </table>
-        </form>
+        
         <span><%= (addConfirmation != null) ? "":"" %> </span>
         <span><%= (exceptionOrderLineErr != null) ? "":"" %> </span>
     </body>
