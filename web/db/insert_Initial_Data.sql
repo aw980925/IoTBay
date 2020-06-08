@@ -51,41 +51,60 @@ INSERT INTO USERS(fName,lName,password,email,mobileNum,address,usertype,active)
 ,('Josh','Carrot','BA99342bob','josh.carrot@uts.edu.au','01234567','uts2','Staff',false)
 ,('Kate','Haskins','BA99342bob','kate.haskins@uts.edu.au','01234567','uts2','Staff',false);
 
-INSERT INTO CATEGORY
-             (categoryName, description)
-     VALUES
+INSERT INTO CATEGORY (categoryName, description) VALUES
      ('Camera','Iot camera'),
      ('Light bulb', 'Iot smart light'),
-     ('Voice Controller', 'Home voice Controller'),
-     ('Home Security','Security IoT device'),
-     ('Wi-Fi','Wi-Fi');
+     ('Security System','alarm'),
+     ('appliances','goods'),
+     ('Smart speaker','from Amazon, google');
+
 
 INSERT INTO PRODUCT
-    (categoryID, productName, productPrice, description, status, quantity, productType)
-     
-     VALUES
-     (1,'Wifi Camera',19.99,'Smart wireless camera with application control','In stock', 200, 'Camera'),
+    (categoryID, productName, productPrice, description, status, quantity, productType) VALUES
      (1,'Smart web cam',59.99,'Iot web camera for pc','In stock', 10, 'Camera'),
      (2,'Lux smart bulb',29.99,'Wifi connect light bulb','In stock', 30, 'Light bulb'),
      (2,'Bright smart bulb',39.99,'Wifi connect light bulb','In stock', 20,'Light bulb'),
-    (3,'Google Home',43,'smart voice home controller','In stock',400,'Voice Controller'),
-    (3,'Amazon Echo Plus Voice Controller',100,'smart home security device','In stock',130,'Voice Controller'),
-    (4,'Nest Smart Door Bell',70,'smart home security device','In stock',89,'Home Security'),
-    (4,'Amazon Smart Door Alarm',50,'smart voice home controller','In stock',400,'Home Security'),
-    (5,'Particle Photon Wi-Fi with headers',60,'the particle IoT board','In stock',20,'Wi-Fi'),
-    (5,'NetGear Home Mesh Wi-Fi System',350,'IoT device which maintains the whole home mesh Wi-Fi system','In stock',20,'Wi-Fi');
-    
+     (3,'Smart alarm',19.99,'Smart wireless alarm','In stock', 200, 'Security System'),
+     (3,'Smart doorlock',59.99,'doorlock','In stock', 10, 'Security System'),
+     (4,'Smart Toaster',29.99,'toaster with google assistance','In stock', 30, 'appliances'),
+     (4,'Smart Kettle',39.99,'kettle with smart wireless sensor', 20,'appliances'),
+     (5,'Wireless speaker',19.99,'Smart wireless speaker','In stock', 200, 'Smart speaker'),
+     (5,'Apple homepot',59.99,'from Apple Inc','In stock', 10, 'Smart speaker'),
+     (5,'Google pot',29.99,'from Google Inc','In stock', 30, 'Smart speaker'),
+     (5,'Amazon echo',39.99,'from Amazon Inc','In stock', 20,'Smart speaker')
 ;
 
 
-INSERT INTO ORDERLINE
+
+INSERT INTO ORDERLINE 
 (productID, customerID, orderQty, price)
 
     VALUES
     (1,1,20,11),
     (2,1,10,22),
-    (3,1,30,33);
+    (3,1,30,33),
+    (4,1,30,44),
+    (5,1,30,355),
+    (6,1,30,66),
+    (7,1,30,77),
+    (8,1,30,88),
+    (9,1,30,99),
+    (10,1,30,999);
     
+INSERT INTO ORDERS 
+(customerID, orderTotal, orderDate, orderStatus)
+VALUES
+    (1,1000,'2019-10-25 16:10:32','Delivered'),
+    (1,2000,'2020-1-25 16:10:32','Paid'),
+    (1,3333,'2011-10-25 16:10:32','Delivered'),
+    (1,500,'2014-10-25 16:10:32','Paid'),
+    (1,800,'2016-10-25 16:10:32','Delivered'),
+    (1,200,'2015-10-25 16:10:32','Paid'),
+    (1,10,'2014-10-25 16:10:32','Delivered'),
+    (1,199,'2012-10-25 16:10:32','cancelled'),
+    (1,100,'2019-10-22 17:10:32','Delivered'),
+    (1,299,'2012-10-11 16:10:32','cancelled')
+;
 
 
 INSERT INTO CARD (userId,cardNumber,expiresOn,cvvNumber) VALUES
