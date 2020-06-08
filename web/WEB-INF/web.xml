@@ -32,7 +32,11 @@
         <servlet-name>ViewProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.ViewProductServlet</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
+        <servlet-name>SearchProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.SearchProductServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AddOrderLineServlet</servlet-name>
         <servlet-class>uts.isd.controller.AddOrderLineServlet</servlet-class>
     </servlet>
