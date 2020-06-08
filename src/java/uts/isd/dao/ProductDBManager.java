@@ -66,25 +66,29 @@ public Product findProductID(int PID) throws SQLException {
 }
 
 //Add a user-data into the database   
-public void addProduct(int categoryID, String name, double price, String description, String status,  int quantity , String producttype) throws SQLException { //code for add-operation       
-  st.executeUpdate("INSERT INTO PRODUCT " + "VALUES ('" + categoryID + "', '" + name + "', '" + price + "', '" + description + "', '" + status + "', '" + quantity + "', '" + producttype + "')");   
+public void addProduct(int categoryID, String name, double price, String description, String status,  int quantity , String type) throws SQLException { //code for add-operation       
+  st.executeUpdate("INSERT INTO IOTBAY.PRODUCT(categoryID, name, price, description, status, quantity, type) " + "VALUES ('" + categoryID + "', '" + name + "', '" + price + "', '" + description + "', '" + status + "', '" + quantity + "', '" + type + "')");   
 
 }
+/*
+ productManager.addProduct(Integer.parseInt(categoryID), name, Double.price, description, Integer.parseInt(quantity), type);
+ Product product = new Product(name, type, description, Integer.parseInt(quantity), price);
 
+*/
 //update a user details in the database   
 public void updateProduct(int id, int categoryID, String name, double price, String description, String status, int quantity, String producttype) throws SQLException {        
-  st.executeUpdate("UPDATE PRODUCT SET PRODUCTNAME ='" + name + "', PRODUCTPRICE = '" + price + "', DESCRIPTION='" + description + "', STATUS= '" + status + "', QUANTITY= '" + quantity + "', PRODUCTTYPE= '" + producttype + "' WHERE PRODUCTID='" + id + "'");            
+  st.executeUpdate("UPDATE IOTBAY.PRODUCT SET PRODUCTNAME ='" + name + "', PRODUCTPRICE = '" + price + "', DESCRIPTION='" + description + "', STATUS= '" + status + "', QUANTITY= '" + quantity + "', PRODUCTTYPE= '" + producttype + "' WHERE PRODUCTID='" + id + "'");            
 
 }       
 
 //delete a user from the database   
 public void deleteProduct(int id) throws SQLException{       
-   st.executeUpdate("DELETE FROM PRODUCT WHERE PRODUCTID='" + id + "'");
+   st.executeUpdate("DELETE FROM IOTBAY.PRODUCT WHERE PRODUCTID='" + id + "'");
 
 }
 
 public ArrayList<Product> fetchProduct() throws SQLException {
-    String fetch = "select * from Product";
+    String fetch = "select * from IOTBAY.Product";
     ResultSet rs = st.executeQuery(fetch);
     ArrayList<Product> temp = new ArrayList<Product>();
     
