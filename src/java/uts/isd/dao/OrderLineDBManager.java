@@ -39,7 +39,7 @@ public OrderLine findOrderLine(int customerID) throws SQLException {
 
 //Add a user-data into the database   
 public void addOrderLine(int productID, int customerID, int orderQty, double price ) throws SQLException { //code for add-operation       
-  st.executeUpdate("INSERT INTO ORDERLINE " + "VALUES ('" + productID + "', '" + customerID + "', '" + orderQty + price + "')");   
+  st.executeUpdate("INSERT INTO ORDERLINE " + "VALUES ('" + productID + "', '" + customerID + "', '" + orderQty + "', '" + price + "')");   
 
 }
 

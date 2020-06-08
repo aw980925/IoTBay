@@ -31,6 +31,7 @@ public class ConnServlet extends HttpServlet {
     private OrderLineDBManager orderLineManager;
     private DBLogsManager logsManager;
     private DBPaymentManager paymentManager;
+    private OrderDBManager orderManager;
 
     @Override //Create and instance of DBConnector for the deployment session
     public void init() {
@@ -52,6 +53,7 @@ public class ConnServlet extends HttpServlet {
             productManager = new ProductDBManager(conn); // Create a Product DB manager
             orderLineManager = new OrderLineDBManager(conn);
             paymentManager = new DBPaymentManager(conn);
+            orderManager = new OrderDBManager(conn);
 
         } catch (SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -62,6 +64,7 @@ public class ConnServlet extends HttpServlet {
         session.setAttribute("productManager", productManager);
         session.setAttribute("orderLineManager", orderLineManager);
         session.setAttribute("paymentManager", paymentManager);
+        session.setAttribute("orderManager", orderManager);
 
     }
 

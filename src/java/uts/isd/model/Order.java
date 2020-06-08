@@ -15,19 +15,29 @@ import java.sql.Timestamp;
 
 
 public class Order implements Serializable{
+    private int orderID;
     private int customerID;
     private double orderTotal;
     private Timestamp orderDate;
     private String orderStatus;
     
     
-    public Order(int customerID, double orderTotal, Timestamp orderDate, String orderStatus){
+    public Order(int orderID, int customerID, double orderTotal, Timestamp orderDate, String orderStatus){
     
+        this.orderID = orderID;
         this.customerID = customerID;
         this.orderTotal = orderTotal;
         this.orderDate = orderDate;
         this.orderStatus = orderStatus;
     
+    }
+
+    public int getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
     }
     
     
@@ -60,9 +70,5 @@ public class Order implements Serializable{
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
     }
-    
-    
-    
-
     
 }
