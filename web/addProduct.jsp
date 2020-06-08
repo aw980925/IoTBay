@@ -21,7 +21,7 @@
         <div class="header">
             <h1>Add New Product</h1>
         </div>
-        <form action="addProductServlet" method="post">
+        <form action="AddProductServlet" method="post">
             <table>
                 <tbody>
                     <tr>
@@ -35,23 +35,23 @@
                     </tr>
                     <tr>
                         <th>Product Type</th>
-                        <td><input type='text' name="productType" placeholder="productType"/></td>
+                        <td><input type='text' name="producttype" placeholder="productType"/></td>
                     </tr>
                     <tr>
                         <th>Product Name</th>
-                        <td><input type='text' name="productName" placeholder="productName"/></td>
+                        <td><input type='text' name="productname" placeholder="productname"/></td>
                     </tr>
                     <tr>
                         <th>Product Price</th>
-                        <td><input type='text' name="productPrice" placeholder="productName"/></td>
+                        <td><input type='text' name="price" placeholder="price"/></td>
                     </tr>
                     <tr>
                         <th>In stock</th>
-                        <td><input type='text' name="status" placeholder="productName"/></td>
+                        <td><input type='text' name="status" placeholder="status"/></td>
                     </tr>
                     <tr>
                         <th>Quantity</th>
-                        <td><input type='text' name="quantity" placeholder="productName"/></td>
+                        <td><input type='text' name="quantity" placeholder="quantity"/></td>
                     </tr>
                     <tr>
                         <th>Description</th>
