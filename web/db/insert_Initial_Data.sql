@@ -55,7 +55,10 @@ INSERT INTO CATEGORY
              (categoryName, description)
      VALUES
      ('Camera','Iot camera'),
-     ('Light bulb', 'Iot smart light');
+     ('Light bulb', 'Iot smart light'),
+     ('Voice Controller', 'Home voice Controller'),
+     ('Home Security','Security IoT device'),
+     ('Wi-Fi','Wi-Fi');
 
 INSERT INTO PRODUCT
     (categoryID, productName, productPrice, description, status, quantity, productType)
@@ -64,7 +67,14 @@ INSERT INTO PRODUCT
      (1,'Wifi Camera',19.99,'Smart wireless camera with application control','In stock', 200, 'Camera'),
      (1,'Smart web cam',59.99,'Iot web camera for pc','In stock', 10, 'Camera'),
      (2,'Lux smart bulb',29.99,'Wifi connect light bulb','In stock', 30, 'Light bulb'),
-     (2,'Bright smart bulb',39.99,'Wifi connect light bulb','In stock', 20,'Light bulb')
+     (2,'Bright smart bulb',39.99,'Wifi connect light bulb','In stock', 20,'Light bulb'),
+    (3,'Google Home',43,'smart voice home controller','In stock',400,'Voice Controller'),
+    (3,'Amazon Echo Plus Voice Controller',100,'smart home security device','In stock',130,'Voice Controller'),
+    (4,'Nest Smart Door Bell',70,'smart home security device','In stock',89,'Home Security'),
+    (4,'Amazon Smart Door Alarm',50,'smart voice home controller','In stock',400,'Home Security'),
+    (5,'Particle Photon Wi-Fi with headers',60,'the particle IoT board','In stock',20,'Wi-Fi'),
+    (5,'NetGear Home Mesh Wi-Fi System',350,'IoT device which maintains the whole home mesh Wi-Fi system','In stock',20,'Wi-Fi');
+    
 ;
 
 
@@ -74,8 +84,8 @@ INSERT INTO ORDERLINE
     VALUES
     (1,1,20,11),
     (2,1,10,22),
-    (3,1,30,33)
-;
+    (3,1,30,33);
+    
 
 
 INSERT INTO CARD (userId,cardNumber,expiresOn,cvvNumber) VALUES
