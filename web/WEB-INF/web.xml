@@ -72,6 +72,10 @@
         <servlet-name>SearchUserServlet</servlet-name>
         <servlet-class>uts.isd.controller.SearchUserServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MyController</servlet-name>
+        <servlet-class>uts.isd.controller.MyController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -139,6 +143,10 @@
     <servlet-mapping>
         <servlet-name>SearchUserServlet</servlet-name>
         <url-pattern>/SearchUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyController</servlet-name>
+        <url-pattern>/MyController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

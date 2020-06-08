@@ -1,9 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="uts.isd.model.Product"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
+<%@page import="uts.isd.model.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
 <%@page import="uts.isd.dao.*"%>
+<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
+<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,62 +22,67 @@
         <title>Product List</title>
     </head>
     <body>
-        
-        <%
-           Product product = (Product)session.getAttribute("display");
-           String exceptionQuantityErr = (String) session.getAttribute("exceptionQuantityErr");
-           String addConfirmation = (String) session.getAttribute("addConfirmation");
-           String exceptionOrderLineErr = (String) session.getAttribute("exceptionOrderLineErr");
-    
-           
-           int id = Integer.parseInt(request.getParameter("id"));
-        %>
-        <form action="SearchProdctServlet" method="get">
-            <input type="text" name="name" id="productName" />
-            <input type="text" name="type" id="productType" />
-            <input type="submit" value="Seach" />
-        </form>
-        
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Category ID</th>
-                    <th>Product ID</th>
-                    <th>Product Type</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                    <th>Status</th>
-                    <th>Available Quantity</th>
-                    <th>Type Quantity</th>
-                    <th>Add to Basket</th>
-                </tr>
-            </thead>
-            <tbody> 
-            
-            <c:forEach items="${display}" var="display">
-            <form action="AddOrderLineServlet?customerID=${user.id} & productID =${display.productID} & productPrice =${display.productPrice} & quantity=${display.quantity}" method ="post">    
-            <tr> 
-                <td>${display.categoryID}</td>
-                <td>${display.productID}</td> 
-                <td>${display.productType}</td>
-                <td>${display.productName}</td> 
-                <td>${display.productPrice}</td>
-                <td>${display.description}</td>
-                <td>${display.status}</td>
-                <td>${display.quantity}</td>
-                <td><input type="number" placeholder="<%=(exceptionQuantityErr != null ? exceptionQuantityErr:"Enter Quantity") %>" name="orderQty"></td>
-                
-                <td><input class=" button" type="submit" value="Add"> </a>
+        <sql:setDataSource var = "snapshot" driver = "org.apache.derby.jdbc.ClientDriver"
+                           url = "jdbc:derby://localhost:1527/IoTDB"
+                           user = "IoTBay"  password = "admin"/>
 
-            </tr> 
+        <sql:query dataSource = "${snapshot}" var = "result">
+            SELECT * FROM USERS
+        </sql:query>
+
+        <h2> List of users in database </h2>
+        <div class="top">
+            <a href="index.jsp">Index</a>
+
+        </div>
+        <form class="header" action="" method="get">
+            <input type="text" name="name" placeholder="Search by name..."/>
+
+
+        </form>
+
+        <table border = "1" width = "80%">
+            <tr>
+                <th>User ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Mobile Number</th>
+                <th>Address</th>
+                <th>User Type</th>
+                <th></th>
+                <th></th>
+            </tr>         
+            <%
+                Statement stat = null;
+                ResultSet res = null;
+
+                String query = request.getParameter("name");
+                String data;
+                if (query != null) {
+                    data = "select * from Iotbay where fName like '%" + query + "%' or mobileNum like '%" + query + "%'";
+                } else {
+                    data = "select * from iotbay order by id desc";
+                }
+
+
+            %>
+            <c:forEach var = "row" items = "${result.rows}">
+                <tr>
+                    <td><c:out value = "${row.id}"/></td>
+                    <td><c:out value = "${row.fName}"/></td>
+                    <td><c:out value = "${row.lName}"/></td>
+                    <td><c:out value = "${row.password}"/></td>
+                    <td><c:out value = "${row.email}"/></td>
+                    <td><c:out value = "${row.mobileNum}"/></td>
+                    <td><c:out value = "${row.address}"/></td>
+                    <td><c:out value = "${row.usertype}"/></td>
+                    <td><a style="text-decoration:none" class=" btn2 " href="/UpdateUserServlet">Edit</a></td>
+                    <td><a style="text-decoration:none" class=" btn4 " href="/DeleteUserServlet">Delete</a></td>
+                </tr>
             </c:forEach>
-           </form>
-            </tbody>
         </table>
-        
-        <span><%= (addConfirmation != null) ? "":"" %> </span>
-        <span><%= (exceptionOrderLineErr != null) ? "":"" %> </span>
+
     </body>
 </html>

@@ -70,17 +70,21 @@ w
                          </tr>
                          
                          <tr>
-                             <td><a class="button" href="edit.jsp?id=${user.id}">Edit my profile</a></td>
-                             <td><a class="button" href="UserRecordsServlet?userId=${user.id}">See my logs history</a></td>
+                             <td><a style="text-decoration:none" class="btn5" href="edit.jsp?id=${user.id}">Edit my profile</a></td>
+                             <td><a style="text-decoration:none" class="btn5" href="UserRecordsServlet?userId=${user.id}">See my logs history</a></td>
                            
                          </tr>
                          <tr>
-                             <td><a class="button" href="cardRegistration.jsp?userId=${user.id}">Update & Edit Payment Information</a></td>
-                             <td><a class="button" href="basket.jsp?id=${user.id}">Go to Basket</a></td>
+                             <td><a style="text-decoration:none" class="btn5" href="cardRegistration.jsp?userId=${user.id}">Update & Edit Payment Information</a></td>
+                             <td><a style="text-decoration:none" class="btn5" href="basket.jsp?id=${user.id}">Go to Basket</a></td>
                          </tr>
                          <tr>
-                             <td><a class="button" href="orderHistory.jsp?id=${user.id}">See my order history</a></td>
+                             <td><a style="text-decoration:none" class="btn5" href="orderHistory.jsp?id=${user.id}">See my order history</a></td>
                              <td></td>
+                         </tr>
+                         <tr>
+                             <td><a style="text-decoration:none" class="btn5" href="addUser.jsp?userId=${user.id}">Add new User</a></td>
+                             <td><a style="text-decoration:none" class="btn5" href="userList.jsp?id=${user.id}">See user list</a></td>
                          </tr>
                        </table>
     </body>
