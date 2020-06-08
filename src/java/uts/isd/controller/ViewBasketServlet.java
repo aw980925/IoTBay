@@ -24,9 +24,14 @@ public class ViewBasketServlet extends HttpServlet {
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        
-        int customerID = 0; // Just default value assigned 
+   }
+    
+   @Override
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    
+    int customerID = 0; // Just default value assigned 
             try {
-                customerID = Integer.parseInt(request.getParameter("customerID"));
+                customerID = Integer.parseInt(request.getParameter("id"));
                 } catch (NumberFormatException e) {
                     // log the error or ignore it
                 }
@@ -61,8 +66,6 @@ public class ViewBasketServlet extends HttpServlet {
        } catch (SQLException ex) {
            Logger.getLogger(ViewProductServlet.class.getName()).log(Level.SEVERE, null, ex);
        }
-        
-      
-   }
-   
+    }
+    
 }

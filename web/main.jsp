@@ -25,7 +25,7 @@
         <div class="top">
             <a href="/LogoutServlet?id=${user.id}">logout</a>
             <a href="welcome.jsp?id=${user.id}">See my Information</a>
-            <a href="basket.jsp?id=${user.id}">Check basket</a>
+            <a href="ViewBasketServlet?id=${user.id}">Check basket</a>
         </div>
   
       <p> welcome to main page </p>

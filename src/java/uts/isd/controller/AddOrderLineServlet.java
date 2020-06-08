@@ -22,12 +22,17 @@ public class AddOrderLineServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        
+        doPost(request, response);
+    }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+         System.out.println(">>> doPost로 실행");
         //retrieve the current session
         HttpSession session = request.getSession();
         
         //create an instance of the Validator class
-   //     Validator validator = new Validator();
+        Validator validator = new Validator();
 
         String productID = request.getParameter("productID");
         int productIDInt = Integer.getInteger(productID);
@@ -46,7 +51,7 @@ public class AddOrderLineServlet extends HttpServlet {
                
         
         OrderLine orderLine = null;
-    //    validator.clear(session);
+        validator.clear(session);
         
         try {
             orderLine = orderLineManager.findOrderLine(customerIDInt);
@@ -57,7 +62,8 @@ public class AddOrderLineServlet extends HttpServlet {
         if ( orderQtyInt > AvailableQtyInt) {
 
             session.setAttribute("exceptionQuantityErr", "Order Quantity is bigger than Available stock.");
-            request.getRequestDispatcher("productList.jsp").include(request, response);
+            request.getRequestDispatcher("productList.jsp").forward(request, response);
+            System.out.println("stock error");
         }
         
         
@@ -66,16 +72,12 @@ public class AddOrderLineServlet extends HttpServlet {
                 orderLineManager.addOrderLine(productIDInt, customerIDInt, orderQtyInt, priceInt );
                 request.setAttribute("orderLine", orderLine);
                 session.setAttribute("addConfirmation", "Item added to basket");
-                request.getRequestDispatcher("productList.jsp").include(request, response);
+                request.getRequestDispatcher("productList.jsp").forward(request, response);
             } catch (SQLException ex) {
                 session.setAttribute("exceptionOrderLineErr", "Submission Failed");
-                request.getRequestDispatcher("productList.jsp").include(request, response);
+                request.getRequestDispatcher("productList.jsp").forward(request, response);
             }
         }
     }
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    
-    }
-    
 }
+    

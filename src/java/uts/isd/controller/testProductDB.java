@@ -80,10 +80,11 @@ public class testProductDB {
         String status = in.next();
         System.out.print("Available quantity: ");
         int quantity = in.nextInt();
+        String productType = in.next();
         in.nextLine(); 
   
         try {
-            db.addProduct(categoryID, productName, productPrice, description, status, quantity);
+            db.addProduct(categoryID, productName, productPrice, description, status, quantity, productType);
         } catch (SQLException ex) {
             Logger.getLogger(testProductDB.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -96,9 +97,11 @@ public class testProductDB {
         
         System.out.print("Product name: ");
         String productName = in.nextLine();
+         System.out.print("Product type: ");
+        String productType = in.nextLine();
 
         
-        Product product = db.findProduct(productName);
+        Product product = db.findProduct(productName, productType);
         
         if (product != null) {
             System.out.println("Device: " + product.getProductName() + " " + " exists in the database.");
@@ -136,9 +139,11 @@ public class testProductDB {
                 String status = in.nextLine();
                 System.out.print("New Available quantity: ");
                 int quantity = in.nextInt();
+                 System.out.print("New Product type: ");
+        String productType = in.nextLine();
         
                 
-                db.updateProduct( productID,categoryID, productName, productPrice, description, status, quantity);
+                db.updateProduct( productID,categoryID, productName, productPrice, description, status, quantity, productType);
                 System.out.println("Device with id" + productID + " was updated.");
                 
             } else {
