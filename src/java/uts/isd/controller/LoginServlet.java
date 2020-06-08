@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet{
                    manager.addUserLog(userId, "Login");
                    // response.sendRedirect("index.jsp");
                    if(usertype.equals("Staff")){
-                    request.getRequestDispatcher("/admin/index.jsp").forward(request,response);
+                    request.getRequestDispatcher("main-admin.jsp").forward(request,response);
                    }
                    if(usertype.equals("Customer")){
                       request.getRequestDispatcher("welcome.jsp").forward(request,response);
