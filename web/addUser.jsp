@@ -30,7 +30,7 @@
         <div class="top">
             <a href="index.jsp">Index</a>
         </div>
-        <form method="post" action="RegisterServlet">
+        <form method="post" action="addUserServlet">
         
         <h3>Enter new user details</h3>
         <table>
