@@ -34,6 +34,7 @@
       <p> Basket page </p>
         <form action="MainServlet?id=<%=id%>" method="post">
             <p>Your user id <%=id%></p>
+            
         </form>
         
                 <jsp:include page="/ViewBasketServlet?id=${user.id}" flush="true" />

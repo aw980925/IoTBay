@@ -56,6 +56,9 @@ public class CardServlet extends HttpServlet {
         
         
         validator.clear(session);
+       
+        
+        
         
    
       if (!validator.validateCardNumber(cardNumber)) {
