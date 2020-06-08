@@ -13,11 +13,11 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.User;
 import uts.isd.dao.DBManager;
 
-public class AddUserServlet extends HttpServlet {
+public class addUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
    
     
-    public AddUserServlet(){
+    public addUserServlet(){
     super();
     }
 
@@ -52,13 +52,13 @@ public class AddUserServlet extends HttpServlet {
             // set incorrect email error to the session 
             session.setAttribute("emailErr", "Error: Email format incorrect");
             // redirect user back to the login.jsp     
-            request.getRequestDispatcher("register.jsp").include(request, response);
+            request.getRequestDispatcher("addUser.jsp").include(request, response);
         } 
         else if (!validator.validatePassword(password)) {
             // set incorrect password error to the session 
             session.setAttribute("passErr", "Requires at least 6 characters including upper or lower alpha and digit");
             // redirect user back to the login.jsp 
-            request.getRequestDispatcher("register.jsp").include(request, response);
+            request.getRequestDispatcher("addUser.jsp").include(request, response);
         } 
      
         else {
@@ -75,12 +75,12 @@ public class AddUserServlet extends HttpServlet {
                  else
                  {
                      session.setAttribute("exceptionErr", "User already existed");
-                     request.getRequestDispatcher("register.jsp").include(request, response);
+                     request.getRequestDispatcher("addUser.jsp").include(request, response);
                  }
             } catch (SQLException ex) {
                 // exception message if adding customer fails
                 session.setAttribute("exceptionErr", "Registration failed");
-                request.getRequestDispatcher("register.jsp").include(request, response);
+                request.getRequestDispatcher("addUser.jsp").include(request, response);
             }
              
              
