@@ -25,13 +25,13 @@ INSERT INTO CATEGORY
      ('Light bulb', 'Iot smart light');
 
 INSERT INTO PRODUCT
-    (categoryID, productName, productPrice, description, status, quantity)
+    (categoryID, productName, productPrice, description, status, quantity, productType)
      
      VALUES
-     (1,'Wifi Camera',19.99,'Smart wireless camera with application control','In stock', 200),
-     (1,'Smart web cam',59.99,'Iot web camera for pc','In stock', 10),
-     (2,'Lux smart bulb',29.99,'Wifi connect light bulb','In stock', 30),
-     (2,'Bright smart bulb',39.99,'Wifi connect light bulb','In stock', 20)
+     (1,'Wifi Camera',19.99,'Smart wireless camera with application control','In stock', 200, 'Camera'),
+     (1,'Smart web cam',59.99,'Iot web camera for pc','In stock', 10, 'Camera'),
+     (2,'Lux smart bulb',29.99,'Wifi connect light bulb','In stock', 30, 'Light bulb'),
+     (2,'Bright smart bulb',39.99,'Wifi connect light bulb','In stock', 20,'Light bulb')
 ;
 
 /* INSERT INTO SHIPMENT 
@@ -49,7 +49,7 @@ Values(1, '1010-200302', '22-04-23',323,'Card')
 
 
 INSERT INTO BASKET 
-(basketID, customerID, productID, qty)
+(basketID, customerID, productID, totalProductQty, totalAmount, selectedProdcuts)
 
     VALUES
     ('01','10000001','10000001','1'),
