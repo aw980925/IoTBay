@@ -12,6 +12,8 @@ package uts.isd.dao;
 
 
 import uts.isd.model.Payment;
+import uts.isd.model.PaymentVO;
+import java.util.ArrayList;
 import uts.isd.model.Card;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -127,4 +129,73 @@ public class DBPaymentManager {
         
         
     }
+    
+    public PaymentVO selectPayment(int userId) throws SQLException{
+        PaymentVO paymentVO = new PaymentVO();
+        String sql = "SELECT paymentID, orderID, userId, amount, paymentTime FROM payment WHERE userId = " + userId;
+        ResultSet rs = st.executeQuery(sql);
+        
+        if(rs.next()){
+            paymentVO = new PaymentVO(rs.getInt("paymentID"), rs.getInt("orderID"), rs.getInt("userId"), rs.getInt("amount"), rs.getTimestamp("paymentTime"));
+        }
+        
+        return paymentVO;
+    }
+    
+    public ArrayList<PaymentVO> selectPaymentList(int userId) throws SQLException{
+        ArrayList<PaymentVO> resultList = new ArrayList<PaymentVO>();
+        String sql = "";
+        sql += "	SELECT	";
+        sql += "	    A.paymentID	";
+        sql += "	    , A.orderID	";
+        sql += "	    , A.userId	";
+        sql += "	    , A.amount	";
+        sql += "	    , A.paymentTime	";
+        sql += "	    , B.customerID	";
+        sql += "	    , B.orderTotal	";
+        sql += "	    , B.orderDate	";
+        sql += "	    , B.orderStatus	";
+        sql += "	FROM PAYMENT A	";
+        sql += "	INNER JOIN ORDERS B	";
+        sql += "	ON A.USERID = B.customerID	";
+        sql += "	WHERE 1=1	";
+        sql += "	AND A.USERID =  " + userId;
+        
+        ResultSet rs = st.executeQuery(sql);
+        PaymentVO paymentVO = new PaymentVO();
+        
+        while(rs.next()){
+            paymentVO = new PaymentVO(rs.getInt("paymentID"), rs.getInt("orderID"), rs.getInt("userId"), rs.getInt("amount"), rs.getTimestamp("paymentTime"), 
+                    rs.getInt("customerID"), rs.getInt("orderTotal"), rs.getTimestamp("orderDate"), rs.getString("orderStatus"));
+            resultList.add(paymentVO);
+        }
+        
+        return resultList;
+    }
+    
+    public int selectPaymentCount(int userId) throws SQLException{
+        int count = 0;
+        String sql = "SELECT count(*) FROM payment WHERE userId = " + userId;
+        
+        ResultSet rs = st.executeQuery(sql);
+        
+        if(rs.next()){
+            count = rs.getInt(1);
+        }
+        
+        return count;
+    }
+    
+    public void insertPayment(PaymentVO paymentVO) throws SQLException{
+        String sql = "INSERT INTO PAYMENT(orderID, userId, amount, paymentTIme) values(?, ?, ?, CURRENT_TIMESTAMP)";
+        
+        PreparedStatement ps = conn.prepareStatement(sql);
+        
+        ps.setInt(1, paymentVO.getOrderID());
+        ps.setInt(2, paymentVO.getUserId());
+        ps.setInt(3, paymentVO.getAmount());
+        
+        ps.executeUpdate();
+    }
+    
 }
