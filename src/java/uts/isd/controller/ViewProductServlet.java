@@ -25,19 +25,15 @@ public class ViewProductServlet extends HttpServlet {
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        
         int productID = 0; // Just default value assigned 
-            try {
-                productID = Integer.parseInt(request.getParameter("productID"));
-                } catch (NumberFormatException e) {
-                    // log the error or ignore it
-                }
+        
+        try {
+            
+            productID = Integer.parseInt(request.getParameter("productID"));
+            
+        } catch (NumberFormatException e) {
+                // log the error or ignore it
+        }
  
-        String categoryID = request.getParameter("categoryID");
-        String productName = request.getParameter("productName");
-        String productPrice = request.getParameter("productPrice");
-        String description = request.getParameter("description");
-        String status = request.getParameter("status");
-        String quantity = request.getParameter("quantity");  
-        String productType = request.getParameter("productType");
                     
         try {
             HttpSession session = request.getSession();
