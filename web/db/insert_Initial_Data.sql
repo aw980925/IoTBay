@@ -14,6 +14,7 @@
  ADD Customers
 */
 
+
 INSERT INTO USERS(fName,lName,password,email,mobileNum,address,usertype,active)
     VALUES('Jane','Doe','BA99342bob','jane.doe@uts.edu.au','01234567','uts1','Customer',false)
 ,('Helen','Strokes','BA99342bob', 'helen.strokes@uts.edu.au','01234567','uts1','Customer',false)
@@ -55,10 +56,10 @@ INSERT INTO CATEGORY
              (categoryName, description)
      VALUES
      ('Camera','Iot camera'),
-     ('Light bulb', 'Iot smart light')
-     ('Security System','alarm')
-     ('appliances','goods');
-     ('Smart speaker','from Amazon, google');
+     ('Light bulb', 'Iot smart light'),
+     ('Security','alarm'),
+     ('appliances','goods'),
+     ('Speaker','from Amazon, google');
 
 
 INSERT INTO PRODUCT
@@ -68,11 +69,11 @@ INSERT INTO PRODUCT
      (1,'Wifi Camera',19.99,'Smart wireless camera with application control','In stock', 200, 'Camera'),
      (1,'Smart web cam',59.99,'Iot web camera for pc','In stock', 10, 'Camera'),
      (2,'Lux smart bulb',29.99,'Wifi connect light bulb','In stock', 30, 'Light bulb'),
-     (2,'Bright smart bulb',39.99,'Wifi connect light bulb','In stock', 20,'Light bulb')
+     (2,'Bright smart bulb',39.99,'Wifi connect light bulb','In stock', 20,'Light bulb'),
      (3,'Smart alarm',19.99,'Smart wireless alarm','In stock', 200, 'Security System'),
      (3,'Smart doorlock',59.99,'doorlock','In stock', 10, 'Security System'),
      (4,'Smart Toaster',29.99,'toaster with google assistance','In stock', 30, 'appliances'),
-     (4,'Smart Kettle',39.99,'kettle with smart wireless sensor', 20,'appliances')
+     (4,'Smart Kettle',39.99,'kettle with smart wireless sensor','In stock', 20,'appliances'),
      (5,'Wireless speaker',19.99,'Smart wireless speaker','In stock', 200, 'Smart speaker'),
      (5,'Apple homepot',59.99,'from Apple Inc','In stock', 10, 'Smart speaker'),
      (5,'Google pot',29.99,'from Google Inc','In stock', 30, 'Smart speaker'),
@@ -92,8 +93,8 @@ INSERT INTO ORDERLINE
     (6,1,30,66),
     (7,1,30,77),
     (8,1,30,88),
-    (9,1,30,99),
-    (10,1,30,999)
+    (1,3,30,99),
+    (1,2,30,999)
 ;
 
 
@@ -117,7 +118,7 @@ INSERT INTO CARD (userId,cardNumber,expiresOn,cvvNumber) VALUES
 (17,'2644-2346-5339-1232','01/22','427'),
 (18,'7894-1231-6446-6637','12/24','653'),
 (19,'3462-6433-4438-4664','07/25','773'),
-(20,'7556-0142-0396-4153','11/25','094'),
+(20,'7556-0142-0396-4153','11/25','094');
 
 
 
