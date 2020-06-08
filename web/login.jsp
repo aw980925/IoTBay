@@ -46,9 +46,10 @@
 		<td><input type="password" placeholder="<%=(passErr != null ? passErr:"Enter password") %>" name="password"></td>
             </tr>
             <tr>
-                <td><a style="text-decoration:none" href="index.jsp">Cancel</a></td>
+                <td colspan="2"><input id='btn2' type="submit" value="Sign In" >
+                <a class='btn' style="text-decoration:none" href="index.jsp">Cancel</a></td>
                    
-                <td><input type="submit" value="Sign In" ></td>
+                
             </tr>
 
           

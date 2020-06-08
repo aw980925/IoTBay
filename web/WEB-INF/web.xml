@@ -80,6 +80,10 @@
         <servlet-name>MyController</servlet-name>
         <servlet-class>uts.isd.controller.MyController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeleteUserServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -151,6 +155,10 @@
     <servlet-mapping>
         <servlet-name>MyController</servlet-name>
         <url-pattern>/MyController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/DeleteUserServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
