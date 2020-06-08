@@ -23,7 +23,7 @@
         String passErr = (String) session.getAttribute("passErr");
         %>
         <div class="header">
-           <h1>IoT Bay</h1>
+            <h1><a href="index.jsp">IoT Bay</a></h1>
         </div>
         <div class="top">
             <a href="index.jsp">Index</a>
