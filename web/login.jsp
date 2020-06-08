@@ -38,12 +38,12 @@
 
             <tr>
 		<th>User Email </th>
-                <td><input type="text" placeholder="<%=(emailErr != null ? emailErr:"Enter email") %>" name="email"></td>
+                <td><input type="text" placeholder="<%=(emailErr != null ? emailErr:"Enter email") %>" name="email" value="john.smith@uts.edu.au"></td>
 	    </tr>
 
             <tr>
 		<th>Password</th>
-		<td><input type="password" placeholder="<%=(passErr != null ? passErr:"Enter password") %>" name="password"></td>
+		<td><input type="password" placeholder="<%=(passErr != null ? passErr:"Enter password") %>" name="password" value="BA99342bob" ></td>
             </tr>
             <tr>
                 <td colspan="2"><input id='btn2' type="submit" value="Sign In" >
