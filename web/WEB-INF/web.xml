@@ -96,6 +96,14 @@
         <servlet-name>deleteUserServlet</servlet-name>
         <servlet-class>uts.isd.controller.deleteUserServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PaymentServlet</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentHistoryServlet</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentHistoryServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -183,6 +191,14 @@
     <servlet-mapping>
         <servlet-name>deleteUserServlet</servlet-name>
         <url-pattern>/deleteUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentServlet</servlet-name>
+        <url-pattern>/PaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentHistoryServlet</servlet-name>
+        <url-pattern>/PaymentHistoryServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
