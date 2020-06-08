@@ -96,21 +96,16 @@ orderStatus     VARCHAR(10)
 ALTER TABLE ORDERS ADD FOREIGN KEY (customerID) REFERENCES USERS (id);
 
 
-CREATE TABLE PAYMENT
-(
-paymentID       INTEGER NOT NULL PRIMARY KEY
-                    GENERATED ALWAYS AS IDENTITY
-                        (START WITH 1, INCREMENT BY 1),
-userId Integer,
---paymentTime     TIMESTAMP,
---amount          DOUBLE,
---description     VARCHAR(40),
---paymentType     VARCHAR(10),--PayPal/CreditCard
-cardNumber       VARCHAR(20),
-expiresOn       VARCHAR(10),
-cvvNumber       VARCHAR(10)
---paymentStatus   VARCHAR(10)
+drop table PAYMENT;
+
+CREATE TABLE PAYMENT(
+	paymentID INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+	orderID Integer,
+	userId Integer,
+	amount Integer,
+	paymentTime TIMESTAMP
 );
+
 
 CREATE TABLE SHIPMENT
 (
