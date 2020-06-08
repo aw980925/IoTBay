@@ -1,9 +1,10 @@
 <%--
-    Document   : login.jsp
-    Created on : 28/04/2020, 9:07:01 PM
-    Author     : 13093950 Heeyoon Koo
+    To do:
+    login time ->history db
+    logout time ->history db
+    profile.jsp ->user info and login and out time
 --%>
-
+<%@page import="uts.isd.controller.ConnServlet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -11,40 +12,50 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="stylesheet.css">
+        <script type ="text/javascript" src="js/script.js"></script>
         <title>Login Form</title>
     </head>
-    <body>
+    <body onload="startTime()">
+        <div><span class="time" id="time"></span></div>
+        <% 
+        String existErr = (String) session.getAttribute("existErr");
+        String emailErr = (String) session.getAttribute("emailErr");
+        String passErr = (String) session.getAttribute("passErr");
+        %>
         <div class="header">
-            <h1>IoT Bay Sign In</h1>
+            <h1><a href="index.jsp">IoT Bay</a></h1>
         </div>
         <div class="top">
-            <a href="index.html">Index</a>
+            <a href="index.jsp">Index</a>
             <a href="register.jsp">Register</a>
 
         </div>
 
-        <h3> Sign In</h3>
-        <form method="post" action="welcome.jsp">
+        <h3> Sign In <span><%=(existErr != null? existErr: "")%></span></h3>
+        
+        <form action ="LoginServlet" method="post">
         <table>
 
             <tr>
-		<th>User ID/ Email </th>
-		<td><input type="text" placeholder="Enter your email "name="email"></td>
+		<th>User Email </th>
+                <td><input type="text" placeholder="<%=(emailErr != null ? emailErr:"Enter email") %>" name="email"></td>
 	    </tr>
 
             <tr>
 		<th>Password</th>
-		<td><input type="password" placeholder="Enter passworde" name="password"></td>
+		<td><input type="password" placeholder="<%=(passErr != null ? passErr:"Enter password") %>" name="password"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input id='btn2' type="submit" value="Sign In" >
+                <a class='btn' style="text-decoration:none" href="index.jsp">Cancel</a></td>
+                   
+                
             </tr>
 
-
-            <td colspan="2">
-                    <input class="button" type="submit" value="Login">
-                </td>
-            </tr>
-
+          
+            
         </table>
         </form>
-
+        
     </body>
 </html>
