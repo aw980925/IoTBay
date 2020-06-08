@@ -21,6 +21,7 @@
     <body onload="startTime(); resetSearch();">
      <%
            int id = Integer.parseInt(request.getParameter("id"));
+           Order order = (Order)session.getAttribute("displayOrder");
       %>
         <div class="header">
            <h1>IoT Bay</h1>

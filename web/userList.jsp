@@ -32,7 +32,7 @@
 
         <h2> List of users in database </h2>
         <div class="top">
-            <a href="welcome.jsp">Welcome</a>
+            <a href="main-admin.jsp">Welcome</a>
 
         </div>
         <form class="header" action="" method="get">
