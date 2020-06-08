@@ -43,7 +43,7 @@ public class SearchUserServlet extends HttpServlet{
         
         
 
-        //6- find product by name and type
+        //6- find user by name and number
         
         if(user != null){
             

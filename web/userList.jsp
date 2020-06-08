@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="uts.isd.model.User"%>
+<%@page import="uts.isd.model.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.sql.Connection"%>
@@ -11,50 +11,65 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="stylesheet.css">
         <script type="text/javascript" src="js/script.js"></script>
-        <title>User List</title>
+        <title>Product List</title>
     </head>
     <body>
-
+        
         <%
-            User user = (User) session.getAttribute("display");
+           Product product = (Product)session.getAttribute("display");
+           String exceptionQuantityErr = (String) session.getAttribute("exceptionQuantityErr");
+           String addConfirmation = (String) session.getAttribute("addConfirmation");
+           String exceptionOrderLineErr = (String) session.getAttribute("exceptionOrderLineErr");
+    
+           
+           int id = Integer.parseInt(request.getParameter("id"));
         %>
-          <form action="SearchUserServlet" method="get">
-            <input type="text" name="name" id="fName" />
-            <input type="text" name="number" id="mobileNum" />
+        <form action="SearchProdctServlet" method="get">
+            <input type="text" name="name" id="productName" />
+            <input type="text" name="type" id="productType" />
             <input type="submit" value="Seach" />
         </form>
+        
+        
         <table>
-            <div class="header">
-                <h1>List of Users</h1>
-            </div>
             <thead>
                 <tr>
-                    <th>User ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Password</th>
-                    <th>Email</th>
-                    <th>Mobile Number</th>
-                    <th>Address</th>
-                    <th>User Type</th>
+                    <th>Category ID</th>
+                    <th>Product ID</th>
+                    <th>Product Type</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Available Quantity</th>
+                    <th>Type Quantity</th>
+                    <th>Add to Basket</th>
                 </tr>
             </thead>
             <tbody> 
+            
+            <c:forEach items="${display}" var="display">
+            <form action="AddOrderLineServlet?customerID=${user.id} & productID =${display.productID} & productPrice =${display.productPrice} & quantity=${display.quantity}" method ="post">    
+            <tr> 
+                <td>${display.categoryID}</td>
+                <td>${display.productID}</td> 
+                <td>${display.productType}</td>
+                <td>${display.productName}</td> 
+                <td>${display.productPrice}</td>
+                <td>${display.description}</td>
+                <td>${display.status}</td>
+                <td>${display.quantity}</td>
+                <td><input type="number" placeholder="<%=(exceptionQuantityErr != null ? exceptionQuantityErr:"Enter Quantity") %>" name="orderQty"></td>
+                
+                <td><input class=" button" type="submit" value="Add"> </a>
 
-                <c:forEach items="${display}" var="display">
-                    <tr> 
-                        <td>${display.id}</td>
-                        <td>${display.fName}</td> 
-                        <td>${display.lName}</td>
-                        <td>${display.password}</td> 
-                        <td>${display.email}</td>
-                        <td>${display.mobileNum}</td>
-                        <td>${display.address}</td>
-                        <td>${display.usertype}</td>
-                    </tr> 
-                </c:forEach>
-
+            </tr> 
+            </c:forEach>
+           </form>
             </tbody>
         </table>
+        
+        <span><%= (addConfirmation != null) ? "":"" %> </span>
+        <span><%= (exceptionOrderLineErr != null) ? "":"" %> </span>
     </body>
 </html>

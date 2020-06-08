@@ -51,9 +51,9 @@ public class ViewUsersServlet extends HttpServlet {
             //validator.clear(session);
             
             
-            ArrayList<User> display = manager.fetchAll();
+            ArrayList<User> user = manager.fetchAll();
             
-            request.setAttribute("display",display);     
+            request.setAttribute("user",user);     
             
             request.getRequestDispatcher("userList.jsp").include(request, response);
             

@@ -115,9 +115,9 @@ public class DBManager {
     }
 
     public ArrayList<User> fetchAll() throws SQLException {
-        String fetch = "select * from User";
+        String fetch = "SELECT * FROM USERS";
         ResultSet rs = st.executeQuery(fetch);
-        ArrayList<User> temp = new ArrayList();
+        ArrayList<User> user= new ArrayList();
 
         while (rs.next()) {
             int id = rs.getInt(1);
@@ -129,9 +129,9 @@ public class DBManager {
             String address = rs.getString(7);
             String usertype = rs.getString(8);
             Boolean active = rs.getBoolean(9);
-            temp.add(new User(id, fName, lName, password, email, mobileNum, address, usertype, active));
+            user.add(new User(id, fName, lName, password, email, mobileNum, address, usertype, active));
         }
-        return temp;
+        return user;
     }
 
     public User findId(int userId) throws SQLException {

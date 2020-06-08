@@ -34,7 +34,7 @@ author: 13093950 Heeyoon Koo
   <a class="indexbtn" href="login.jsp">Login</a>
   <a class="indexbtn" href="register.jsp">Register</a>
   <a class="indexbtn" href="addUser.jsp">Add User</a>
-  <a class="indexbtn" href="userList.jsp">User List</a>
+  <a class="indexbtn" href="productList.jsp">User List</a>
   
 </div>
 
