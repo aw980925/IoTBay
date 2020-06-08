@@ -35,31 +35,8 @@
         <form action="MainServlet?id=<%=id%>" method="post">
             <p>Your user id <%=id%></p>
         </form>
-        <table>
-            <thead>
-                <tr>
-                    <th>Product ID</th>
-                    <th>Order Quantity</th>
-                    <th>Order Price</th>
-                    <th>New Quantity</th>
-                    <th>Update</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody> 
-            
-            <c:forEach items="${displayBasket}" var="displayBasket">
-            <tr> 
-                <td>${displayBasket.productID}</td> 
-                <td>${displayBasket.orderQty}</td> 
-                <td>${displayBasket.orderPrice}</td>
-                <td><input type="number" placeholder="Enter quantity" name="orderQuantity"></td>
-                <td><a class=" button" href ="/UpdateOrderLineServlet"> Update </a>
-                <td><a class=" button" href ="/DeleteOrderLineServlet"> Delete </a>    
-            </tr> 
-            </c:forEach>
-           
-            </tbody>
-        </table>
+        
+                <jsp:include page="/ViewBasketServlet?id=${user.id}" flush="true" />
+
     </body>
 </html>

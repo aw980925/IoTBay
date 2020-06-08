@@ -36,7 +36,7 @@
             <input type="submit" value="Seach" />
         </form>
         
-        <form action="AddOrderLineServlet" method="get" method ="post">
+        
         <table>
             <thead>
                 <tr>
@@ -55,6 +55,7 @@
             <tbody> 
             
             <c:forEach items="${display}" var="display">
+            <form action="AddOrderLineServlet?customerID=${user.id} & productID =${display.productID} & productPrice =${display.productPrice} & quantity=${display.quantity}" method ="post">    
             <tr> 
                 <td>${display.categoryID}</td>
                 <td>${display.productID}</td> 
@@ -66,14 +67,14 @@
                 <td>${display.quantity}</td>
                 <td><input type="number" placeholder="<%=(exceptionQuantityErr != null ? exceptionQuantityErr:"Enter Quantity") %>" name="orderQty"></td>
                 
-                <td><a class=" button" href ="AddOrderLineServlet?customerID=${user.id} & productID =${display.productID} & productPrice =${display.productPrice} & orderQty =${"orderQty"} & quantity=${display.quantity} "> Add </a>
+                <td><input class=" button" type="submit" value="Add"> </a>
 
             </tr> 
             </c:forEach>
-           
+           </form>
             </tbody>
         </table>
-        </form>
+        
         <span><%= (addConfirmation != null) ? "":"" %> </span>
         <span><%= (exceptionOrderLineErr != null) ? "":"" %> </span>
     </body>

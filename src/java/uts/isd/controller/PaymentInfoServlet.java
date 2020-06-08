@@ -77,25 +77,25 @@ public class PaymentInfoServlet extends HttpServlet {
      
         else {
             
-             try {
-                 payment = paymentManager.findCreditCard(cardNumber);
+         //    try {
+              //   payment = paymentManager.findCreditCard(cardNumber);
                 
-                 if(payment == null){
+        //         if(payment == null){
                     
-                paymentManager.addCard(cardNumber, expiresOn, cvvNumber);
-                request.getRequestDispatcher("paymentInfoSuccess.jsp").forward(request, response);
+            //    paymentManager.addCard(cardNumber, expiresOn, cvvNumber);
+        //        request.getRequestDispatcher("paymentInfoSuccess.jsp").forward(request, response);
                 
-                 }
-                 else
-                 {
-                     session.setAttribute("exceptionErr", "Card already registered");
-                     request.getRequestDispatcher("paymentInfo.jsp").include(request, response);
-                 }
-            } catch (SQLException ex) {
+          //       }
+         //        else
+          //       {
+          //           session.setAttribute("exceptionErr", "Card already registered");
+         //            request.getRequestDispatcher("paymentInfo.jsp").include(request, response);
+            //     }
+        //    } catch (SQLException ex) {
                 // exception message if adding customer fails
-                session.setAttribute("exceptionErr", "Card Registration failed");
-                request.getRequestDispatcher("paymentInfo.jsp").include(request, response);
-            }
+         //       session.setAttribute("exceptionErr", "Card Registration failed");
+         //       request.getRequestDispatcher("paymentInfo.jsp").include(request, response);
+        //    }
              
              
            

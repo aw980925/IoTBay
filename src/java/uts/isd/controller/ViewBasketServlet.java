@@ -23,13 +23,7 @@ import uts.isd.dao.*;
 public class ViewBasketServlet extends HttpServlet {
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       
-   }
-    
-   @Override
-   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    
-    int customerID = 0; // Just default value assigned 
+           int customerID = 0; // Just default value assigned 
             try {
                 customerID = Integer.parseInt(request.getParameter("id"));
                 } catch (NumberFormatException e) {
@@ -57,10 +51,11 @@ public class ViewBasketServlet extends HttpServlet {
             
             
             ArrayList<OrderLine> displayBasket = orderLineManager.fetchOrderLine(customerID);
+            System.out.println("dsdf");
             
             request.setAttribute("displayBasket",displayBasket);     
             
-            request.getRequestDispatcher("basket.jsp").include(request, response);
+            request.getRequestDispatcher("basketList.jsp").include(request, response);
             
             
        } catch (SQLException ex) {
@@ -68,4 +63,10 @@ public class ViewBasketServlet extends HttpServlet {
        }
     }
     
+
+    
+   @Override
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    
+}
 }

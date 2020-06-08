@@ -4,21 +4,29 @@
     Author     : aaron
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="uts.isd.model.*"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="uts.isd.dao.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <script type="text/javascript" src="js/script.js"></script>
+        <title>Product List</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
-
-
-
-<table>
+        
+     <%
+           int id = Integer.parseInt(request.getParameter("id"));
+           OrderLine orderLine = (OrderLine)session.getAttribute("displayBasket");
+      %>
+        <form method="get">
+        <table>
             <thead>
                 <tr>
                     <th>Product ID</th>
@@ -44,3 +52,8 @@
            
             </tbody>
         </table>
+                
+</form>
+</html>
+
+
