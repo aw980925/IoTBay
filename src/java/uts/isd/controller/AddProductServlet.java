@@ -29,8 +29,7 @@ public class AddProductServlet extends HttpServlet{
         //current session
         HttpSession session = request.getSession();
         Validator validator = new Validator();
-        
-        String categoryID = request.getParameter("categoryId");
+    
         String name = request.getParameter("productname");
         String type = request.getParameter("producttype");
         String description = request.getParameter("description");
