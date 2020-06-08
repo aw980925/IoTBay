@@ -1,7 +1,8 @@
 /nbproject/private/
 /build/
-<<<<<<< HEAD
+
 web/db/logsTable.sql
-=======
+
 /dist/
->>>>>>> c16785c944f8be75e20cbee3c6b0b391249ed652
+
+.DS_Store
