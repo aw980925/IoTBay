@@ -55,7 +55,11 @@ INSERT INTO CATEGORY
              (categoryName, description)
      VALUES
      ('Camera','Iot camera'),
-     ('Light bulb', 'Iot smart light');
+     ('Light bulb', 'Iot smart light')
+     ('Security System','alarm')
+     ('appliances','goods');
+     ('Smart speaker','from Amazon, google');
+
 
 INSERT INTO PRODUCT
     (categoryID, productName, productPrice, description, status, quantity, productType)
@@ -65,6 +69,14 @@ INSERT INTO PRODUCT
      (1,'Smart web cam',59.99,'Iot web camera for pc','In stock', 10, 'Camera'),
      (2,'Lux smart bulb',29.99,'Wifi connect light bulb','In stock', 30, 'Light bulb'),
      (2,'Bright smart bulb',39.99,'Wifi connect light bulb','In stock', 20,'Light bulb')
+     (3,'Smart alarm',19.99,'Smart wireless alarm','In stock', 200, 'Security System'),
+     (3,'Smart doorlock',59.99,'doorlock','In stock', 10, 'Security System'),
+     (4,'Smart Toaster',29.99,'toaster with google assistance','In stock', 30, 'appliances'),
+     (4,'Smart Kettle',39.99,'kettle with smart wireless sensor', 20,'appliances')
+     (5,'Wireless speaker',19.99,'Smart wireless speaker','In stock', 200, 'Smart speaker'),
+     (5,'Apple homepot',59.99,'from Apple Inc','In stock', 10, 'Smart speaker'),
+     (5,'Google pot',29.99,'from Google Inc','In stock', 30, 'Smart speaker'),
+     (5,'Amazon echo',39.99,'from Amazon Inc','In stock', 20,'Smart speaker')
 ;
 
 
@@ -74,7 +86,14 @@ INSERT INTO ORDERLINE
     VALUES
     (1,1,20,11),
     (2,1,10,22),
-    (3,1,30,33)
+    (3,1,30,33),
+    (4,1,30,44),
+    (5,1,30,355),
+    (6,1,30,66),
+    (7,1,30,77),
+    (8,1,30,88),
+    (9,1,30,99),
+    (10,1,30,999)
 ;
 
 
@@ -128,3 +147,21 @@ INSERT INTO LOGS(userId,timestamp,description)
 (22,'2019-10-25 16:10:32','Login'),
 (23,'2019-03-05 10:33:03','Login'),
 (24,'2019-03-05 15:33:03','Logout');
+
+
+INSERT INTO ORDERS
+(customerID, orderTotal, orderDate, orderStatus)
+
+    VALUES
+    (1,1000,'2019-10-25 16:10:32','Delivered'),
+    (1,2000,'2020-1-25 16:10:32','Paid'),
+    (1,3333,'2011-10-25 16:10:32','Delivered'),
+    (1,500,'2014-10-25 16:10:32','Paid'),
+    (1,800,'2016-10-25 16:10:32','Delivered'),
+    (1,200,'2015-10-25 16:10:32','Paid'),
+    (1,10,'2014-10-25 16:10:32','Delivered'),
+    (1,199,'2012-10-25 16:10:32','cancelled'),
+    (1,100,'2019-10-22 17:10:32','Delivered'),
+    (1,299,'2012-10-11 16:10:32','cancelled')
+;
+
