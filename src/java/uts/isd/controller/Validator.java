@@ -22,6 +22,13 @@ import javax.servlet.http.HttpSession;
    private final String cardNumberPattern = "^[0-9]*$";
    private final String expiresOnPattern = "^[0-9]*$";
    private final String cvvNumberPattern = "^[0-9]*$";
+   
+   private String productNamePattern = "^[a-zA-Z0-9 ]*$";
+   private String productTypePattern = "^[a-zA-Z0-9 ]*$";
+   private String productPricePattern = "^-?\\d*\\.\\d{2}$";
+   private String productDescriptionPattern = "^[a-zA-Z0-9 ]*$";
+   private String productQuantityPattern = "[0-9]+";
+   
    //구글에 카드 validation pattern 
 /*Password validator Requires 6-20 characters including at least 1 upper or lower alpha, and 1 digit. 
  It should disallow just about everything else, 
@@ -62,15 +69,41 @@ import javax.servlet.http.HttpSession;
       return validate(cvvNumberPattern,password); 
    }          
    
+   public boolean validateProductName(String productName) {
+      return validate(productNamePattern, productName);
+   }
+
+   public boolean validateProductType(String type) {
+      return validate(productTypePattern, type);
+   }
+
+   public boolean validateProductPrice(String price) {
+      return validate(productPricePattern, price);
+   }
+   
+   public boolean validateProductQuantity(String quantity){
+       return validate(productQuantityPattern, quantity );
+   }
+
+   public boolean validateProductDesc(String description) {
+      return validate(productDescriptionPattern, description);
+   }
    
 
    public void clear(HttpSession session) {
-       session.setAttribute("emailErr", "Enter email");
-       session.setAttribute("passErr", "Enter password");
-       session.setAttribute("existErr", "");
-       session.setAttribute("cardNumberErr", "Enter card number");
-       session.setAttribute("expiresOnErr", "Enter Expire date");
-       session.setAttribute("cvvNumberErr", "Enter cvv number");
+        session.setAttribute("emailErr", "Enter email");
+        session.setAttribute("passErr", "Enter password");
+        session.setAttribute("existErr", "");
+        session.setAttribute("cardNumberErr", "Enter card number");
+        session.setAttribute("expiresOnErr", "Enter Expire date");
+        session.setAttribute("cvvNumberErr", "Enter cvv number");
+       
+        session.setAttribute("existProductErr", "");
+        session.setAttribute("productNameErr", "Enter name");
+        session.setAttribute("typeErr", "Enter type");
+        session.setAttribute("descriptionErr", "Enter description");
+        session.setAttribute("priceErr", "Enter price");
+        session.setAttribute("deleteDeviceErr", "");
        
        
 //To change body of generated methods, choose Tools | Templates.
