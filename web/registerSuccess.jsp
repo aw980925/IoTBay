@@ -26,7 +26,7 @@
         </div>
         
          <div class="center">
-            <h2> Registration Success</h2>  
+            <h2>Registration Success</h2>  
         <table>
                     
                         <tr>
@@ -52,7 +52,7 @@
                          </tr>
                          <tr>
                              <td colspan="2">Go to login page: 
-                             <a href="login.jsp">Click here</a></td>
+                             <a style="text-decoration:none" href="login.jsp">Click here</a></td>
                          </tr>
                            
                        </table>

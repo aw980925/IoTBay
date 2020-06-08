@@ -30,12 +30,17 @@
            
            int id = Integer.parseInt(request.getParameter("id"));
         %>
-        <form method ="post" method="get">
+        <form action="SearchProdctServlet" method="get">
+            <input type="text" name="name" id="productName" />
+            <input type="text" name="type" id="productType" />
+            <input type="submit" value="Seach" />
+        </form>
         <table>
             <thead>
                 <tr>
                     <th>Category ID</th>
                     <th>Product ID</th>
+                    <th>Product Type</th>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Description</th>
@@ -51,6 +56,7 @@
             <tr> 
                 <td>${display.categoryID}</td>
                 <td>${display.productID}</td> 
+                <td>${display.productType}</td>
                 <td>${display.productName}</td> 
                 <td>${display.productPrice}</td>
                 <td>${display.description}</td>

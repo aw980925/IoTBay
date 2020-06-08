@@ -52,7 +52,8 @@ productName     VARCHAR(20),
 productPrice    DOUBLE,
 description     VARCHAR(300),
 status          VARCHAR(10),
-quantity        INTEGER
+quantity        INTEGER,
+productType     VARCHAR(20)
 );
 
 ALTER TABLE PRODUCT ADD FOREIGN KEY (categoryID) REFERENCES CATEGORY (categoryID);

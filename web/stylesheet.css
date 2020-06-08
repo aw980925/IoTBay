@@ -133,6 +133,70 @@ h3 {
 }
 
 
+.btn{
+  background:#2ecc71;
+  width:125px;
+  padding-top:5px;
+  padding-bottom:5px;
+  color:white;
+  border-radius:4px;
+  border: #27ae60 1px solid;
+  align-content: center;
+  text-align: center;
+  
+  margin-top:20px;
+  margin-bottom:1px;
+  float:left;
+  margin-left:18px;
+  font-weight:800;
+  font-size:0.8em;
+}
+
+.btn:hover{
+  background:#2CC06B; 
+}
+
+.indexbtn{
+  background:#3498db;
+  width:125px;
+  padding-top:5px;
+  padding-bottom:5px;
+  color:white;
+  border-radius:8px;
+  border: black 1px solid;
+  align-content: center;
+  text-align: center;
+  
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-left:46%;
+  font-weight:800;
+  font-size:0.8em;
+}
+
+.indexbtn:hover{
+  background:#3498db; 
+}
 
 
+
+#btn2{
+  float:left;
+  background:#3498db;
+  width:125px;  padding-top:5px;
+  padding-bottom:5px;
+  color:white;
+  border-radius:4px;
+  border: #2980b9 1px solid;
+  
+  margin-top:20px;
+  margin-bottom:1px;
+  margin-left:43%;
+  font-weight:800;
+  font-size:0.8em;
+}
+
+#btn2:hover{ 
+background:#3594D2; 
+}
 

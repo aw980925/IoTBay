@@ -24,10 +24,11 @@ public class Product implements Serializable{
     private String description;
     private String status;
     private int quantity;
+    private String productType;
     
     //insert a constructor that initialize the fields
 
-    public Product(int productID, int categoryID, String productName, double productPrice, String description, String status, int quantity) {
+    public Product(int productID, int categoryID, String productName, double productPrice, String description, String status, int quantity, String productType) {
         this.productID = productID;
         this.categoryID = categoryID;
         this.productName = productName;
@@ -35,6 +36,7 @@ public class Product implements Serializable{
         this.description = description;
         this.status = status;
         this.quantity = quantity;
+        this.productType = productType;
     }
     
     //insert getters/setters
@@ -95,5 +97,12 @@ public class Product implements Serializable{
         this.quantity = quantity;
     }
     
+    public String getProductType() {
+        return productType;
+    }
+
+    public void setProductType(String productName) {
+        this.productType = productType;
+    }
     
 }

@@ -18,23 +18,17 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-public class DBManager {
+public class UsersDB {
 
     private Statement st;
     private Connection conn;
 
-    public DBManager(Connection conn) throws SQLException {
+    public UsersDB(Connection conn) throws SQLException {
         st = conn.createStatement();
         this.conn = conn;
 
     }
 
-    /*public DBManager() throws ClassNotFoundException, SQLException {
-          Class.forName("org.apache.derby.jdbc.ClientDriver");
-     conn = DriverManager.getConnection("jdbc:derby://localhost:1527/IoTDB","IoTBay","admin");
-     st = conn.createStatement();
-    }
-     */
     //Read - find a user by email and password
     public User findUser(String email, String password) throws SQLException {
         User user = null;

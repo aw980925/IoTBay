@@ -37,6 +37,7 @@ public class ViewProductServlet extends HttpServlet {
         String description = request.getParameter("description");
         String status = request.getParameter("status");
         String quantity = request.getParameter("quantity");  
+        String productType = request.getParameter("productType");
                     
         try {
             HttpSession session = request.getSession();
