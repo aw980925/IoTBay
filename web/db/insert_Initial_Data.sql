@@ -75,7 +75,14 @@ INSERT INTO PRODUCT
      (5,'Amazon echo',39.99,'from Amazon Inc','In stock', 20,'Smart speaker')
 ;
 
-INSERT INTO PAYMENT(orderID, userId, amount, paymentTIme) values(1, 1, 10000, CURRENT_TIMESTAMP);
+INSERT INTO PAYMENT(orderID, userId, amount, paymentTIme) 
+values
+(1, 1, 10000, CURRENT_TIMESTAMP),
+2, 2, 2000, CURRENT_TIMESTAMP),
+3, 3, 32430, CURRENT_TIMESTAMP),
+4, 4, 43488, CURRENT_TIMESTAMP),
+5, 5, 12312, CURRENT_TIMESTAMP)
+;
 
 
 INSERT INTO ORDERLINE 
