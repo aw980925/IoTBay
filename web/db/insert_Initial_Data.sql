@@ -34,25 +34,12 @@ INSERT INTO PRODUCT
      (2,'Bright smart bulb',39.99,'Wifi connect light bulb','In stock', 20,'Light bulb')
 ;
 
-/* INSERT INTO SHIPMENT 
-    (shipmentID, shipmentCourier, trackingCode, shipmentAddress)
+
+INSERT INTO ORDERLINE
+(productID, customerID, orderQty, orderPrice)
 
     VALUES
-    ('12345671','Toll express','1000000111',,'Toll1'),
-    ('12345672','Startrack','111111111',,'Startrack')
-; */
-
-/*
-payment id, userid, cardnumber, expiresdate, CVV, paymentType
-Values(1, '1010-200302', '22-04-23',323,'Card')
-*/
-
-
-INSERT INTO BASKET 
-(basketID, customerID, productID, totalProductQty, totalAmount, selectedProdcuts)
-
-    VALUES
-    ('01','10000001','10000001','1'),
-    ('01','10000001','10000002','2'),
-    ('01','10000001','10000003','1')
+    (1,16,20,11),
+    (2,16,10,22),
+    (3,16,30,33)
 ;

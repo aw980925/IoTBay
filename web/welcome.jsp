@@ -76,7 +76,7 @@ w
                          </tr>
                          <tr>
                              <td><a class="button" href="cardRegistration.jsp?userId=${user.id}">Update & Edit Payment Information</a></td>
-                             <td><a class="button" href="basket.jsp?id=${user.id}">Go to Basket</a></td>
+                             <td><a class="button" href="/ViewBasketServlet?id=${user.id}">Go to Basket</a></td>
                          </tr>
                          <tr>
                              <td><a class="button" href="orderHistory.jsp?id=${user.getId()}">See my order history</a></td>
