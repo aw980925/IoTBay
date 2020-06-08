@@ -60,6 +60,10 @@
         <servlet-name>addUserServlet</servlet-name>
         <servlet-class>uts.isd.controller.addUserServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>searchproduct</servlet-name>
+        <servlet-class>uts.isd.controller.searchproduct</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -115,6 +119,10 @@
     <servlet-mapping>
         <servlet-name>addUserServlet</servlet-name>
         <url-pattern>/addUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>searchproduct</servlet-name>
+        <url-pattern>/searchproduct</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

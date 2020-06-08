@@ -1,9 +1,8 @@
 <%-- 
-    Document   : userList
-    Created on : 08/06/2020, 2:33:14 AM
-    Author     : User
+    Document   : productList
+    Created on : 05/06/2020, 3:06:19 PM
+    Author     : Hyungju
 --%>
-
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="uts.isd.model.User"%>
@@ -21,41 +20,42 @@
         <title>User List</title>
     </head>
     <body>
-        <sql:setDataSource
-        var="IoTDB"
-        driver="org.apache.derby.jdbc.ClientDriver"
-        url="jdbc:derby://localhost:1527/IoTDB"
-        user="IoTBay" password="admin"/>
-        
-        <sql:query var="listUsers"   dataSource="${myDS}">
-            SELECT * FROM USERS;
-        </sql:query>
 
-        <div align="center">
-        <table border="1" cellpadding="5">
-            <caption><h2>List of users</h2></caption>
-            <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Password</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Address</th>
-            </tr>
-            <c:forEach var="user" items="${listUsers.rows}">
+        <%
+            User user = (User) session.getAttribute("display");
+        %>
+        <table>
+            <div class="header">
+                <h1>List of Users</h1>
+            </div>
+            <thead>
                 <tr>
-                    <td><c:out value="${user.id}" /></td>
-                    <td><c:out value="${user.fName}" /></td> 
-                    <td><c:out value="${user.lName}" /></td> 
-                    <td><c:out value="${user.password}" /></td>
-                    <td><c:out value="${user.email}" /></td>
-                    <td><c:out value="${user.mobileNum}" /></td>
-                    <td><c:out value="${user.address}" /></td>
+                    <th>User ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>Mobile Number</th>
+                    <th>Address</th>
+                    <th>User Type</th>
                 </tr>
-            </c:forEach>
-        </table>
-    </div> 
+            </thead>
+            <tbody> 
 
+                <c:forEach items="${display}" var="display">
+                    <tr> 
+                        <td>${display.id}</td>
+                        <td>${display.fName}</td> 
+                        <td>${display.lName}</td>
+                        <td>${display.password}</td> 
+                        <td>${display.email}</td>
+                        <td>${display.mobileNum}</td>
+                        <td>${display.address}</td>
+                        <td>${display.usertype}</td>
+                    </tr> 
+                </c:forEach>
+
+            </tbody>
+        </table>
     </body>
 </html>
