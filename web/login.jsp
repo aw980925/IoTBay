@@ -23,7 +23,7 @@
         String passErr = (String) session.getAttribute("passErr");
         %>
         <div class="header">
-           <h1>IoT Bay</h1>
+            <h1><a href="index.jsp">IoT Bay</a></h1>
         </div>
         <div class="top">
             <a href="index.jsp">Index</a>
@@ -46,9 +46,10 @@
 		<td><input type="password" placeholder="<%=(passErr != null ? passErr:"Enter password") %>" name="password"></td>
             </tr>
             <tr>
-                <td><a href="index.jsp">Cancel</a></td>
+                <td colspan="2"><input id='btn2' type="submit" value="Sign In" >
+                <a class='btn' style="text-decoration:none" href="index.jsp">Cancel</a></td>
                    
-                <td><input type="submit" value="Sign In" ></td>
+                
             </tr>
 
           

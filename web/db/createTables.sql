@@ -52,7 +52,8 @@ productName     VARCHAR(20),
 productPrice    DOUBLE,
 description     VARCHAR(300),
 status          VARCHAR(10),
-quantity        INTEGER
+quantity        INTEGER,
+productType     VARCHAR(20)
 );
 
 ALTER TABLE PRODUCT ADD FOREIGN KEY (categoryID) REFERENCES CATEGORY (categoryID);
@@ -65,6 +66,14 @@ customerID         INTEGER REFERENCES USERS (id),
 orderQty           INTEGER,
 price           DOUBLE,
 PRIMARY KEY (productID, customerID)
+);
+
+CREATE TABLE CARD
+(
+userId Integer,
+cardNumber       VARCHAR(20),
+expiresOn       VARCHAR(10),
+cvvNumber       VARCHAR(10)
 );
 
 

@@ -30,7 +30,7 @@ package uts.isd.controller;
        private ProductDBManager productManager;
        private OrderLineDBManager orderLineManager;
        private DBLogsManager logsManager;
-
+       
        @Override //Create and instance of DBConnector for the deployment session
        public void init() {
            try {
@@ -50,7 +50,7 @@ package uts.isd.controller;
                manager = new DBManager(conn); //Create a DB Manager
                logsManager = new DBLogsManager(conn); //Create logsManager
                productManager = new ProductDBManager(conn); // Create a Product DB manager
-               
+
                orderLineManager = new OrderLineDBManager(conn);
                
                
@@ -62,7 +62,7 @@ package uts.isd.controller;
            session.setAttribute("logsManager",logsManager);
            session.setAttribute("productManager", productManager);
            session.setAttribute("orderLineManager", orderLineManager);
-           
+         
        }   
         
        @Override //Destroy the servlet and release the resources of the application (terminate also the db connection)

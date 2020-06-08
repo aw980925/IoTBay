@@ -25,20 +25,24 @@ author: 13093950 Heeyoon Koo
     </head>
 <body onload="startTime()">
     <div><span class="time" id="time"></span></div>
-
+    
 <div class="header">
-    <h1>IoT Bay</h1>
+    <h1><a style="text-decoration:none" href="index.jsp">IoT Bay</a></h1>
 </div>
 
 <div class="top">
-  <a href="login.jsp">Login</a>
-  <a href="register.jsp">Register</a>
-  <a href="adduser.jsp">Add User</a>
+  <a class="indexbtn" href="login.jsp">Login</a>
+  <a class="indexbtn" href="register.jsp">Register</a>
+  
+  <!--
+  <a class="indexbtn" href="addUser.jsp">Add User</a>
+  <a class="indexbtn" href="userList.jsp">User List</a>
+  -->
   
 </div>
 
     <div class="center">
-        <p> <b>welcome to IoT Bay index page</b> </p>
+        <p> <b>Welcome to IoT Bay index page</b> </p>
     </div>
     <jsp:include page="/ConnServlet" flush="true" />
 </body>

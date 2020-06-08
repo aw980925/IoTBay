@@ -5,10 +5,7 @@
  */
 package uts.isd.dao;
 
-/**
- *
- * @author yoonkoo
- */
+
 import uts.isd.model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,23 +15,17 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-public class DBManager {
+public class UsersDB {
 
     private Statement st;
     private Connection conn;
 
-    public DBManager(Connection conn) throws SQLException {
+    public UsersDB(Connection conn) throws SQLException {
         st = conn.createStatement();
         this.conn = conn;
 
     }
 
-    /*public DBManager() throws ClassNotFoundException, SQLException {
-          Class.forName("org.apache.derby.jdbc.ClientDriver");
-     conn = DriverManager.getConnection("jdbc:derby://localhost:1527/IoTDB","IoTBay","admin");
-     st = conn.createStatement();
-    }
-     */
     //Read - find a user by email and password
     public User findUser(String email, String password) throws SQLException {
         User user = null;
@@ -115,9 +106,9 @@ public class DBManager {
     }
 
     public ArrayList<User> fetchAll() throws SQLException {
-        String fetch = "SELECT * FROM USERS";
+        String fetch = "select * from User";
         ResultSet rs = st.executeQuery(fetch);
-        ArrayList<User> user= new ArrayList();
+        ArrayList<User> temp = new ArrayList();
 
         while (rs.next()) {
             int id = rs.getInt(1);
@@ -129,9 +120,9 @@ public class DBManager {
             String address = rs.getString(7);
             String usertype = rs.getString(8);
             Boolean active = rs.getBoolean(9);
-            user.add(new User(id, fName, lName, password, email, mobileNum, address, usertype, active));
+            temp.add(new User(id, fName, lName, password, email, mobileNum, address, usertype, active));
         }
-        return user;
+        return temp;
     }
 
     public User findId(int userId) throws SQLException {

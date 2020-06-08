@@ -23,18 +23,17 @@
            <h1>IoT Bay</h1>
         </div>
         <div class="top">
-            <a href="LogoutServlet?userId=<%=id%>">logout</a>
-            <a href="welcome.jsp">See my Information</a>
-            <a href="basket.jsp">Check basket</a>
+            <a href="/LogoutServlet?id=${user.id}">logout</a>
+            <a href="welcome.jsp?id=${user.id}">See my Information</a>
+            <a href="basket.jsp?id=${user.id}">Check basket</a>
         </div>
   
       <p> welcome to main page </p>
         <form action="MainServlet?id=<%=id%>" method="post">
             <p>Your user id <%=id%></p>
         </form>
-        <jsp:include page="/ViewProductServlet" flush="true" />
-        
-        <a class="button" href="/AddToBasketServlet">Add to basket</a>
+        <jsp:include page="/ViewProductServlet?id=${user.id}" flush="true" />
+       
         
     </body>
 </html>
