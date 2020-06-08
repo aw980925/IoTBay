@@ -19,10 +19,12 @@
         <script type="text/javascript" src="js/script.js"></script>
         <title>Product List</title>
     </head>
-    <body>
+    <body onload="startTime(); resetSearch();">
         
         <%
            Product product = (Product)session.getAttribute("display");
+           Product searchedDisplay = (Product) session.getAttribute("searchedDisplay");
+           
            String exceptionQuantityErr = (String) session.getAttribute("exceptionQuantityErr");
            String addConfirmation = (String) session.getAttribute("addConfirmation");
            String exceptionOrderLineErr = (String) session.getAttribute("exceptionOrderLineErr");
@@ -30,10 +32,10 @@
            
            int id = Integer.parseInt(request.getParameter("id"));
         %>
-        <form action="SearchProdctServlet" method="get">
-            <input type="text" name="name" id="productName" />
-            <input type="text" name="type" id="productType" />
-            <input type="submit" value="Seach" />
+        <form action="/SearchProdctServlet" method="get">
+            <input type="text" name="name" id="productName" placeholder="search for product name"/>
+            <input type="text" name="type" id="productType" placeholder="search for product type"/>
+            <input type="submit" value="Search" />
         </form>
         <table>
             <thead>
@@ -69,6 +71,21 @@
             </tr> 
             </c:forEach>
            
+            <tr> 
+                <td>${product.categoryID}</td>
+                <td>${product.productID}</td> 
+                <td>${product.productType}</td>
+                <td>${product.productName}</td> 
+                <td>${product.productPrice}</td>
+                <td>${product.description}</td>
+                <td>${product.status}</td>
+                <td>${product.quantity}</td>
+                <td><input type="number" placeholder="<%=(exceptionQuantityErr != null ? exceptionQuantityErr:"Enter Quantity") %>" name="orderQty"></td>
+                
+                <td><a class=" button" href ="/AddOrderLineServlet?customerID=${user.id} & productID =${display.productID} & productPrice =${display.productPrice} & orderQty =${"orderQty"} & quantity=${display.quantity} "> Add </a>
+
+            </tr> 
+            
             </tbody>
         </table>
         </form>
