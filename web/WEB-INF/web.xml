@@ -89,8 +89,8 @@
         <servlet-class>uts.isd.controller.UpdateUserServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeleteUser</servlet-name>
-        <servlet-class>uts.isd.controller.DeleteUser</servlet-class>
+        <servlet-name>DeleteAccServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeleteAccServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
@@ -173,8 +173,8 @@
         <url-pattern>/UpdateUserServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DeleteUser</servlet-name>
-        <url-pattern>/DeleteUser</url-pattern>
+        <servlet-name>DeleteAccServlet</servlet-name>
+        <url-pattern>/DeleteAccServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

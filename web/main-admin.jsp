@@ -26,7 +26,7 @@
         <div>
             <a href="main-admin.jsp">Main</a>
             <a href="addProduct.jsp">Add Products</a>
-            <a href="/LogoutServlet">Logout</a>
+            <a href="LogoutServlet?userId=${user.id}">Logout</a>
             
         </div>
         <jsp:include page="/ConnServlet" flush="true" />

@@ -25,8 +25,9 @@
        
         %>
         <div class="top">
-            <a class="button" href=MainServlet?id=<%=id%>> Main</a>
-            <a href="logout.jsp">Logout</a>
+            <a class="button" href="MainServlet?id=<%=id%>"> Main</a>
+            
+            <a href="LogoutServlet?userId=<%=id%>">Logout</a>
             
         </div>
         
