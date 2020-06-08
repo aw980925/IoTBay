@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uts.isd.controller;
 import uts.isd.dao.DBManager;
-import uts.isd.model.User;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
@@ -14,11 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-/**
- *
- * @author yoonkoo
- */
 public class deleteUserServlet extends HttpServlet {
 
    private static final long serialVersionUID = 1L;
