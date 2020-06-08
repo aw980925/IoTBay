@@ -1,9 +1,3 @@
-<%-- 
-    Document   : productList
-    Created on : 05/06/2020, 3:06:19 PM
-    Author     : Hyungju
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="uts.isd.model.User"%>
 <%@page import="java.util.ArrayList"%>
@@ -24,6 +18,11 @@
         <%
             User user = (User) session.getAttribute("display");
         %>
+          <form action="SearchUserServlet" method="get">
+            <input type="text" name="name" id="fName" />
+            <input type="text" name="number" id="mobileNum" />
+            <input type="submit" value="Seach" />
+        </form>
         <table>
             <div class="header">
                 <h1>List of Users</h1>

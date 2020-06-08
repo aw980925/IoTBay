@@ -25,11 +25,10 @@
             <h1>IoT Bay</h1>
         </div>
 
-        <div class="center">
-            <h2>Registration Success</h2>
-            <h3>User has been added to database</h3>
-            <table>
+        <div class="top">
 
+            <table>
+                <h2>User has been added to the database</h2> 
                 <tr>
                     <td>First Name: </td>
                     <td><%=fName%></td>
@@ -52,8 +51,8 @@
                     <td><%=address%></td>
                 </tr>
                 <tr>
-                    <td colspan="2">Go to login page: 
-                        <a style="text-decoration:none" href="login.jsp">Click here</a></td>
+                    <td colspan="2">Return to database: 
+                        <a style="text-decoration:none" href="userList.jsp">Click here</a></td>
                 </tr>
 
             </table>
