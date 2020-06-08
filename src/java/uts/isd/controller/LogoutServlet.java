@@ -32,7 +32,7 @@ public class LogoutServlet extends HttpServlet {
             manager.addUserLog(userId,"Logout");
             // set user's active status as false
             user.setActive(false);
-           session = request.getSession(false);
+           
             if (session != null) {
              //remove session attribute
             session.removeAttribute("user");
