@@ -27,7 +27,7 @@ author: 13093950 Heeyoon Koo
     <div><span class="time" id="time"></span></div>
 
 <div class="header">
-    <h1>IoT Bay</h1>
+    <h1><a href="index.jsp">IoT Bay</a></h1>
 </div>
 
 <div class="top">
