@@ -20,7 +20,7 @@ public ProductDBManager(Connection conn) throws SQLException {
 //Find user by email and password in the database   
 public Product findProduct(String name, String type) throws SQLException {   
 
-    String fetch = "select * from PRODUCT where productName = '" + name + "'AND TYPE='"+ type + "'";
+    String fetch = "select * from PRODUCT where productName = '" + name + "'AND productType='"+ type + "'";
     ResultSet rs = st.executeQuery(fetch);
     
     while(rs.next()) {
@@ -29,7 +29,7 @@ public Product findProduct(String name, String type) throws SQLException {
         String searchProductType = rs.getString(8);
         
 //        String sn = rs.getString(3);
-        if (searchProductName.equals(name)&&searchProductType.equals(type)){
+        if (searchProductName.equals(name) || searchProductType.equals(type)){
             int productID = rs.getInt(1);
             int categoryID = rs.getInt(2);
             double productPrice = rs.getInt(4);
@@ -86,7 +86,7 @@ public void deleteProduct(int id) throws SQLException{
 public ArrayList<Product> fetchProduct() throws SQLException {
     String fetch = "select * from Product";
     ResultSet rs = st.executeQuery(fetch);
-    ArrayList<Product> product = new ArrayList();
+    ArrayList<Product> temp = new ArrayList<Product>();
     
     while (rs.next()){
             int productID = rs.getInt(1);
@@ -97,8 +97,8 @@ public ArrayList<Product> fetchProduct() throws SQLException {
             String status = rs.getString(6);
             int quantity = rs.getInt(7);
             String productType = rs.getString(8);
-            product.add(new Product(productID ,categoryID, productName, productPrice, description, status, quantity, productType));
-    } return product;
+            temp.add(new Product(productID ,categoryID, productName, productPrice, description, status, quantity, productType));
+    } return temp;
 }
 
 
