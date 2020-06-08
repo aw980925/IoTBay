@@ -88,6 +88,8 @@ w
                              <td><a style="text-decoration:none" class="btn5" href="userList.jsp?id=${user.id}">See user list</a></td>
                          </tr>
                          
+                         
+                         
                          <tr>
                               <td><a style="text-decoration:none" class="btn5" href="PaymentServlet?userId=${user.id}">Payment</a></td>
                              <td><a style="text-decoration:none" class="btn5" href="PaymentHistoryServlet?userId=${user.id}">Payment History</a></td>
