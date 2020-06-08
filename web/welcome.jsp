@@ -83,10 +83,6 @@ w
                              <td><a style="text-decoration:none" class="btn5" href="orderHistory.jsp?id=${user.id}">See my order history</a></td>
                              <td><a style="text-decoration:none" class="btn5" href="DeleteAccServlet?id=${user.id}">Delete my account</a></td>
                          </tr>
-                         <tr>
-                             <td><a style="text-decoration:none" class="btn5" href="addUser.jsp?userId=${user.id}">Add new User</a></td>
-                             <td><a style="text-decoration:none" class="btn5" href="userList.jsp?id=${user.id}">See user list</a></td>
-                         </tr>
                        </table>
     </body>
 </html>

@@ -28,7 +28,7 @@
             <h1>Register User to Database</h1>
         </div>	
         <div class="top">
-            <a href="welcome.jsp">Welcome</a>
+            <a href="main-admin.jsp">Welcome</a>
         </div>
         <form method="post" action="addUserServlet">
         

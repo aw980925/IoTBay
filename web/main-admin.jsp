@@ -39,6 +39,12 @@
               <a class="nav-link" href="addProduct.jsp">Add Products</a>
             </li>
             <li class="nav-item">
+                <a style="text-decoration:none" class="nav-link" href="addUser.jsp?userId=${user.id}">Add new User</a>
+            </li>
+            <li class="nav-item">
+                <a style="text-decoration:none" class="nav-link" href="userList.jsp?id=${user.id}">User list</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="LogoutServlet?userId=${user.id}">Logout</a>
             </li>
         </ul>
