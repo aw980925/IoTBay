@@ -23,15 +23,20 @@ public class LogoutServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         DBManager manager = (DBManager) session.getAttribute("manager");
+        //fields
         int userId =Integer.parseInt(request.getParameter("userId"));
         User user = (User) session.getAttribute("user");
         
         try {
+            // save logout time into the USERS table
             manager.addUserLog(userId,"Logout");
+            // set user's active status as false
             user.setActive(false);
            session = request.getSession(false);
             if (session != null) {
+             //remove session attribute
             session.removeAttribute("user");
+            //if it successes go to logout.jsp
             request.getRequestDispatcher("logout.jsp").forward(request, response);
             }
         } catch (SQLException ex) {

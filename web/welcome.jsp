@@ -18,6 +18,7 @@ w
     <body>
         <%
              String updated = (String)session.getAttribute("updated");
+             String deleteErr = (String)session.getAttribute("deleteErr");
         %>
         <div class="header">
             <h1>IoT Bay</h1>
@@ -28,8 +29,8 @@ w
             <a href="main.jsp?id=${user.id}">Main</a>
         </div>
             <h2> User Information</h2>
-            <p><span><%=(updated != null? updated:"")%></span></p>
-            
+            <p sytle= "color:red;"><span><%=(updated != null? updated:"")%></span></p>
+            <p sytle= "color:red;"><span><%=(deleteErr != null? deleteErr:"")%></span></p>
             <div class="center">
             <h2> Welcome, ${user.fName} </h2>  
             <p> Your information is ... </p>
@@ -80,7 +81,7 @@ w
                          </tr>
                          <tr>
                              <td><a style="text-decoration:none" class="btn5" href="orderHistory.jsp?id=${user.id}">See my order history</a></td>
-                             <td></td>
+                             <td><a style="text-decoration:none" class="btn5" href="DeleteAccServlet?id=${user.id}">Delete my account</a></td>
                          </tr>
                          <tr>
                              <td><a style="text-decoration:none" class="btn5" href="addUser.jsp?userId=${user.id}">Add new User</a></td>

@@ -52,9 +52,7 @@ INSERT INTO USERS(fName,lName,password,email,mobileNum,address,usertype,active)
 ,('Josh','Carrot','BA99342bob','josh.carrot@uts.edu.au','01234567','uts2','Staff',false)
 ,('Kate','Haskins','BA99342bob','kate.haskins@uts.edu.au','01234567','uts2','Staff',false);
 
-INSERT INTO CATEGORY
-             (categoryName, description)
-     VALUES
+INSERT INTO CATEGORY (categoryName, description) VALUES
      ('Camera','Iot camera'),
      ('Light bulb', 'Iot smart light'),
      ('Security','alarm'),
@@ -63,10 +61,7 @@ INSERT INTO CATEGORY
 
 
 INSERT INTO PRODUCT
-    (categoryID, productName, productPrice, description, status, quantity, productType)
-     
-     VALUES
-     (1,'Wifi Camera',19.99,'Smart wireless camera with application control','In stock', 200, 'Camera'),
+    (categoryID, productName, productPrice, description, status, quantity, productType) VALUES
      (1,'Smart web cam',59.99,'Iot web camera for pc','In stock', 10, 'Camera'),
      (2,'Lux smart bulb',29.99,'Wifi connect light bulb','In stock', 30, 'Light bulb'),
      (2,'Bright smart bulb',39.99,'Wifi connect light bulb','In stock', 20,'Light bulb'),
@@ -81,7 +76,8 @@ INSERT INTO PRODUCT
 ;
 
 
-INSERT INTO ORDERLINE
+
+INSERT INTO ORDERLINE 
 (productID, customerID, orderQty, price)
 
     VALUES
@@ -93,8 +89,22 @@ INSERT INTO ORDERLINE
     (6,1,30,66),
     (7,1,30,77),
     (8,1,30,88),
-    (1,3,30,99),
-    (1,2,30,999)
+    (9,1,30,99),
+    (10,1,30,999);
+    
+INSERT INTO ORDERS 
+(customerID, orderTotal, orderDate, orderStatus)
+VALUES
+    (1,1000,'2019-10-25 16:10:32','Delivered'),
+    (1,2000,'2020-1-25 16:10:32','Paid'),
+    (1,3333,'2011-10-25 16:10:32','Delivered'),
+    (1,500,'2014-10-25 16:10:32','Paid'),
+    (1,800,'2016-10-25 16:10:32','Delivered'),
+    (1,200,'2015-10-25 16:10:32','Paid'),
+    (1,10,'2014-10-25 16:10:32','Delivered'),
+    (1,199,'2012-10-25 16:10:32','cancelled'),
+    (1,100,'2019-10-22 17:10:32','Delivered'),
+    (1,299,'2012-10-11 16:10:32','cancelled')
 ;
 
 
@@ -148,21 +158,3 @@ INSERT INTO LOGS(userId,timestamp,description)
 (22,'2019-10-25 16:10:32','Login'),
 (23,'2019-03-05 10:33:03','Login'),
 (24,'2019-03-05 15:33:03','Logout');
-
-
-INSERT INTO ORDERS
-(customerID, orderTotal, orderDate, orderStatus)
-
-    VALUES
-    (1,1000,'2019-10-25 16:10:32','Delivered'),
-    (1,2000,'2020-1-25 16:10:32','Paid'),
-    (1,3333,'2011-10-25 16:10:32','Delivered'),
-    (1,500,'2014-10-25 16:10:32','Paid'),
-    (1,800,'2016-10-25 16:10:32','Delivered'),
-    (1,200,'2015-10-25 16:10:32','Paid'),
-    (1,10,'2014-10-25 16:10:32','Delivered'),
-    (1,199,'2012-10-25 16:10:32','cancelled'),
-    (1,100,'2019-10-22 17:10:32','Delivered'),
-    (1,299,'2012-10-11 16:10:32','cancelled')
-;
-

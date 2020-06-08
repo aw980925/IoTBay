@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-
+// find User by id or email, update User's info, register User and delete User account
 public class DBManager {
 
     private Statement st;
@@ -29,12 +29,6 @@ public class DBManager {
 
     }
 
-    /*public DBManager() throws ClassNotFoundException, SQLException {
-          Class.forName("org.apache.derby.jdbc.ClientDriver");
-     conn = DriverManager.getConnection("jdbc:derby://localhost:1527/IoTDB","IoTBay","admin");
-     st = conn.createStatement();
-    }
-     */
     //Read - find a user by email and password
     public User findUser(String email, String password) throws SQLException {
         User user = null;
@@ -69,13 +63,12 @@ public class DBManager {
         }
         return user;
     }
-
+//find user by email
     public User findEmail(String email) throws SQLException {
         User user = null;
         String query = "SELECT * FROM USERS WHERE EMAIL= '" + email + "'";
         ResultSet rs = st.executeQuery(query);
         if (rs != null) {
-            //HttpSession sesion = request.getSession(true);
             while (rs.next()) {
                 String userEmail = rs.getString("email");
                 String password = rs.getString("password");
@@ -94,7 +87,7 @@ public class DBManager {
         }
         return user;
     }
-
+// Add user (registration)
     public void addUser(String fName, String lName, String password, String email, String mobileNum, String address) throws SQLException {
 
         String usertype = "Customer";
@@ -111,7 +104,6 @@ public class DBManager {
         ps.setBoolean(8, active);
 
         ps.executeUpdate();
-        //ResultSet rs = st.executeQuery(query);
     }
 
     public ArrayList<User> fetchAll() throws SQLException {
@@ -133,7 +125,7 @@ public class DBManager {
         }
         return user;
     }
-
+//find user by user id
     public User findId(int userId) throws SQLException {
         User user = null;
         String query = "SELECT * FROM USERS WHERE id= " + userId;
@@ -158,7 +150,7 @@ public class DBManager {
         }
         return user;
     }
-
+//update User's info
     public void updateUser(int id, String fName, String lName, String password, String email, String mobileNum, String address) throws SQLException {
         User user = null;
         boolean active = false;
@@ -177,22 +169,19 @@ public class DBManager {
         ps.executeUpdate();
 
     }
-
+//delete User by id
     public void deleteUserById(int id) throws SQLException {
         String query = "DELETE FROM USERS WHERE id=?";
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setInt(1, id);
-        ps.executeQuery();
+        ps.executeUpdate();
+     
     }
-
+//delete User by email
     public void deleteUserByEmail(String email) throws SQLException {
-
-        String query = "DELETE FROM USERS WHERE email=?";
-        PreparedStatement ps = conn.prepareStatement(query);
-        ps.setString(1, email);
-        ps.executeQuery();
+    st.executeUpdate("DELETE FROM IOTBAY.USERS WHERE email='"+ email +"'");
     }
-
+// add user activity log
     public void addUserLog(int userId, String description) throws SQLException {
 
         String query = "INSERT INTO LOGS (userid, timestamp, description) VALUES (?,?,?)";

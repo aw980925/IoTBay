@@ -33,6 +33,7 @@
         <div class="top">
             <a href="index.jsp">Index</a>
             <a href="login.jsp">Login</a>
+            <a href="LogoutServlet?userId=<%=userId%>">Logout</a>
         </div>
         <h3>User Activity Logs</h3>
         <h4> <%=(LogsResult != null? LogsResult : "")%> </h4>
