@@ -64,6 +64,14 @@
         <servlet-name>searchproduct</servlet-name>
         <servlet-class>uts.isd.controller.searchproduct</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewUsersServlet</servlet-name>
+        <servlet-class>uts.isd.controller.ViewUsersServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchUserServlet</servlet-name>
+        <servlet-class>uts.isd.controller.SearchUserServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -123,6 +131,14 @@
     <servlet-mapping>
         <servlet-name>searchproduct</servlet-name>
         <url-pattern>/searchproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewUsersServlet</servlet-name>
+        <url-pattern>/ViewUsersServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchUserServlet</servlet-name>
+        <url-pattern>/SearchUserServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
