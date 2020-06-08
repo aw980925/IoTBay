@@ -76,7 +76,7 @@ w
                            
                          </tr>
                          <tr>
-                             <td><a style="text-decoration:none" class="btn5" href="cardRegistration.jsp?userId=${user.id}">Update & Edit Payment Information</a></td>
+                             <td><a style="text-decoration:none" class="btn5" href="cardRegistration.jsp?userId=${user.id}">Register & Update Credit Card</a></td>
                              <td><a style="text-decoration:none" class="btn5" href="basket.jsp?id=${user.id}">Go to Basket</a></td>
                          </tr>
                          <tr>
@@ -89,8 +89,8 @@ w
                          </tr>
                          
                          <tr>
-                              <td><a class="button" href="PaymentServlet?userId=${user.id}">payment</a></td>
-                             <td><a class="button" href="PaymentHistoryServlet?userId=${user.id}">paymentHistory</a></td>
+                              <td><a style="text-decoration:none" class="btn5" href="PaymentServlet?userId=${user.id}">Payment</a></td>
+                             <td><a style="text-decoration:none" class="btn5" href="PaymentHistoryServlet?userId=${user.id}">Payment History</a></td>
                          </tr>
                        </table>
     </body>
