@@ -87,6 +87,11 @@ w
                              <td><a style="text-decoration:none" class="btn5" href="addUser.jsp?userId=${user.id}">Add new User</a></td>
                              <td><a style="text-decoration:none" class="btn5" href="userList.jsp?id=${user.id}">See user list</a></td>
                          </tr>
+                         
+                         <tr>
+                              <td><a class="button" href="PaymentServlet?userId=${user.id}">payment</a></td>
+                             <td><a class="button" href="PaymentHistoryServlet?userId=${user.id}">paymentHistory</a></td>
+                         </tr>
                        </table>
     </body>
 </html>
